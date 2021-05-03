@@ -2,11 +2,11 @@ package com.example.selfwich.model
 
 data class Product(
     var pId: Long = 0,
-    var productName: String = "",
-    var productDesc:String="",
-    var productLike:Long=0,
-    var productPrice: Long = 0,
-    var productImage: String = ""
+    var pName: String = "",
+    var pDesc:String="",
+    var pLike:Long=0,
+    var pPrice: Long = 0,
+    var pImage: String = ""
 ){
 
 }
