@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav_host"
-    app:startDestination="@id/drinksFragment">
+    app:startDestination="@id/eatsFragment">
 
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.example.selfwich.ui.DrinksFragment"
         android:label="DrinksFragment"
         tools:layout="@layout/drinks_fragment"/>
+    <fragment
+        android:id="@+id/eatsFragment"
+        android:name="com.example.selfwich.ui.EatsFragment"
+        android:label="eats_fragment"
+        tools:layout="@layout/eats_fragment" />
 </navigation>
