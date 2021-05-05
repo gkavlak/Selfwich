@@ -19,7 +19,7 @@ class DrinksRepository {
 
 
     private  var firestore: FirebaseFirestore
-    fun getCurrentLike(): DocumentReference? = firestore.collection("drinks").parent
+    //fun getCurrentLike(): DocumentReference? = firestore.collection("drinks").parent
 
     init {
         firestore = FirebaseFirestore.getInstance()

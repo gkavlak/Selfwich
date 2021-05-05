@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.selfwich.ProductAdapter
+import com.example.selfwich.ProductClickListener
 import com.example.selfwich.R
 import com.example.selfwich.databinding.EatsFragmentBinding
 import com.example.selfwich.repository.EatsRepository
 import com.example.selfwich.viewModel.EatsViewModel
+import java.util.Observer
 
 class EatsFragment : Fragment() {
 
@@ -33,10 +35,13 @@ class EatsFragment : Fragment() {
         eatsRepository= EatsRepository()
         viewModel = ViewModelProvider(this,EatsViewModel.Factory(activity.application,eatsRepository)).get(EatsViewModel::class.java)
 
+
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
-      //  binding.eatsRc.adapter=ProductAdapter()
-
+        binding.eatsRc.adapter = ProductAdapter(ProductClickListener(
+                {product ->viewModel.addLikePoint(product) }
+        )
+        )
 
     }
 

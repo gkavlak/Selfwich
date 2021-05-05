@@ -45,7 +45,6 @@ class DrinksFragment : Fragment() {
 
 
 
-
             })
 
         binding.viewmodel = viewModel
