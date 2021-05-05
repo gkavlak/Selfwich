@@ -30,11 +30,7 @@ class EatsRepository {
                      }
                  }
                  _eatsList.value=allProduct
-
-
              }
-
-
         }
 
     }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.ProductItemBinding
 import com.example.selfwich.model.Product
 
-class ProductAdapter ():
+class ProductAdapter (val clickListener: ProductClickListener):
         ListAdapter<Product,ProductAdapter.ProductViewHolder>(ProductsDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -17,8 +17,9 @@ class ProductAdapter ():
             class ProductViewHolder(private var itemBinding:ProductItemBinding):
                     RecyclerView.ViewHolder(itemBinding.root){
 
-                        fun bind(data:Product){
+                        fun bind(data:Product, clickListener: ProductClickListener){
                             itemBinding.productItem=data
+                            itemBinding.addLikeClickListener=clickListener
                             itemBinding.executePendingBindings()
                         }
                 companion object{
@@ -31,7 +32,7 @@ class ProductAdapter ():
                     }
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item,clickListener)
     }
 
 }
@@ -45,4 +46,12 @@ class ProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
     }
 
 }
+class ProductClickListener(
+        val addLikeClickListener: (product: Product) -> Unit
+
+) {
+    fun addLikePoint(product: Product) = addLikeClickListener(product)
+
+}
+
 

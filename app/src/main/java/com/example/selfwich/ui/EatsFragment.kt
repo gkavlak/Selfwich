@@ -35,7 +35,7 @@ class EatsFragment : Fragment() {
 
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
-        binding.eatsRc.adapter=ProductAdapter()
+      //  binding.eatsRc.adapter=ProductAdapter()
 
 
     }

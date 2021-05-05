@@ -10,6 +10,12 @@ import com.example.selfwich.repository.DrinksRepository
 class DrinksViewModel(app :Application,private val drinksRepository: DrinksRepository) : ViewModel(){
 
     val drinkList: LiveData<ArrayList<Product>> = drinksRepository.drinksList
+    val isLikeAdded:LiveData<Long> = drinksRepository.isLikeAdded
+
+    fun addLikePoint(product: Product){
+        drinksRepository.addLikeToDrink(product)
+    }
+
 
 
     open class Factory(val app: Application, private val drinksRepository: DrinksRepository) :
