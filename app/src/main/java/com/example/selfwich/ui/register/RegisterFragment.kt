@@ -58,14 +58,10 @@ class RegisterFragment : Fragment() {
         binding.lifecycleOwner = this
 
         viewModel.firebaseAuthResult.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-
-            if (it.success != null) {
-
+            if(it.success != null){
                 updateUiForLoggedInUser()
-
-            } else if (it.error != null)
+            }else if (it.error != null)
                 showLoginFailed(it.error)
-
         })
         viewModel.registerFormState.observe(viewLifecycleOwner, androidx.lifecycle.Observer { registerFormState ->
 
@@ -84,14 +80,8 @@ class RegisterFragment : Fragment() {
 
                 nameText.error = getString(registerFormState.usernameError)
             }
-
         })
-
-
-
     }
-
-
 
     private fun updateUiForLoggedInUser() {
         this.findNavController()

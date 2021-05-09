@@ -30,7 +30,11 @@ class AuthRepository(){
                 try {
                     if (registerResult.isSuccessful) {
                         db.addNewUserToFireStore(registerResult.result?.user!!.uid)
+                        val user = FirebaseAuth.getInstance().currentUser
+                            if(user != null){
+                                initUser(registerResult.result!!)
 
+                            }
 
                     } else {
                         Log.i("Auth", registerResult.exception?.message.toString())

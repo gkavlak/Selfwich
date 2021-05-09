@@ -62,11 +62,6 @@ class RegisterViewModel(val app:Application, private val authRepository: AuthRep
         return name.length > 2
     }
 
-
-
-
-
-
     open class Factory(val app: Application, private val authRepository: AuthRepository) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
