@@ -92,6 +92,7 @@ class RegisterFragment : Fragment() {
     }
 
 
+
     private fun updateUiForLoggedInUser() {
         this.findNavController()
             .navigate(RegisterFragmentDirections.actionRegisterFragmentToDrinksFragment())

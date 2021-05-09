@@ -21,31 +21,57 @@ class AuthRepository(){
 
     val db=FirebaseDataBase()
 
-    fun registerUser(email: String,  password:String, name:String){
-      _authStatus.value= AuthStatus.LOADING
+    fun registerUser(email: String,  password:String, name:String) {
+        _authStatus.value = AuthStatus.LOADING
 
         FirebaseAuth.getInstance()
-                .createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { registerResult ->
-                    try {
-                        if(registerResult.isSuccessful){
-                            db.addNewUserToFireStore(registerResult.result?.user!!.uid)
+            .createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { registerResult ->
+                try {
+                    if (registerResult.isSuccessful) {
+                        db.addNewUserToFireStore(registerResult.result?.user!!.uid)
 
 
-                }else{
-                            Log.i("Auth", registerResult.exception?.message.toString())
+                    } else {
+                        Log.i("Auth", registerResult.exception?.message.toString())
 
-                            _fireBaseAuthResult.postValue(LoginResult(error = registerResult.exception?.message))
-                            _authStatus.postValue(AuthStatus.ERROR)
+                        _fireBaseAuthResult.postValue(LoginResult(error = registerResult.exception?.message))
+                        _authStatus.postValue(AuthStatus.ERROR)
+                    }
+
+                } catch (e: Exception) {
+
+                    throw e
+                }
+            }
+    }
+
+        fun loginUser(email: String, password: String){
+            _authStatus.postValue(AuthStatus.LOADING)
+
+            FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { loginResult->
+                    if(loginResult.isSuccessful){
+                        initUser(loginResult.result!!)
+                    }
+                    else{
+                        if (loginResult.exception != null) {
+                            //Error Login
+                            Log.i("Auth", loginResult.exception?.message.toString())
+                            _authStatus.value = AuthStatus.ERROR
+                            _fireBaseAuthResult.postValue(LoginResult(error = loginResult.exception?.message))
+
                         }
 
-    }catch (e: Exception){
+                    }
 
-                throw e
-    }
                 }
-  //  private fun initUser(registerResult: AuthResult) {
-    //    _fireBaseAuthResult.postValue(LoginResult(success = registerResult.user))
-      //  _authStatus.postValue(AuthStatus.DONE)
+
+        }
+
+      private fun initUser(registerResult: AuthResult) {
+       _fireBaseAuthResult.postValue(LoginResult(success = registerResult.user))
+        _authStatus.postValue(AuthStatus.DONE)
     }
 }
