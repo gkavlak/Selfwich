@@ -1,4 +1,4 @@
-package com.example.selfwich.ui
+package com.example.selfwich.ui.eats
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.selfwich.ProductAdapter
 import com.example.selfwich.ProductClickListener
-import com.example.selfwich.R
 import com.example.selfwich.databinding.EatsFragmentBinding
 import com.example.selfwich.repository.EatsRepository
 import com.example.selfwich.viewModel.EatsViewModel
-import java.util.Observer
 
 class EatsFragment : Fragment() {
 

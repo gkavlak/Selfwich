@@ -6,7 +6,8 @@ data class Product(
     var pDesc:String="",
     var pLike: Long = 0,
     var pPrice: Long = 0,
-    var pImage: String = ""
+    var pImage: String = "",
+    var pNone:String = ""
 ){
 
 }

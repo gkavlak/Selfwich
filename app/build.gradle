@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-
+    id 'androidx.navigation.safeargs.kotlin'
     id "kotlin-parcelize"
     id 'com.google.gms.google-services'
 }
@@ -28,8 +28,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures {
 
+    buildFeatures {
         dataBinding true
     }
     compileOptions {
@@ -59,6 +59,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.4.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    // Android KTX
+    implementation "androidx.core:core-ktx:$version_core"
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycle_version"
@@ -75,4 +77,7 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$rootProject.picasso_version"
     //Material
     implementation "com.google.android.material:material:$rootProject.material_version"
+    // Logging
+    implementation "com.jakewharton.timber:timber:$version_timber"
 }
+apply plugin: 'com.google.gms.google-services'
