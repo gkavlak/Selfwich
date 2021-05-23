@@ -15,6 +15,15 @@ import com.example.selfwich.model.Product
             adapter.submitList(listData)
         }
     }
+
+@BindingAdapter("submitIngredients")
+fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Product>?) {
+    listData?.let {
+        val adapterIngredient = recyclerView.adapter as IngredientsAdapter
+        adapterIngredient.submitList(listData)
+    }
+}
+
 @BindingAdapter("imgUrl")
 fun setImage(imageView: ImageView , url:String?){
     url?.let {
@@ -28,5 +37,13 @@ fun setImage(imageView: ImageView , url:String?){
                                 .placeholder(R.drawable.ic_launcher_foreground)
                 )
                 .into(imageView)
+    }
+}
+@BindingAdapter("textWithDolarSign")
+fun setTextWithDolarSign(textView: TextView, number: Long?) {
+    number?.let {
+
+        textView.text = "$number "
+
     }
 }

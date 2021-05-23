@@ -6,7 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import com.example.selfwich.IngredientsAdapter
+import com.example.selfwich.ProductAdapter
 import com.example.selfwich.databinding.SandwichFragmentBinding
 import com.example.selfwich.model.Product
 import com.example.selfwich.repository.SandwichRepository
@@ -36,23 +37,24 @@ class SandwichFragment : Fragment() {
 
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
-        binding.saveButton.setOnClickListener {
+       // binding.saveButton.setOnClickListener {
             val product=Product()
-            val name= binding.editText.text.toString()
-            if (name.isEmpty()){
+         //   val name= binding.editText.text.toString()
+            //if (name.isEmpty()){
 
-                Toast.makeText(context, "hello please add your sandwich name",Toast.LENGTH_SHORT)
-            }
-               product.pName=name
-          viewModel.addSelfSandwich(product)
-            val desc=binding.editText1.text.toString()
-            if(desc.isEmpty()){
-                Toast.makeText(context, "hello please add your sandwich name",Toast.LENGTH_SHORT)
-            }
-            product.pDesc=desc
-            viewModel.addSelfSandwich(product)
+              //  Toast.makeText(context, "hello please add your sandwich name",Toast.LENGTH_SHORT)
+            //}
+             //  product.pName=name
+          //viewModel.addSelfSandwich(product)
+
+          //  val desc=binding.editText1.text.toString()
+           // if(desc.isEmpty()){
+             //   Toast.makeText(context, "hello please add your sandwich name",Toast.LENGTH_SHORT)
+            //}
+            //product.pNone=desc
+        binding.sandwichlistrc.adapter=IngredientsAdapter()
+
 
         }
     }
 
-}

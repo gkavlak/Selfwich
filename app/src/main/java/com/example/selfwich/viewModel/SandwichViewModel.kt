@@ -10,9 +10,7 @@ import com.example.selfwich.repository.SandwichRepository
 class SandwichViewModel(app : Application , private val sandwichRepository: SandwichRepository) : ViewModel() {
 
     val sandwichList: LiveData<ArrayList<Product>> = sandwichRepository.sandwichList
-    fun addSelfSandwich(product: Product){
-        sandwichRepository.addSelfSandwich(product)
-    }
+
 
     open class Factory(val app: Application , private val sandwichRepository: SandwichRepository) :
             ViewModelProvider.Factory {

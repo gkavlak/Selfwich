@@ -36,10 +36,7 @@ class EatsFragment : Fragment() {
 
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
-        binding.eatsRc.adapter = ProductAdapter(ProductClickListener(
-                {product ->viewModel.addLikePoint(product) }
-        )
-        )
+        binding.eatsRc.adapter = ProductAdapter(ProductClickListener { product -> viewModel.addLikePoint(product) })
 
     }
 

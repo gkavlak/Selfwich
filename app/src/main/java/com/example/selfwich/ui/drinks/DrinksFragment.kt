@@ -40,15 +40,15 @@ class DrinksFragment : Fragment() {
         ).get(DrinksViewModel::class.java)
             viewModel.isLikeAdded.observe(viewLifecycleOwner, Observer {
 
-
-
             })
 
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
-        binding.drinksRc.adapter = ProductAdapter(ProductClickListener(
-            {product ->viewModel.addLikePoint(product) }
-        )
+        binding.drinksRc.adapter = ProductAdapter(ProductClickListener { product ->
+                viewModel.addLikePoint(product)
+
+        }
+
         )
     }
 

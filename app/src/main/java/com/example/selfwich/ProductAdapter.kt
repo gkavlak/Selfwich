@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.ProductItemBinding
 import com.example.selfwich.model.Product
 
-class ProductAdapter (val clickListener: ProductClickListener):
+class ProductAdapter(val clickListener: ProductClickListener) :
         ListAdapter<Product,ProductAdapter.ProductViewHolder>(ProductsDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -36,7 +36,7 @@ class ProductAdapter (val clickListener: ProductClickListener):
     }
 
 }
-class ProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
+ class ProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
         return oldItem == newItem
     }
