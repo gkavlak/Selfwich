@@ -4,8 +4,8 @@ buildscript {
         kotlin_version="1.4.21"
         lifecycle_version = "2.2.0"
         retrofit_version = "2.9.0"
-        nav_version = "2.2.1"
-        timber_version = '4.7.1'
+        nav_version = "2.3.5"
+        version_timber = "4.7.1"
         material_version = "1.3.0-alpha03"
         coroutines_android_version = '1.3.7'
         picasso_version = '2.71828'
@@ -15,6 +15,8 @@ buildscript {
         mockito_kotlin_version = '2.2.0'
         arch_version = "2.1.0"
         work_manager_version = '2.3.3'
+        version_navigation = "2.3.1"
+        version_core = "1.3.2"
 
 
     }
@@ -27,6 +29,9 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.5'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
+
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
