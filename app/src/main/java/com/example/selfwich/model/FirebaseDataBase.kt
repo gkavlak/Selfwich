@@ -9,7 +9,7 @@ class FirebaseDataBase() {
     private var db: FirebaseFirestore= Firebase.firestore
 
     fun addNewUserToFireStore(userId: String):Boolean{
-        var isUserİmplemented: Boolean = false
+        var isUserImplemented: Boolean = false
         db.collection("users").document(userId)
                 .get()
                 .addOnCompleteListener() {
@@ -20,7 +20,7 @@ class FirebaseDataBase() {
                         db.collection("users").document(userId)
                                 .set(data)
                                 .addOnSuccessListener{
-                                    isUserİmplemented=true
+                                    isUserImplemented=true
                                     Log.i("FirebaseDatabase", "User Successfully implemented")
                                 }
                                 .addOnFailureListener {
@@ -28,7 +28,7 @@ class FirebaseDataBase() {
                                 }
                     }
                 }
-        return isUserİmplemented
+        return isUserImplemented
     }
 
 }

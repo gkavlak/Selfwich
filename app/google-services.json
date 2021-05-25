@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "219374224232",
+    "firebase_url": "https://selfwich-default-rtdb.firebaseio.com",
+    "project_id": "selfwich",
+    "storage_bucket": "selfwich.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219374224232:android:6ca3929edb9908683f8cdd",
+        "android_client_info": {
+          "package_name": "com.example.selfwich"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219374224232-2rk2sf35j4etg6mhr70o611tdje7rd2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsBPFpLloucxgVJ-Qli-reClbCBMWOEFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219374224232-2rk2sf35j4etg6mhr70o611tdje7rd2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

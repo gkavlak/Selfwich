@@ -79,6 +79,7 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.material_version"
     // Logging
     implementation "com.jakewharton.timber:timber:$version_timber"
+
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: "androidx.navigation.safeargs.kotlin"
