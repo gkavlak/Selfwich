@@ -23,19 +23,17 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         var ingredientHave:Boolean =false
 
         allIngredient.forEach {
-            ingredientHave= allIngredient.contains(it)
-            Log.i("Click","$ingredientHave")
+
             ingredientHave=(it.ingredientId == ingredient.ingredientId)
-
-            if (ingredientHave) {
-                return@forEach
-            }
-
+            if (ingredientHave){
+                allIngredient.remove(it)
+                Log.i("Click","$allIngredient silindi")
+                return}
         }
         if( !ingredientHave){
-
             allIngredient.add(ingredient)
             Log.i("Click","$allIngredient yüklendi")}
+
 
 
     }
