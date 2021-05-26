@@ -44,11 +44,11 @@ class IngredientRepository{
         fun publishSandwich(ingredient: Ingredient){
             val data = ArrayList<Ingredient>()
                val desc = hashMapOf(
-                  "pName" to ingredient.pName,
-                    "pDesc" to ingredient.pDesc
+                  "pName" to ingredient.ingredientName,
+                    "pDesc" to ingredient.ingredientDesc
                )
             val docref=firestore.collection("selfSandwich")
-                    .document(ingredient.pName)
+                    .document(ingredient.ingredientName)
             docref.set(desc)
                     .addOnSuccessListener {document->
                         if (document!=null){

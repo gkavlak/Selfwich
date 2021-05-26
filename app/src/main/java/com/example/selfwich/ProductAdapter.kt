@@ -52,7 +52,6 @@ class ProductClickListener(
 ) {
     fun addLikePoint(product: Product) = addLikeClickListener(product)
 
-
 }
 
 

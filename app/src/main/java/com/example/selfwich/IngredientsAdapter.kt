@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.IngredientListItemsBinding
 import com.example.selfwich.model.Ingredient
 
-class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(ProductDiffCallbacks())
+class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(IngredientDiffCallbacks())
         {
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int):IngredientViewHolder {
@@ -37,7 +37,7 @@ class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Ingredient,
         }
 
 
-class ProductDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
+class IngredientDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
     override fun areItemsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
         return oldItem == newItem
     }
@@ -45,5 +45,5 @@ class ProductDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
     override fun areContentsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
         return oldItem == newItem
     }
-
 }
+

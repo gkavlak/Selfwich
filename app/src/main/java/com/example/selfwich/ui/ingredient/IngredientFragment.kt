@@ -41,12 +41,10 @@ class IngredientFragment : Fragment() {
 
             val sendPdesc =   binding.checkBox2.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
-                product.pDesc=isCheckedItem
+                product.ingredientDesc=isCheckedItem
 
             }
-            else{
-                product.pNone=isCheckedItem
-            }
+
         }
         binding.button2.setOnClickListener {
             val sandwichName=binding.editTextSandwichName.text.toString().trim()
@@ -56,7 +54,7 @@ class IngredientFragment : Fragment() {
                 R.string.this_field_cant_be_empty
             }else{
 
-                product.pName=sandwichName
+                product.ingredientName=sandwichName
             }
             viewModel.publishSandwich(product)
 
