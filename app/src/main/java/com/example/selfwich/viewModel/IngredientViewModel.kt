@@ -18,6 +18,14 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     private val _NewSelfwiuchingredientList=MutableLiveData<ArrayList<Ingredient>>()
     val NewSelfwiuchIngredientList: LiveData<ArrayList<Ingredient>> =_NewSelfwiuchingredientList
     private val allIngredient=ArrayList<Ingredient>()
+    private val totalPrice = MutableLiveData<Long>(0)
+
+    fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
+       totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
+    }
+    fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
+        totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
+    }
 
     fun addNewSelfwichIngredient(ingredient: Ingredient){
         var ingredientHave:Boolean =false
@@ -27,18 +35,24 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
             ingredientHave=(it.ingredientId == ingredient.ingredientId)
             if (ingredientHave){
                 allIngredient.remove(it)
+                this.removePurchasePriceToTotalPrice(it)
+                _NewSelfwiuchingredientList.value=allIngredient
                 Log.i("Click","$allIngredient silindi")
+                Log.i("Click",totalPrice.value.toString())
                 return}
         }
         if( !ingredientHave){
             allIngredient.add(ingredient)
+            this.addPurchasePriceToTotalPrice(ingredient)
             Log.i("Click","$allIngredient yüklendi")
         }
 
         _NewSelfwiuchingredientList.value=allIngredient
+        Log.i("Click",totalPrice.value.toString())
 
 
     }
+
 
 
 
