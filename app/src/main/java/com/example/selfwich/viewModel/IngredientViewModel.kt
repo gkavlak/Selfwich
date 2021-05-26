@@ -20,8 +20,23 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     private val allIngredient=ArrayList<Ingredient>()
 
     fun addNewSelfwichIngredient(ingredient: Ingredient){
-        allIngredient.add(ingredient)
-        Log.i("Click","$allIngredient yüklendi")
+        var ingredientHave:Boolean =false
+
+        allIngredient.forEach {
+            ingredientHave= allIngredient.contains(it)
+            Log.i("Click","$ingredientHave")
+            ingredientHave=(it.ingredientId == ingredient.ingredientId)
+
+            if (ingredientHave) {
+                return@forEach
+            }
+
+        }
+        if( !ingredientHave){
+
+            allIngredient.add(ingredient)
+            Log.i("Click","$allIngredient yüklendi")}
+
 
     }
 
