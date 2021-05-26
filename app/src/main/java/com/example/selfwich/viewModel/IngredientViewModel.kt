@@ -1,7 +1,9 @@
 package com.example.selfwich.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.model.Ingredient
@@ -10,13 +12,25 @@ import com.example.selfwich.repository.IngredientRepository
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
 
     val addIngredient: LiveData<ArrayList<Ingredient>> = ingredientRepository.addSandwichList
+
     val ingredientList: LiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList
 
+    private val _NewSelfwiuchingredientList=MutableLiveData<ArrayList<Ingredient>>()
+    val NewSelfwiuchIngredientList: LiveData<ArrayList<Ingredient>> =_NewSelfwiuchingredientList
+    private val allIngredient=ArrayList<Ingredient>()
+
+    fun addNewSelfwichIngredient(ingredient: Ingredient){
+        allIngredient.add(ingredient)
+        Log.i("Click","$allIngredient yüklendi")
+
+    }
 
 
-        fun publishSandwich(ingredient: Ingredient){
+
+    fun publishSandwich(ingredient: Ingredient){
             ingredientRepository.publishSandwich(ingredient)
-        }
+    }
+
 
 
 

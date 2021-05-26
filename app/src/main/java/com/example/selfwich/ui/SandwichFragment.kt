@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.selfwich.IngredientClickListener
 import com.example.selfwich.IngredientsAdapter
 import com.example.selfwich.ProductAdapter
 import com.example.selfwich.databinding.SandwichFragmentBinding
@@ -52,7 +53,7 @@ class SandwichFragment : Fragment() {
              //   Toast.makeText(context, "hello please add your sandwich name",Toast.LENGTH_SHORT)
             //}
             //product.pNone=desc
-        binding.sandwichlistrc.adapter=IngredientsAdapter()
+        binding.sandwichlistrc.adapter=IngredientsAdapter(IngredientClickListener{})
 
 
         }

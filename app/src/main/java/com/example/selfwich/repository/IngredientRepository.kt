@@ -21,7 +21,6 @@ class IngredientRepository{
         getAllIngredient()
     }
 
-
     fun getAllIngredient(){
         firestore.collection("ingredient").addSnapshotListener { docSnapshot, e ->
             if(e != null){
@@ -41,7 +40,7 @@ class IngredientRepository{
         }
 
     }
-        fun publishSandwich(ingredient: Ingredient){
+    fun publishSandwich(ingredient: Ingredient){
             val data = ArrayList<Ingredient>()
                val desc = hashMapOf(
                   "pName" to ingredient.ingredientName,
