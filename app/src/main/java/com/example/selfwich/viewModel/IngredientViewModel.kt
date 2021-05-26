@@ -32,8 +32,10 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         }
         if( !ingredientHave){
             allIngredient.add(ingredient)
-            Log.i("Click","$allIngredient yüklendi")}
+            Log.i("Click","$allIngredient yüklendi")
+        }
 
+        _NewSelfwiuchingredientList.value=allIngredient
 
 
     }
