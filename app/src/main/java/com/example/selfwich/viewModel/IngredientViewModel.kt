@@ -1,23 +1,21 @@
 package com.example.selfwich.viewModel
 
 import android.app.Application
-import android.app.ApplicationErrorReport
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.selfwich.model.Product
-import com.example.selfwich.repository.DrinksRepository
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.repository.IngredientRepository
 
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
 
-    val addIngredient: LiveData<ArrayList<Product>> = ingredientRepository.addSandwichList
-    val ingredientList: LiveData<ArrayList<Product>> = ingredientRepository.ingredientList
+    val addIngredient: LiveData<ArrayList<Ingredient>> = ingredientRepository.addSandwichList
+    val ingredientList: LiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList
 
 
 
-        fun publishSandwich(product: Product){
-            ingredientRepository.publishSandwich(product)
+        fun publishSandwich(ingredient: Ingredient){
+            ingredientRepository.publishSandwich(ingredient)
         }
 
 

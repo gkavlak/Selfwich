@@ -19,7 +19,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sandwichlistrc"
             android:layout_width="match_parent"
-            submitIngredients="@{viewmodel.sandwichList}"
+            submitList="@{viewmodel.sandwichList}"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </FrameLayout>

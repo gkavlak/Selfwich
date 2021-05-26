@@ -4,18 +4,15 @@ import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.selfwich.model.FirebaseDataBase
-import com.example.selfwich.model.Product
+import com.example.selfwich.model.Ingredient
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.ktx.Firebase
 
 class IngredientRepository{
-    private val _ingredientList=MutableLiveData<ArrayList<Product>>()
-    val ingredientList: LiveData<ArrayList<Product>> =_ingredientList
+    private val _ingredientList=MutableLiveData<ArrayList<Ingredient>>()
+    val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
 
-    private val _addSandwichList = MutableLiveData<ArrayList<Product>>()
-    val addSandwichList: LiveData<ArrayList<Product>> = _addSandwichList
+    private val _addSandwichList = MutableLiveData<ArrayList<Ingredient>>()
+    val addSandwichList: LiveData<ArrayList<Ingredient>> = _addSandwichList
 
     private  var firestore: FirebaseFirestore
     init {
@@ -32,9 +29,9 @@ class IngredientRepository{
                 return@addSnapshotListener
             }
             if (docSnapshot != null){
-                val allIngredient=ArrayList<Product>()
+                val allIngredient=ArrayList<Ingredient>()
                 docSnapshot.documents.forEach{
-                    val currentIngredient = it.toObject(Product::class.java)
+                    val currentIngredient = it.toObject(Ingredient::class.java)
                     it.let {
                         allIngredient.add(currentIngredient!!)
                         _ingredientList.value =allIngredient
@@ -44,19 +41,19 @@ class IngredientRepository{
         }
 
     }
-        fun publishSandwich(product: Product){
-            val data = ArrayList<Product>()
+        fun publishSandwich(ingredient: Ingredient){
+            val data = ArrayList<Ingredient>()
                val desc = hashMapOf(
-                  "pName" to product.pName,
-                    "pDesc" to product.pDesc
+                  "pName" to ingredient.pName,
+                    "pDesc" to ingredient.pDesc
                )
             val docref=firestore.collection("selfSandwich")
-                    .document(product.pName)
+                    .document(ingredient.pName)
             docref.set(desc)
                     .addOnSuccessListener {document->
                         if (document!=null){
                             Log.d("exist","DocumentSnaphotData")
-                            val allProduct= ArrayList<Product>()
+                            val allProduct= ArrayList<Ingredient>()
                             _addSandwichList.value=allProduct
                         }
                         else{

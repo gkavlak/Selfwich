@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.IngredientsAdapter
 import com.example.selfwich.R
 import com.example.selfwich.databinding.IngredientFragmentBinding
-import com.example.selfwich.model.Product
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.repository.IngredientRepository
 import com.example.selfwich.viewModel.IngredientViewModel
 
@@ -36,7 +35,7 @@ class IngredientFragment : Fragment() {
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
         binding.ingredientRc.adapter= IngredientsAdapter()
-        val product= Product()
+        val product= Ingredient()
         val isCheckedItem=binding.checkBox2.text.toString()
 
 

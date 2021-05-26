@@ -6,7 +6,7 @@
     <data>
         <variable
             name="ingredientListItem"
-            type="com.example.selfwich.model.Product" />
+            type="com.example.selfwich.model.Ingredient" />
             <!-- ClickListener Eklenecek -->
     </data>
 

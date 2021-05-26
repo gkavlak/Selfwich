@@ -2,13 +2,12 @@ package com.example.selfwich
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.IngredientListItemsBinding
-import com.example.selfwich.model.Product
+import com.example.selfwich.model.Ingredient
 
-class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Product, IngredientsAdapter.IngredientViewHolder>(ProductDiffCallbacks())
+class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(ProductDiffCallbacks())
         {
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int):IngredientViewHolder {
@@ -16,7 +15,7 @@ class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Product, In
     }
         class IngredientViewHolder(private var itemBinding: IngredientListItemsBinding):
              RecyclerView.ViewHolder(itemBinding.root) {
-            fun bind(data: Product) {
+            fun bind(data: Ingredient) {
                 itemBinding.ingredientListItem = data
                 itemBinding.executePendingBindings()
             }
@@ -38,12 +37,12 @@ class IngredientsAdapter(): androidx.recyclerview.widget.ListAdapter<Product, In
         }
 
 
-class ProductDiffCallbacks() : DiffUtil.ItemCallback<Product>(){
-    override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+class ProductDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
+    override fun areItemsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+    override fun areContentsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
         return oldItem == newItem
     }
 

@@ -7,8 +7,10 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Product
-    @BindingAdapter("submitList")
+
+@BindingAdapter("submitList")
     fun setRecyclerViewListData(recyclerView: RecyclerView, listData: List<Product>?) {
         listData?.let {
             val adapter = recyclerView.adapter as ProductAdapter
@@ -17,7 +19,7 @@ import com.example.selfwich.model.Product
     }
 
 @BindingAdapter("submitIngredients")
-fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Product>?) {
+fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Ingredient>?) {
     listData?.let {
         val adapterIngredient = recyclerView.adapter as IngredientsAdapter
         adapterIngredient.submitList(listData)

@@ -1,5 +1,4 @@
 package com.example.selfwich.model
-
 data class Product(
     var pId: Long = 0,
     var pName: String = "",
