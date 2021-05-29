@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.model.Ingredient
+import com.example.selfwich.model.Selfwich
 import com.example.selfwich.repository.IngredientRepository
 
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
@@ -17,50 +18,62 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
 
     private val _NewSelfwiuchingredientList=MutableLiveData<ArrayList<Ingredient>>()
     val NewSelfwiuchIngredientList: LiveData<ArrayList<Ingredient>> =_NewSelfwiuchingredientList
-    private val allIngredient=ArrayList<Ingredient>()
-    private val totalPrice = MutableLiveData<Long>(0)
+
+    private val _newSelfwich:MutableLiveData<Selfwich?> = MutableLiveData<Selfwich?>(Selfwich())
+    val newSelfwich: LiveData<Selfwich?> = _newSelfwich
+
+
+
+    private val _allIngredient=ArrayList<Ingredient>()
+    val allIngredient:ArrayList<Ingredient> = _allIngredient
+
+
+    private val _totalPrice = MutableLiveData<Long>(0)
+    val totalPrice: LiveData<Long> = _totalPrice
+
 
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
-       totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
+        _totalPrice.value = _totalPrice.value?.plus(ingredient.ingredientPrice)
+        _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)
     }
     fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
-        totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
+        _totalPrice.value = _totalPrice.value?.minus(ingredient.ingredientPrice)
+        _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)
     }
+
+
+
 
     fun addNewSelfwichIngredient(ingredient: Ingredient){
         var ingredientHave:Boolean =false
 
-        allIngredient.forEach {
+        this._newSelfwich.value?.selfwichIngredients?.forEach {
 
             ingredientHave=(it.ingredientId == ingredient.ingredientId)
             if (ingredientHave){
-                allIngredient.remove(it)
+                this._newSelfwich.value?.selfwichIngredients?.remove(it)
                 this.removePurchasePriceToTotalPrice(it)
-                _NewSelfwiuchingredientList.value=allIngredient
-                Log.i("Click","$allIngredient silindi")
-                Log.i("Click",totalPrice.value.toString())
-                return}
+                _newSelfwich.value?.calculateTotalSelfwichPrice()
+                Log.i("Click","${newSelfwich.value?.selfwichIngredients} guncellendi")
+                Log.i("Click",newSelfwich.value?.selfwichPrice.toString())
+                return
+            }
         }
         if( !ingredientHave){
-            allIngredient.add(ingredient)
+            this._newSelfwich.value?.selfwichIngredients?.add(ingredient)
             this.addPurchasePriceToTotalPrice(ingredient)
-            Log.i("Click","$allIngredient yüklendi")
+            _newSelfwich.value?.calculateTotalSelfwichPrice()
+
         }
-
-        _NewSelfwiuchingredientList.value=allIngredient
-        Log.i("Click",totalPrice.value.toString())
-
+        Log.i("Click","${newSelfwich.value?.selfwichIngredients}yüklendi")
+        Log.i("Click",newSelfwich.value?.selfwichPrice.toString())
 
     }
-
-
 
 
     fun publishSandwich(ingredient: Ingredient){
             ingredientRepository.publishSandwich(ingredient)
     }
-
-
 
 
     open class Factory(val app: Application, private val ingredientRepository: IngredientRepository) :

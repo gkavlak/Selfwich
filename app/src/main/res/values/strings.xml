@@ -8,4 +8,5 @@
     <string name="name_is_not_valid">name is not valid</string>
     <string name="this_field_cant_be_empty">this field can not be empty </string>
     <string name="addButtonId">ADD</string>
+    <string name="TakerOrderAndPublishbtn"><![CDATA[Order&Publish]]></string>
 </resources>

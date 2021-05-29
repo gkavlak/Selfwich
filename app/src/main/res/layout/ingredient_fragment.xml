@@ -19,15 +19,13 @@
             android:id="@+id/ingredientRc"
             submitIngredients="@{viewmodel.ingredientList}"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="412dp"
+            android:layout_height="550dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
         <Button
             android:id="@+id/button2"
@@ -54,15 +52,42 @@
             app:layout_constraintTop_toTopOf="@+id/ingredientRc"
             app:layout_constraintVertical_bias="0.527" />
 
-        <CheckBox
-            android:id="@+id/checkBox2"
+        <EditText
+            android:id="@+id/editTextTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sucuk"
-            app:layout_constraintBottom_toTopOf="@+id/editTextSandwichName"
-            app:layout_constraintEnd_toEndOf="@+id/editTextSandwichName"
-            app:layout_constraintStart_toStartOf="@+id/editTextSandwichName"
-            app:layout_constraintTop_toTopOf="@+id/ingredientRc" />
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Enter Your SelfWich Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Enter Your SelfWich Name" />
+
+        <TextView
+            android:id="@+id/takeOrderAndPublish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="44dp"
+            android:text="@string/TakerOrderAndPublishbtn"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientRc" />
+
+        <TextView
+            android:id="@+id/totoalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@{String.valueOf(viewmodel.newSelfwich.selfwichPrice)}"
+            android:textSize="20sp"
+            tools:text="55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientRc" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

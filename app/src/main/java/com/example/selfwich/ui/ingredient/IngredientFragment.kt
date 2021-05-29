@@ -37,22 +37,13 @@ class IngredientFragment : Fragment() {
         binding.lifecycleOwner=this
         binding.ingredientRc.adapter= IngredientsAdapter(IngredientClickListener{ingredient ->
             viewModel.addNewSelfwichIngredient(ingredient)
-
         })
+
         val product= Ingredient()
-        val isCheckedItem=binding.checkBox2.text.toString()
 
-
-            val sendPdesc =   binding.checkBox2.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked){
-                product.ingredientDesc=isCheckedItem
-
-            }
-
-        }
         binding.button2.setOnClickListener {
             val sandwichName=binding.editTextSandwichName.text.toString().trim()
-               sendPdesc
+
 
             if(sandwichName.isEmpty()){
                 R.string.this_field_cant_be_empty
