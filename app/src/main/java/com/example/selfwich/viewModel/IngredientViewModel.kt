@@ -40,7 +40,13 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         _totalPrice.value = _totalPrice.value?.minus(ingredient.ingredientPrice)
         _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)
     }
+    fun aaddSelfWichName(name:String){
+        _newSelfwich.value?.reNameSelfwich(name)
+    }
+    fun goToDataBase(){
+        ingredientRepository.writeNewSelfwichToDatabase(newSelfwich?.value)
 
+    }
 
 
 
@@ -67,6 +73,9 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         }
         Log.i("Click","${newSelfwich.value?.selfwichIngredients}yüklendi")
         Log.i("Click",newSelfwich.value?.selfwichPrice.toString())
+        Log.i("Click", newSelfwich.value?.selfwichName.toString())
+
+
 
     }
 

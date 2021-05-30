@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Ingredient
+import com.example.selfwich.model.Selfwich
 import com.google.firebase.firestore.FirebaseFirestore
 
 class IngredientRepository{
@@ -40,27 +41,24 @@ class IngredientRepository{
         }
 
     }
-    fun publishSandwich(ingredient: Ingredient){
-            val data = ArrayList<Ingredient>()
-               val desc = hashMapOf(
-                  "pName" to ingredient.ingredientName,
-                    "pDesc" to ingredient.ingredientDesc
-               )
-            val docref=firestore.collection("selfSandwich")
-                    .document(ingredient.ingredientName)
-            docref.set(desc)
-                    .addOnSuccessListener {document->
-                        if (document!=null){
-                            Log.d("exist","DocumentSnaphotData")
-                            val allProduct= ArrayList<Ingredient>()
-                            _addSandwichList.value=allProduct
-                        }
-                        else{
-                            Log.d("no exist","No such Document")
-                        }
-                    }
-                    .addOnFailureListener{ exception->
-                        Log.d("errordb","get failed with", exception)
-                    }
+    fun writeNewSelfwichToDatabase(selfwich: Selfwich?){
+        selfwich?.let {
+            val docref=firestore.collection("selfSandwich").document(selfwich?.selfwichName.toString())
+            docref.set(it).addOnSuccessListener { document->
+                if (document!= null){
+                    Log.i("Click","Databaseye gonderildi $selfwich")
+                } else {
+                    Log.i("Click","Document bulamdi" + " $selfwich")
+                }
+            }
+                .addOnFailureListener { exception->
+                    Log.i("Click", "Olmadi yaaa", exception)
+                }
+
         }
+
+
+
+    }
+
 }

@@ -6,4 +6,6 @@ data class Ingredient(
     var ingredientPrice: Long =0,
     var ingredientDesc: String="",
     var ingredientImage: String=""
-){}
+){
+
+}

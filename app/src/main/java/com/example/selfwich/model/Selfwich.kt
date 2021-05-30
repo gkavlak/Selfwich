@@ -8,13 +8,7 @@ data class Selfwich(
     var selfwichPrice: Long = 0,
     var selfwichIngredients: MutableList<Ingredient> = mutableListOf()
 ){
-    fun getSelfwichIngredients(): String {
-        var strIngr=""
-        selfwichIngredients.forEach { ingr->
-            strIngr.plus(ingr.ingredientName).plus(",")
-        }
-        return strIngr
-    }
+
     fun calculateTotalSelfwichPrice() {
         selfwichPrice=0
 
@@ -23,6 +17,7 @@ data class Selfwich(
         }
 
     }
+
 
     fun deleteIngredient(ingredientId:Long){
             selfwichIngredients.forEach { ingredient->
@@ -38,6 +33,9 @@ data class Selfwich(
             ingredientStrng= ingredientStrng + ingrd.ingredientName.toString() + ","
         }
         return ingredientStrng
+    }
+    fun reNameSelfwich(name:String){
+        selfwichName=name
     }
 
 }
