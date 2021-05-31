@@ -23,6 +23,7 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         var ingredientHave:Boolean =false
 
         allIngredient.forEach {
+            Log.i("Click",it.toString())
 
             ingredientHave=(it.ingredientId == ingredient.ingredientId)
             if (ingredientHave){
