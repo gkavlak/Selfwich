@@ -29,17 +29,10 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
         _totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
         _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)!!
-
-        Log.i("Click", "t${totalPrice.value.toString()}")
-        Log.i("Click", "t${_newSelfwich.value?.selfwichPrice.toString()}")
-
     }
     fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
         _totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
         _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)!!
-
-        Log.i("Click", "t${totalPrice.value.toString()}")
-        Log.i("Click", "t${_newSelfwich.value.toString()}")
     }
     fun aaddSelfWichName(name:String){
         _newSelfwich.value?.reNameSelfwich(name)
@@ -76,12 +69,9 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
             this._newSelfwich.value?.selfwichIngredients?.add(ingredient)
             this.addPurchasePriceToTotalPrice(ingredient)
             _newSelfwich.value?.calculateTotalSelfwichPrice()
-
-
         }
         Log.i("Click","${newSelfwich.value?.selfwichIngredients}yüklendi")
         Log.i("Click", newSelfwich.value?.selfwichName.toString())
-
     }
 
     open class Factory(val app: Application, private val ingredientRepository: IngredientRepository) :
