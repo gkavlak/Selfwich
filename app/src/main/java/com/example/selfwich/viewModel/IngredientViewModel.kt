@@ -27,17 +27,19 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
 
 
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
-        val price = ingredient.ingredientPrice
-        _newSelfwich.value?.selfwichPrice?.plus(price)
-        _totalPrice.value?.plus(price)
+        _totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
+        _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)!!
+
         Log.i("Click", "t${totalPrice.value.toString()}")
+        Log.i("Click", "t${_newSelfwich.value?.selfwichPrice.toString()}")
 
     }
     fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
-        val price = ingredient.ingredientPrice
-        _newSelfwich.value?.selfwichPrice?.minus(price)
-        _totalPrice.value?.minus(price)
-        Log.i("Click", "t${totalPrice.value}")
+        _totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
+        _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)!!
+
+        Log.i("Click", "t${totalPrice.value.toString()}")
+        Log.i("Click", "t${_newSelfwich.value.toString()}")
     }
     fun aaddSelfWichName(name:String){
         _newSelfwich.value?.reNameSelfwich(name)
