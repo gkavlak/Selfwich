@@ -81,7 +81,7 @@
             android:layout_marginEnd="16dp"
             tools:text="55"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            textWithDolarSign="@{ingredientListItem.ingredientPrice}"
+            app:textWithPrice="@{ingredientListItem.ingredientPrice}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
