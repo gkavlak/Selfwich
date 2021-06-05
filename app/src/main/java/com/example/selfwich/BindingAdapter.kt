@@ -1,5 +1,6 @@
 package com.example.selfwich
 
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -23,6 +24,18 @@ fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Ing
     listData?.let {
         val adapterIngredient = recyclerView.adapter as IngredientsAdapter
         adapterIngredient.submitList(listData)
+    }
+}
+@BindingAdapter("changeText")
+fun TextView.changeText(ingredient:Ingredient){
+    ingredient.let {
+    if(ingredient.ingredientIsAdded){
+        text="Drop"
+        Log.i("Click", "Button is changed ")
+    }else{
+        text="ADD"
+        Log.i("Click", "Button is changed ")
+    }
     }
 }
 

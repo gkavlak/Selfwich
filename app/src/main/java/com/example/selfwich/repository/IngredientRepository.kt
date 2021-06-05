@@ -12,8 +12,6 @@ class IngredientRepository{
     private val _ingredientList=MutableLiveData<ArrayList<Ingredient>>()
     val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
 
-    private val _addSandwichList = MutableLiveData<ArrayList<Ingredient>>()
-    val addSandwichList: LiveData<ArrayList<Ingredient>> = _addSandwichList
 
     private  var firestore: FirebaseFirestore
     init {

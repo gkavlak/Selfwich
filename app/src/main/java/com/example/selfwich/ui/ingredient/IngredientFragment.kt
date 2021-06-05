@@ -38,12 +38,15 @@ class IngredientFragment : Fragment() {
         binding.lifecycleOwner=this
         binding.ingredientRc.adapter= IngredientsAdapter(IngredientClickListener{ingredient ->
             viewModel.addNewSelfwichIngredient(ingredient)
+
+
         })
 
-        val product= Ingredient()
         binding.takeOrderAndPublish.setOnClickListener {
-            val selfwichName =binding.editTextTextPersonName.text.toString()
+            val selfwichName =binding.editTextTextSelfwichName.text.toString()
+            val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
             viewModel.aaddSelfWichName(selfwichName)
+            viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.goToDataBase()
 
         }

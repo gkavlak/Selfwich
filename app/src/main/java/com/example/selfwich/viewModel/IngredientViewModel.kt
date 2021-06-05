@@ -12,56 +12,61 @@ import com.example.selfwich.repository.IngredientRepository
 
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
 
-    val addIngredient: LiveData<ArrayList<Ingredient>> = ingredientRepository.addSandwichList
+    private val _ingredientList:MutableLiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList as MutableLiveData<ArrayList<Ingredient>>
+    val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
 
-    val ingredientList: LiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList
-
-    private val _NewSelfwiuchingredientList=MutableLiveData<ArrayList<Ingredient>>()
-    val NewSelfwiuchIngredientList: LiveData<ArrayList<Ingredient>> =_NewSelfwiuchingredientList
 
     private val _newSelfwich:MutableLiveData<Selfwich?> = MutableLiveData<Selfwich?>(Selfwich())
     val newSelfwich: LiveData<Selfwich?> = _newSelfwich
-
-
-
-    private val _allIngredient=ArrayList<Ingredient>()
-    val allIngredient:ArrayList<Ingredient> = _allIngredient
-
 
     private val _totalPrice = MutableLiveData<Long>(0)
     val totalPrice: LiveData<Long> = _totalPrice
 
 
+
+
+
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
-        _totalPrice.value = _totalPrice.value?.plus(ingredient.ingredientPrice)
-        _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)
+        val price = ingredient.ingredientPrice
+        _newSelfwich.value?.selfwichPrice?.plus(price)
+        _totalPrice.value?.plus(price)
+        Log.i("Click", "t${totalPrice.value.toString()}")
+
     }
     fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
-        _totalPrice.value = _totalPrice.value?.minus(ingredient.ingredientPrice)
-        _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)
+        val price = ingredient.ingredientPrice
+        _newSelfwich.value?.selfwichPrice?.minus(price)
+        _totalPrice.value?.minus(price)
+        Log.i("Click", "t${totalPrice.value}")
     }
     fun aaddSelfWichName(name:String){
         _newSelfwich.value?.reNameSelfwich(name)
     }
-    fun goToDataBase(){
-        ingredientRepository.writeNewSelfwichToDatabase(newSelfwich?.value)
-
+    fun addSelfwichDesc(name: String){
+        _newSelfwich.value?.reDescSelfwich(name)
     }
-
-
+    fun goToDataBase(){
+        ingredientRepository.writeNewSelfwichToDatabase(newSelfwich.value)
+    }
+    fun checkifIngredientAdded(ingredient: Ingredient){
+        ingredientList.value?.forEach {
+            if(it.ingredientId==ingredient.ingredientId){
+            it.isSelected()
+            }
+        }
+    }
 
     fun addNewSelfwichIngredient(ingredient: Ingredient){
         var ingredientHave:Boolean =false
-
+        checkifIngredientAdded(ingredient)
         this._newSelfwich.value?.selfwichIngredients?.forEach {
-
             ingredientHave=(it.ingredientId == ingredient.ingredientId)
             if (ingredientHave){
                 this._newSelfwich.value?.selfwichIngredients?.remove(it)
                 this.removePurchasePriceToTotalPrice(it)
                 _newSelfwich.value?.calculateTotalSelfwichPrice()
                 Log.i("Click","${newSelfwich.value?.selfwichIngredients} guncellendi")
-                Log.i("Click",newSelfwich.value?.selfwichPrice.toString())
+                Log.i("Click", "t${totalPrice.value}")
                 return
             }
         }
@@ -70,20 +75,12 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
             this.addPurchasePriceToTotalPrice(ingredient)
             _newSelfwich.value?.calculateTotalSelfwichPrice()
 
+
         }
         Log.i("Click","${newSelfwich.value?.selfwichIngredients}yüklendi")
-        Log.i("Click",newSelfwich.value?.selfwichPrice.toString())
         Log.i("Click", newSelfwich.value?.selfwichName.toString())
 
-
-
     }
-
-
-    fun publishSandwich(ingredient: Ingredient){
-            ingredientRepository.publishSandwich(ingredient)
-    }
-
 
     open class Factory(val app: Application, private val ingredientRepository: IngredientRepository) :
             ViewModelProvider.Factory {

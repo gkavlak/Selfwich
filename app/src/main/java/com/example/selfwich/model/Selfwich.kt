@@ -37,5 +37,8 @@ data class Selfwich(
     fun reNameSelfwich(name:String){
         selfwichName=name
     }
+    fun reDescSelfwich(name:String){
+        selfwichDesc= name
+    }
 
 }
