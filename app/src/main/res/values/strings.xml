@@ -8,13 +8,5 @@
     <string name="name_is_not_valid">name is not valid</string>
     <string name="this_field_cant_be_empty">this field can not be empty </string>
     <string name="addButtonId">ADD</string>
-    <string name="save_changes">save changes</string>
-    <string name="Name">Namei</string>
-    <string name="userName">userName</string>
-    <string name="HELLO">Hello</string>
-    <string name="Email">Email</string>
-    <string name="Password">Password</string>
-    <string name="changeForName">changeForName</string>
-    <string name="LogOut">LogOut</string>
-    <string name="ok">ok</string>
+    <string name="TakerOrderAndPublishbtn"><![CDATA[Order&Publish]]></string>
 </resources>
