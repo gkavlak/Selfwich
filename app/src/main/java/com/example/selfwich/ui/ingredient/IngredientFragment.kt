@@ -1,6 +1,7 @@
 package com.example.selfwich.ui.ingredient
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,30 +39,18 @@ class IngredientFragment : Fragment() {
         binding.ingredientRc.adapter= IngredientsAdapter(IngredientClickListener{ingredient ->
             viewModel.addNewSelfwichIngredient(ingredient)
 
+
         })
-        val product= Ingredient()
-        val isCheckedItem=binding.checkBox2.text.toString()
 
-
-            val sendPdesc =   binding.checkBox2.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked){
-                product.ingredientDesc=isCheckedItem
-
-            }
+        binding.takeOrderAndPublish.setOnClickListener {
+            val selfwichName =binding.editTextTextSelfwichName.text.toString()
+            val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
+            viewModel.aaddSelfWichName(selfwichName)
+            viewModel.addSelfwichDesc(selfwichDesc)
+            viewModel.goToDataBase()
 
         }
-        binding.button2.setOnClickListener {
-            val sandwichName=binding.editTextSandwichName.text.toString().trim()
-               sendPdesc
 
-            if(sandwichName.isEmpty()){
-                R.string.this_field_cant_be_empty
-            }else{
 
-                product.ingredientName=sandwichName
-            }
-            viewModel.publishSandwich(product)
-
-        }
     }
 }
