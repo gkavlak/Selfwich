@@ -36,8 +36,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
->
+                android:layout_margin="8dp">
 
 
                 <ImageView
@@ -52,41 +51,19 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="@{productItem.PName}"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="@+id/imageView"
-                    tools:text="Product Name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-                <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/product_price_textView"
                     textWithPrice="@{productItem.PPrice}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="55" />
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="171dp"
-                    android:layout_height="58dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="40dp"
-                    android:text="@{productItem.PDesc}"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="@+id/textView"
-                    tools:text="En iyi milkshake felan filan" />
-
-                <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/pLike_textView6"
                     textWithPrice="@{productItem.PLike}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +85,42 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                <ScrollView
+                    android:id="@+id/scrollView2"
+                    android:layout_width="182dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pName_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="@{productItem.PName}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            tools:text="Product Name" />
+
+                        <TextView
+                            android:id="@+id/produc_desc_textView"
+                            android:layout_width="171dp"
+                            android:layout_height="58dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="40dp"
+                            android:text="@{productItem.PDesc}"
+                            tools:text="En iyi milkshake felan filan" />
+                    </LinearLayout>
+                </ScrollView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

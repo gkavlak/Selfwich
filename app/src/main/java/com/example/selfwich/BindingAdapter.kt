@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Selfwich
 
 @BindingAdapter("submitList")
     fun setRecyclerViewListData(recyclerView: RecyclerView, listData: List<Product>?) {
@@ -26,6 +27,7 @@ fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Ing
         adapterIngredient.submitList(listData)
     }
 }
+
 @BindingAdapter("changeText")
 fun TextView.changeText(ingredient:Ingredient){
     ingredient.let {
