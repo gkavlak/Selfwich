@@ -5,12 +5,12 @@ data class Selfwich(
     var selfwichName: String = "",
     var selfwichDesc:String="",
     var selfwichLike: Long = 0,
+    var userName:String="",
+    var userId: String="",
     var selfwichPrice: Long = 0,
     var selfwichIngredients: MutableList<Ingredient> = mutableListOf()
 
 ){
-
-
     fun calculateTotalSelfwichPrice() {
         selfwichPrice=0
 
@@ -19,8 +19,6 @@ data class Selfwich(
         }
 
     }
-
-
     fun deleteIngredient(ingredientId:Long){
             selfwichIngredients.forEach { ingredient->
                 if (ingredient.ingredientId==ingredientId){

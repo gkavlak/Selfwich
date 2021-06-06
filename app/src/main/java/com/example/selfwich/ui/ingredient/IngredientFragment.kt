@@ -14,6 +14,8 @@ import com.example.selfwich.databinding.IngredientFragmentBinding
 import com.example.selfwich.model.Ingredient
 import com.example.selfwich.repository.IngredientRepository
 import com.example.selfwich.viewModel.IngredientViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class IngredientFragment : Fragment() {
     private lateinit var binding: IngredientFragmentBinding

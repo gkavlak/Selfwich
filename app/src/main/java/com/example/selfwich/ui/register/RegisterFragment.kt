@@ -59,7 +59,9 @@ class RegisterFragment : Fragment() {
 
         viewModel.firebaseAuthResult.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             if(it.success != null){
-                updateUiForLoggedInUser()
+                registerToIngredient()
+
+               // updateUiForLoggedInUser()
             }else if (it.error != null)
                 showLoginFailed(it.error)
         })
@@ -83,11 +85,16 @@ class RegisterFragment : Fragment() {
         })
     }
 
-    private fun updateUiForLoggedInUser() {
+
+   /* private fun updateUiForLoggedInUser() {
         this.findNavController()
             .navigate(RegisterFragmentDirections.actionRegisterFragmentToDrinksFragment())
     }
-
+*/
+    private fun registerToIngredient() {
+        this.findNavController()
+            .navigate(RegisterFragmentDirections.actionRegisterFragmentToİngredientFragment())
+    }
     private fun showLoginFailed(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
     }

@@ -9,22 +9,34 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Selfwich
 import com.example.selfwich.repository.IngredientRepository
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.example.selfwich.model.FirebaseDataBase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
 
     private val _ingredientList:MutableLiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList as MutableLiveData<ArrayList<Ingredient>>
     val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
-
-
     private val _newSelfwich:MutableLiveData<Selfwich?> = MutableLiveData<Selfwich?>(Selfwich())
     val newSelfwich: LiveData<Selfwich?> = _newSelfwich
 
+
+    private val _currentAuthUser = MutableLiveData<Selfwich>()
+    val currentAutUser : LiveData<Selfwich> = _currentAuthUser
     private val _totalPrice = MutableLiveData<Long>(0)
     val totalPrice: LiveData<Long> = _totalPrice
 
+   private val firebaserepo=FirebaseDataBase()
 
+    init {
+        val userId =Firebase.auth.currentUser.uid
+        firebaserepo.userIdToName(userId)
+        _newSelfwich.value?.userId = userId!!
 
-
+    }
 
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
         _totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)

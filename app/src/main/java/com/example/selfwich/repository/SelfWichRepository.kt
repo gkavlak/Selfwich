@@ -53,6 +53,5 @@ class SelfWichRepository {
 
             }
             .addOnFailureListener{ e->Log.d(ContentValues.TAG, "DocumentSnapshot ${e.message}!") }
-
     }
 }

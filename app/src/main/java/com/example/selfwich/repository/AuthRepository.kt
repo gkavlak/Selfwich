@@ -29,7 +29,7 @@ class AuthRepository(){
             .addOnCompleteListener { registerResult ->
                 try {
                     if (registerResult.isSuccessful) {
-                        db.addNewUserToFireStore(registerResult.result?.user!!.uid)
+                        db.addNewUserToFireStore(registerResult.result?.user!!.uid,name)
                         val user = FirebaseAuth.getInstance().currentUser
                             if(user != null){
                                 initUser(registerResult.result!!)
