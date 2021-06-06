@@ -6,20 +6,21 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.selfwich.viewModel.SandwichViewModel" />
+            type="com.example.selfwich.viewModel.SelfWichViewModel" />
 
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.SandwichFragment">
+        android:layout_height="match_parent">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sandwichlistrc"
+            submitSelfwichList="@{viewmodel.sandwichList}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:listitem="@layout/selfwich_list_item"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </FrameLayout>
 </layout>

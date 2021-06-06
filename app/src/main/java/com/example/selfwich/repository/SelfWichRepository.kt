@@ -5,12 +5,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Selfwich
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
-class SandwichRepository {
-    private val _sandwichList = MutableLiveData<ArrayList<Product>>()
-    val sandwichList: LiveData<ArrayList<Product>> = _sandwichList
+class SelfWichRepository {
+    private val _sandwichList = MutableLiveData<ArrayList<Selfwich>>()
+    val sandwichList: LiveData<ArrayList<Selfwich>> = _sandwichList
+
+    private val _isSelfWichLikeAdded=MutableLiveData<Long>()
+    val isSelfWichLikeAdded: LiveData<Long> = _isSelfWichLikeAdded
 
 
     private  var firestore: FirebaseFirestore
@@ -26,9 +30,9 @@ class SandwichRepository {
                 return@addSnapshotListener
             }
             if (docSnapshot != null){
-                val allSandwich=ArrayList<Product>()
+                val allSandwich= ArrayList<Selfwich>()
                 docSnapshot.documents.forEach{
-                    val currentSandwich = it.toObject(Product::class.java)
+                    val currentSandwich = it.toObject(Selfwich::class.java)
                     it.let {
                         allSandwich.add(currentSandwich!!)
                         _sandwichList.value =allSandwich
@@ -36,7 +40,19 @@ class SandwichRepository {
                 }
             }
         }
+    }
 
+    fun addLikeToSelfWich(selfwich: Selfwich){
+        val plus: Long = 1
+        firestore.collection("selfSandwich")
+            .document(selfwich.selfwichName)
+            .update("selfwichLike", FieldValue.increment(plus))
+            .addOnSuccessListener {
+                Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!")
+                _isSelfWichLikeAdded.value = selfwich.selfwichLike
+
+            }
+            .addOnFailureListener{ e->Log.d(ContentValues.TAG, "DocumentSnapshot ${e.message}!") }
 
     }
 }

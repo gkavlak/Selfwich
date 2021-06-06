@@ -2,46 +2,55 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="selfwich"
             type="com.example.selfwich.model.Selfwich" />
-        <!-- ClickListener Eklenecek -->
+        <variable
+            name="selfwichClickListener"
+            type="com.example.selfwich.SelfwichClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{selfwich.selfwichName}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.167"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04"
-            tools:text="SelfichName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            tools:text="SelfwichName" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{selfwich.selfwichName}"
+            android:text="@{selfwich.selfwichDesc}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             app:layout_constraintVertical_bias="0.025"
-            tools:text="dunyanin en yiidsi
-"/>
+            tools:text="dunyanin en yiidsi" />
 
-
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="12dp"
+            tools:text="0"
+            android:onClick="@{()-> selfwichClickListener.addLikeSelfwichPoint(selfwich)}"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

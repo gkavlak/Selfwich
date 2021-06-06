@@ -7,7 +7,9 @@ data class Selfwich(
     var selfwichLike: Long = 0,
     var selfwichPrice: Long = 0,
     var selfwichIngredients: MutableList<Ingredient> = mutableListOf()
+
 ){
+
 
     fun calculateTotalSelfwichPrice() {
         selfwichPrice=0

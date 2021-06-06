@@ -20,6 +20,15 @@ import com.example.selfwich.model.Selfwich
         }
     }
 
+@BindingAdapter ("submitSelfwichList")
+    fun setRecylerViewListSelfwich(recyclerView: RecyclerView,  listData: List<Selfwich>?){
+        listData?.let {
+            val adapter=recyclerView.adapter as SelfWichAdapter
+            adapter.submitList(listData)
+        }
+    }
+
+
 @BindingAdapter("submitIngredients")
 fun setRecyclerViewListIngredient(recyclerView: RecyclerView, listData: List<Ingredient>?) {
     listData?.let {
