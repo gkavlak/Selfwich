@@ -61,6 +61,7 @@ class SettingsRepository {
         if (user != null){
             _currentAuthUser.value=
                 UserSettings(userDisplayName = user.displayName!! ,userEmail = user.email)
+            Log.i("userNameee","${_currentAuthUser.value?.userDisplayName}")
               //user is signed in
         }
         else{

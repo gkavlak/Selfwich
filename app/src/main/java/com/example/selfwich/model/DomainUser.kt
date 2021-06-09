@@ -1,3 +1,3 @@
 package com.example.selfwich.model
 
-data class DomainUser(val userId: String = "", var userName: String = "")
+data class DomainUser(var userId: String = "", var userName: String = "", var userIsAdmin: Boolean =false)

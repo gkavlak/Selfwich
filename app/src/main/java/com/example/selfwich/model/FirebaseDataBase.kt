@@ -14,19 +14,17 @@ import com.google.firebase.ktx.Firebase
 class FirebaseDataBase() {
     private var db: FirebaseFirestore= Firebase.firestore
 
-
-
-
     fun addNewUserToFireStore(userId: String, name: String):Boolean{
         var isUserImplemented: Boolean = false
         db.collection("users").document(userId)
                 .get()
                 .addOnCompleteListener() {
                     if(it.result?.data == null){
-                        val data= hashMapOf(
-                                "userId" to userId,
-                                "userName" to name
-                        )
+                        val data:DomainUser= DomainUser(userId = userId, userName = name)
+//                        val data= hashMapOf(
+//                                "userId" to userId,
+//                                "userName" to name)
+
                         db.collection("users").document(userId)
                                 .set(data)
                                 .addOnSuccessListener{

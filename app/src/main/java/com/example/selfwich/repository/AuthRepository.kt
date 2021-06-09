@@ -4,10 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.FirebaseDataBase
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.ui.login.LoginResult
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.ktx.Firebase
 import java.lang.Exception
 
 enum class AuthStatus { LOADING, DONE, ERROR }
@@ -31,6 +34,9 @@ class AuthRepository(){
                     if (registerResult.isSuccessful) {
                         db.addNewUserToFireStore(registerResult.result?.user!!.uid,name)
                         val user = FirebaseAuth.getInstance().currentUser
+                        Singleton.globalUser.userId=registerResult.result?.user!!.uid
+                        Singleton.globalUser.userName=name
+                        Singleton.globalOrder.ownerId=registerResult.result?.user!!.uid
                             if(user != null){
                                 initUser(registerResult.result!!)
 
