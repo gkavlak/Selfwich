@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/eatsFragment"
+        android:title="Eatables" />
+    <item
+        android:id="@+id/drinksFragment"
+        android:title="Drınks" />
+    <item
+        android:id="@+id/sandwichFragment"
+        android:title="Selfwich" />
+</menu>
