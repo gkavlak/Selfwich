@@ -19,7 +19,7 @@ class ProductAdapter(val clickListener: ProductClickListener) :
 
                         fun bind(data:Product, clickListener: ProductClickListener){
                             itemBinding.productItem=data
-                            itemBinding.addLikeClickListener=clickListener
+                            itemBinding.productClickListener=clickListener
                             itemBinding.executePendingBindings()
                         }
                 companion object{
@@ -47,10 +47,12 @@ class ProductAdapter(val clickListener: ProductClickListener) :
 
 }
 class ProductClickListener(
-        val addLikeClickListener: (product: Product) -> Unit
+        val addLikeClickListener: (product: Product) -> Unit,
+        val buyProductClikListener:(product: Product) -> Unit
 
 ) {
     fun addLikePoint(product: Product) = addLikeClickListener(product)
+    fun addProducttoOrder(product: Product) = buyProductClikListener(product)
 
 }
 

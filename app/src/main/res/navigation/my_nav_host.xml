@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav_host"
-    app:startDestination="@id/registerFragment">
+    app:startDestination="@id/ingredientFragment">
 
     <fragment
         android:id="@+id/drinksFragment"
@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_registerFragment_to_ingredientFragment"
             app:destination="@id/ingredientFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_eatsFragment"
+            app:destination="@id/eatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -40,7 +43,11 @@
     <fragment
         android:id="@+id/ingredientFragment"
         android:name="com.example.selfwich.ui.ingredient.IngredientFragment"
-        android:label="IngredientFragment" />
+        android:label="IngredientFragment" >
+        <action
+            android:id="@+id/action_ingredientFragment_to_sandwichFragment"
+            app:destination="@id/sandwichFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.selfwich.ui.settings.SettingsFragment"

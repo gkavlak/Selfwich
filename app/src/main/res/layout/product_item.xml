@@ -8,7 +8,7 @@
             name="productItem"
             type="com.example.selfwich.model.Product"/>
         <variable
-            name="addLikeClickListener"
+            name="productClickListener"
             type="com.example.selfwich.ProductClickListener" />
 
     </data>
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:onClick="@{()-> addLikeClickListener.addLikePoint(productItem)}"
+                    android:onClick="@{()-> productClickListener.addLikePoint(productItem)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@android:drawable/btn_star_big_off" />
@@ -116,6 +116,18 @@
                             tools:text="En iyi milkshake felan filan" />
                     </LinearLayout>
                 </ScrollView>
+
+                <TextView
+                    android:id="@+id/buyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="BUY"
+                    android:onClick="@{()-> productClickListener.addProducttoOrder(productItem) }"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_price_textView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

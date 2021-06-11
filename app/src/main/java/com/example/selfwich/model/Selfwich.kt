@@ -1,7 +1,9 @@
 package com.example.selfwich.model
 
+import java.util.*
+
 data class Selfwich(
-    var selfwichId:Long= 0 ,
+    var selfwichId:String= UUID.randomUUID().toString(),
     var selfwichName: String = "",
     var selfwichDesc:String="",
     var selfwichLike: Long = 0,
@@ -21,7 +23,7 @@ data class Selfwich(
     }
     fun deleteIngredient(ingredientId:Long){
             selfwichIngredients.forEach { ingredient->
-                if (ingredient.ingredientId==ingredientId){
+                if (ingredient.ingredientId.equals(ingredientId)){
                     selfwichIngredients.remove(ingredient)
                 }
             }

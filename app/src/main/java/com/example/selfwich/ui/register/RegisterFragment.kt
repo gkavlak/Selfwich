@@ -93,7 +93,7 @@ class RegisterFragment : Fragment() {
 */
     private fun registerToIngredient() {
         this.findNavController()
-            .navigate(RegisterFragmentDirections.actionRegisterFragmentToİngredientFragment())
+            .navigate(RegisterFragmentDirections.actionRegisterFragmentToEatsFragment())
     }
     private fun showLoginFailed(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()

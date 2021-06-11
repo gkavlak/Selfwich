@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.selfwich.IngredientClickListener
 import com.example.selfwich.IngredientsAdapter
 import com.example.selfwich.R
 import com.example.selfwich.databinding.IngredientFragmentBinding
 import com.example.selfwich.model.Ingredient
 import com.example.selfwich.repository.IngredientRepository
+import com.example.selfwich.ui.register.RegisterFragmentDirections
 import com.example.selfwich.viewModel.IngredientViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -50,9 +53,10 @@ class IngredientFragment : Fragment() {
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.goToDataBase()
-
         }
 
 
     }
+
+
 }

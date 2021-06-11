@@ -83,6 +83,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
 
+        <Button
+            android:id="@+id/nextbuttonTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="8dp"
+            android:text="Next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/takeOrderAndPublish"
+            app:layout_constraintStart_toEndOf="@+id/totoalPrice"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientRc" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
