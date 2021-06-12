@@ -3,7 +3,7 @@ package com.example.selfwich.model
 import java.util.*
 
 data class Selfwich(
-    var selfwichId:String= UUID.randomUUID().toString(),
+    var selfwichId: String= UUID.randomUUID().toString(),
     var selfwichName: String = "",
     var selfwichDesc:String="",
     var selfwichLike: Long = 0,

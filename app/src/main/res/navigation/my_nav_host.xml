@@ -9,14 +9,22 @@
         android:id="@+id/drinksFragment"
         android:name="com.example.selfwich.ui.drinks.DrinksFragment"
         android:label="DrinksFragment"
-        tools:layout="@layout/drinks_fragment"/>
+        tools:layout="@layout/drinks_fragment">
+        <action
+            android:id="@+id/action_drinksFragment_to_sandwichFragment"
+            app:destination="@id/selfwichFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eatsFragment"
         android:name="com.example.selfwich.ui.eats.EatsFragment"
         android:label="eats_fragment"
-        tools:layout="@layout/eats_fragment" />
+        tools:layout="@layout/eats_fragment" >
+        <action
+            android:id="@+id/action_eatsFragment_to_drinksFragment"
+            app:destination="@id/drinksFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/sandwichFragment"
+        android:id="@+id/selfwichFragment"
         android:name="com.example.selfwich.ui.SelfWichFragment"
         android:label="sandwich_fragment"
         tools:layout="@layout/selfwich_fragment" />
@@ -31,6 +39,9 @@
         <action
             android:id="@+id/action_registerFragment_to_eatsFragment"
             app:destination="@id/eatsFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -46,7 +57,7 @@
         android:label="IngredientFragment" >
         <action
             android:id="@+id/action_ingredientFragment_to_sandwichFragment"
-            app:destination="@id/sandwichFragment" />
+            app:destination="@id/selfwichFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
