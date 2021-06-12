@@ -78,9 +78,9 @@ class IngredientRepository{
 
 
     }
-    fun writeNewSelfwichToDatabase(selfwich: Selfwich?){
-        selfwich?.let {
-            val docref=firestore.collection("selfSandwich").document(selfwich?.selfwichName.toString())
+    fun writeNewSelfwichToDatabase(selfwich: Selfwich){
+        selfwich.let {
+            val docref=firestore.collection("selfSandwich").document(selfwich.selfwichName)
             docref.set(it).addOnSuccessListener { document->
                 if (document!= null){
                     Log.i("Click","Databaseye gonderildi $selfwich")

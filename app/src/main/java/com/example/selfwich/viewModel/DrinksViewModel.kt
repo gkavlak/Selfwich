@@ -15,20 +15,17 @@ class DrinksViewModel(app :Application,private val drinksRepository: DrinksRepos
 
     val drinkList: LiveData<ArrayList<Product>> = drinksRepository.drinksList
     val isLikeAdded:LiveData<Long> = drinksRepository.isLikeAdded
-    val newOrder: MutableLiveData<Order> = MutableLiveData<Order>(Order())
 
     fun addLikePoint(product: Product){
         drinksRepository.addLikeToDrink(product)
     }
     fun addProducttoOrder(product: Product){
         Singleton.globalOrder.products.add(product)
-        newOrder.value?.products?.add(product)
         Singleton.globalOrder.calculatePrice()
-        newOrder.value?.calculatePrice()
-        Log.i("Buy", "${Singleton.globalOrder}")
-        Log.i("Buy", "${Singleton.globalOrder.orderPrice}")
-        Log.i("Buy", "${newOrder.value?.products}")
-        Log.i("Buy", "${newOrder.value?.orderPrice}")
+        Singleton.globalOrderLive.value?.products?.add(product)
+        Singleton.globalOrderLive.value?.calculatePrice()
+        Log.i("buy", "t${Singleton.globalOrderLive.value?.products!!}")
+        Log.i("buy", "t${Singleton.globalOrderLive.value?.orderPrice!!}")
     }
 
 

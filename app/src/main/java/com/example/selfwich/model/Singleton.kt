@@ -1,5 +1,7 @@
 package com.example.selfwich.model
 
+import androidx.lifecycle.MutableLiveData
+
 object Singleton
 {
     init {
@@ -7,6 +9,7 @@ object Singleton
     }
     var globalUser:DomainUser = DomainUser()
     var globalOrder:Order= Order()
+    var globalOrderLive:MutableLiveData<Order> = MutableLiveData<Order>(Order())
 
 }
 

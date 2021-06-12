@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.selfwich.ProductAdapter
 import com.example.selfwich.ProductClickListener
 import com.example.selfwich.databinding.EatsFragmentBinding
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.EatsRepository
 import com.example.selfwich.viewModel.EatsViewModel
 

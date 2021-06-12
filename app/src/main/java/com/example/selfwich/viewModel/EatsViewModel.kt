@@ -16,7 +16,7 @@ import com.example.selfwich.repository.EatsRepository
 class EatsViewModel(app : Application , private val eatsRepository: EatsRepository) : ViewModel() {
     val eatsList: LiveData<ArrayList<Product>> = eatsRepository.eatsList
     val isLikeAdded:LiveData<Long> = eatsRepository.isLikeAdded
-    val newOrder:MutableLiveData<Order> = MutableLiveData<Order>(Order())
+
 
 
     fun addLikePoint(product: Product){
@@ -24,11 +24,12 @@ class EatsViewModel(app : Application , private val eatsRepository: EatsReposito
     }
     fun addProducttoOrder(product: Product){
         Singleton.globalOrder.products.add(product)
-        newOrder.value?.products?.add(product)
         Singleton.globalOrder.calculatePrice()
-        newOrder.value?.calculatePrice()
-        Log.i("Buy", "${Singleton.globalOrder}")
-        Log.i("Buy", "${newOrder.value?.products}")
+        Singleton.globalOrderLive.value?.products?.add(product)
+        Singleton.globalOrderLive.value?.calculatePrice()
+        Log.i("buy", "t${Singleton.globalOrderLive.value?.products!!}")
+        Log.i("buy", "t${Singleton.globalOrderLive.value?.orderPrice!!}")
+
     }
 
     open class Factory(val app: Application, private val eatsRepository: EatsRepository) :

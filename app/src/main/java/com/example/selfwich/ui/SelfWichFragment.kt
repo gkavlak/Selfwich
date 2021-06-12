@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.selfwich.SelfWichAdapter
 import com.example.selfwich.SelfwichClickListener
 import com.example.selfwich.databinding.SelfwichFragmentBinding
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.SelfWichRepository
 import com.example.selfwich.viewModel.SelfWichViewModel
 
@@ -39,9 +40,11 @@ class SelfWichFragment : Fragment() {
         viewModel.isSelfWichLikeAdded.observe(viewLifecycleOwner,{
 
         })
-        binding.sandwichlistrc.adapter=SelfWichAdapter(SelfwichClickListener{ selfwich->
-            viewModel.addLikeSelfwichPoint(selfwich)
-        })
+        binding.sandwichlistrc.adapter=SelfWichAdapter(SelfwichClickListener(
+            { selfwich-> viewModel.addLikeSelfwichPoint(selfwich)},
+            { selfwich-> viewModel.addSelfwichtoOrder(selfwich)}
+        )
+        )
         }
 
 }

@@ -38,10 +38,12 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
         _totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
         _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)!!
+        newSelfwich.value?.selfwichPrice= _newSelfwich.value?.selfwichPrice!!
     }
     fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
         _totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
         _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)!!
+        newSelfwich.value?.selfwichPrice= _newSelfwich.value?.selfwichPrice!!
     }
     fun aaddSelfWichName(name:String){
         _newSelfwich.value?.reNameSelfwich(name)
@@ -50,7 +52,7 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
         _newSelfwich.value?.reDescSelfwich(name)
     }
     fun goToDataBase(){
-        ingredientRepository.writeNewSelfwichToDatabase(newSelfwich.value)
+        newSelfwich.value?.let { ingredientRepository.writeNewSelfwichToDatabase(it) }
     }
     fun checkifIngredientAdded(ingredient: Ingredient){
         ingredientList.value?.forEach {
