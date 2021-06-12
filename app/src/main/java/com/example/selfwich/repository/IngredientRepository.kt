@@ -4,10 +4,7 @@ import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.selfwich.model.DomainUser
-import com.example.selfwich.model.Ingredient
-import com.example.selfwich.model.Selfwich
-import com.example.selfwich.model.UserSettings
+import com.example.selfwich.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -76,7 +73,6 @@ class IngredientRepository{
 //                Log.i("userNameee", "get failed with ", exception)
 //            }
 
-
     }
     fun writeNewSelfwichToDatabase(selfwich: Selfwich){
         selfwich.let {
@@ -97,5 +93,23 @@ class IngredientRepository{
 
 
     }
+    fun writeOrdertoDataBase(order: Order){
+        val uid= Firebase.auth.currentUser?.uid!!
+        order.ownerId= uid
+        order.let {
+            val docref=firestore.collection("orders").document(order.orderId)
+            docref.set(it).addOnSuccessListener {  document->
+                if (document!= null){
+                    Log.i("order","Databaseye gonderildi $order")
+                } else {
+                    Log.i("order","Document bulamdi" + " $order")
+                }
+            }
+                .addOnFailureListener { exception->
+                    Log.i("order", "Olmadi yaaa", exception)
+                }
 
-}
+            }
+        }
+    }
+

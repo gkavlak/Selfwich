@@ -6,13 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.selfwich.model.Ingredient
-import com.example.selfwich.model.Selfwich
+import com.example.selfwich.model.*
 import com.example.selfwich.repository.IngredientRepository
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.example.selfwich.model.FirebaseDataBase
-import com.example.selfwich.model.Singleton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -53,6 +50,9 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     }
     fun goToDataBase(){
         newSelfwich.value?.let { ingredientRepository.writeNewSelfwichToDatabase(it) }
+    }
+    fun ordertoDatabase(order: Order){
+        ingredientRepository.writeOrdertoDataBase(order = order)
     }
     fun checkifIngredientAdded(ingredient: Ingredient){
         ingredientList.value?.forEach {

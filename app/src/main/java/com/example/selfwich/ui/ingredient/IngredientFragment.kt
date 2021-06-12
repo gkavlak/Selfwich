@@ -14,6 +14,7 @@ import com.example.selfwich.IngredientsAdapter
 import com.example.selfwich.R
 import com.example.selfwich.databinding.IngredientFragmentBinding
 import com.example.selfwich.model.Ingredient
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.IngredientRepository
 import com.example.selfwich.ui.register.RegisterFragmentDirections
 import com.example.selfwich.viewModel.IngredientViewModel
@@ -44,8 +45,11 @@ class IngredientFragment : Fragment() {
         binding.ingredientRc.adapter= IngredientsAdapter(IngredientClickListener{ingredient ->
             viewModel.addNewSelfwichIngredient(ingredient)
 
-
         })
+        binding.button2.setOnClickListener {
+            val order= Singleton.globalOrderLive.value!!
+            viewModel.ordertoDatabase(order)
+        }
 
         binding.takeOrderAndPublish.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
