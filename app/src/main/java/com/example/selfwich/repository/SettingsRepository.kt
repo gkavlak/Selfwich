@@ -3,6 +3,7 @@ package com.example.selfwich.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.model.UserSettings
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -20,6 +21,7 @@ class SettingsRepository {
 
     private val _isUserUpdated = MutableLiveData<Boolean>()
     val isUserUpdated: LiveData<Boolean> = _isUserUpdated
+
 
     init {
         settingUserInit()
@@ -43,6 +45,7 @@ class SettingsRepository {
                                     .addOnSuccessListener {
                                         _isUserUpdated.value=true
                                         _updateStatus.postValue((AuthStatus.DONE))
+                                        Singleton.globalUser.userName = newUser.userDisplayName
                                     }
                             }
                     }else{
@@ -56,11 +59,14 @@ class SettingsRepository {
     }
 
     fun settingUserInit(){
+
+        val userName = Singleton.globalUser.userName
+
         val user= Firebase.auth.currentUser
 
         if (user != null){
             _currentAuthUser.value=
-                UserSettings(userDisplayName = user.displayName!! ,userEmail = user.email)
+                UserSettings(userDisplayName = userName!! ,userEmail = user.email)
             Log.i("userNameee","${_currentAuthUser.value?.userDisplayName}")
               //user is signed in
         }
@@ -68,6 +74,7 @@ class SettingsRepository {
             _currentAuthUser.value= UserSettings("something wrong","oops" )
         }
     }
+
     fun signOut(){
         FirebaseAuth.getInstance().signOut()
         _isSignedOut.value=true

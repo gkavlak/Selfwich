@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/drinksFragment"
-        android:title="Drinks"
-        android:icon="@drawable/ic_baseline_local_drink_24"/>
+            android:id="@+id/drinksFragment"
+            android:title="Drinks"
+            android:icon="@drawable/ic_baseline_local_drink_24"
+            />
 
     <item
         android:id="@+id/eatsFragment"
@@ -17,6 +18,10 @@
         android:title="Selfwich"
         android:icon="@drawable/ic_baseline_supervised_user_circle_24"/>
 
-
+    <item
+        android:title="Product"
+        android:id="@+id/ingredientFragment"
+        android:icon="@drawable/ic_baseline_library_add_24">
+    </item>
 
 </menu>

@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.selfwich.R
 import com.example.selfwich.databinding.SettingsFragmentBinding
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.model.UserSettings
 import com.example.selfwich.repository.SettingsRepository
 import com.example.selfwich.viewModel.SettingsViewModel
@@ -130,6 +131,7 @@ class SettingsFragment : Fragment() {
                 emailText.text.toString(),
                 passwordText.text.toString(),
                 it.toString()
+
             )
         }
     }
