@@ -15,6 +15,11 @@ class EatsRepository {
     val eatsList:LiveData<ArrayList<Product>> =_eatsList
     private val _isLikeAdded=MutableLiveData<Long>()
     val isLikeAdded:LiveData<Long> = _isLikeAdded
+
+    private val _isEatsDelete=MutableLiveData<Long>()
+    val isEatsDelete:LiveData<Long> = _isEatsDelete
+
+
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     init {
         getAllEats()
@@ -48,6 +53,18 @@ class EatsRepository {
                     _isLikeAdded.value = product.pLike
                 }
                 .addOnFailureListener{ e->Log.d(ContentValues.TAG , "DocumentSnapshot ${e.message}!") }
+
+    }
+    fun deleteProductToDatabase(product:Product){
+        firestore.collection("eats").document(product.pName)
+            .delete()
+            .addOnSuccessListener {
+                _isEatsDelete.value = product.pId
+
+                Log.d(ContentValues.TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e ->
+
+                Log.w(ContentValues.TAG, "Error deleting document", e) }
 
     }
 

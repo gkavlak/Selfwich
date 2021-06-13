@@ -22,6 +22,8 @@
     <string name="products">Products</string>
     <string name="Ingredietns">Ingredietns:</string>
     <string name="buy">BUY</string>
+    <string name="add_eats">ADD EATS</string>
+    <string name="add_drinks">ADD DRINKS</string>
 
 
 </resources>

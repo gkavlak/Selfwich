@@ -47,7 +47,10 @@ class DrinksFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.drinksRc.adapter = ProductAdapter(ProductClickListener(
             { product -> viewModel.addLikePoint(product) },
-            {product -> viewModel.addProducttoOrder(product)})
+
+            {product -> viewModel.addProducttoOrder(product)},
+            {product ->viewModel.deleteProduct(product)}
+            )
 
         )
     }
