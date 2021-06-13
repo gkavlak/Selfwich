@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.selfwich.model.Ingredient
+import com.example.selfwich.model.Order
 import com.example.selfwich.model.Product
 import com.example.selfwich.model.Selfwich
 
@@ -27,6 +28,15 @@ import com.example.selfwich.model.Selfwich
             adapter.submitList(listData)
         }
     }
+
+@BindingAdapter ("submitOrderList")
+
+fun setRecylerViewListOrder(recyclerView: RecyclerView,  listData: List<Order>?){
+    listData?.let {
+        val adapter=recyclerView.adapter as OrderAdapter
+        adapter.submitList(listData)
+    }
+}
 
 
 @BindingAdapter("submitIngredients")

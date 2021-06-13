@@ -38,6 +38,7 @@ class DrinksFragment : Fragment() {
             DrinksViewModel.Factory(activity.application, drinksRepository)
             //  çift ünleme tekrar bak
         ).get(DrinksViewModel::class.java)
+
             viewModel.isLikeAdded.observe(viewLifecycleOwner, Observer {
 
             })

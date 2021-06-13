@@ -23,9 +23,7 @@ class OrderRepository {
     }
 
     private fun getAllOrder() {
-
-
-        firestore.collection("order")
+        firestore.collection("orders")
             .addSnapshotListener{docSnapshot, e ->
                 if (e != null ){
                     Log.w(ContentValues.TAG , e.message.toString())
@@ -37,7 +35,7 @@ class OrderRepository {
                         val currentOrder = it.toObject(Order::class.java)
                         it.let {
                             allOrder.add(currentOrder!!)
-                            _orderList.value=allOrder
+                            _orderList.value= allOrder
                         }
                     }
                 }
