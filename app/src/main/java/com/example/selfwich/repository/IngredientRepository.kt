@@ -89,16 +89,23 @@ class IngredientRepository{
                 }
 
         }
-
-
-
     }
+
+    fun resetSingletonOrder(){
+        val newOrderLive:MutableLiveData<Order> = MutableLiveData<Order>(Order())
+        Singleton.globalOrderLive= newOrderLive
+    }
+
+
     fun writeOrdertoDataBase(order: Order){
         val uid= Firebase.auth.currentUser?.uid!!
+        val name= Singleton.globalUser.value?.userName.toString()
+        order.ownerName= name
         order.ownerId= uid
         order.let {
             val docref=firestore.collection("orders").document(order.orderId)
             docref.set(it).addOnSuccessListener {  document->
+                resetSingletonOrder()
                 if (document!= null){
                     Log.i("order","Databaseye gonderildi $order")
                 } else {

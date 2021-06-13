@@ -45,7 +45,7 @@ class SettingsRepository {
                                     .addOnSuccessListener {
                                         _isUserUpdated.value=true
                                         _updateStatus.postValue((AuthStatus.DONE))
-                                        Singleton.globalUser.userName = newUser.userDisplayName
+                                        Singleton.globalUser.value?.userName = newUser.userDisplayName
                                     }
                             }
                     }else{
@@ -60,7 +60,7 @@ class SettingsRepository {
 
     fun settingUserInit(){
 
-        val userName = Singleton.globalUser.userName
+        val userName = Singleton.globalUser.value?.userName
 
         val user= Firebase.auth.currentUser
 

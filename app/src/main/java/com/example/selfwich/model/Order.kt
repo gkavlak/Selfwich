@@ -6,8 +6,9 @@ data class Order(
      var orderId:String= UUID.randomUUID().toString(),
      var date: Date=Calendar.getInstance().time,
      var ownerId: String="",
-     var name : String= "",
+     var status : String= "WAITING",
      var orderPrice:Long = 0,
+     var ownerName: String="",
      var selfwichs: MutableList<Selfwich> = mutableListOf(),
      var products:MutableList<Product> = mutableListOf()
 ) {

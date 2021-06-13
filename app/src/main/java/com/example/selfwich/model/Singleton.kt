@@ -7,7 +7,7 @@ object Singleton
     init {
         println("Singleton class invoked.")
     }
-    var globalUser:DomainUser = DomainUser()
+    var globalUser:MutableLiveData<DomainUser> = MutableLiveData<DomainUser>(DomainUser())
     var globalOrder:Order= Order()
     var globalOrderLive:MutableLiveData<Order> = MutableLiveData<Order>(Order())
 

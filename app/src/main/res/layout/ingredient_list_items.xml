@@ -15,75 +15,95 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="wrap_content">
 
-
-        <TextView
-            android:id="@+id/itemNameText"
-            android:layout_width="159dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@{ingredientListItem.ingredientName}"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Cucamber"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-        <TextView
-            android:id="@+id/itemDescTextview"
-            android:layout_width="182dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="6dp"
-            android:text="@{ingredientListItem.ingredientDesc}"
-            tools:text="dunyanin en iyi yerleridnden topalnmis bir cucumber"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/itemNameText" />
-
-        <TextView
-            android:id="@+id/addButton"
-            android:layout_width="66dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="16dp"
-            android:onClick="@{() ->ingredientClickListener.addNewSelfwichIngredient(ingredientListItem)}"
-            app:changeText="@{ingredientListItem}"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            tools:text="ADD"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            app:imgUrl="@{ingredientListItem.ingredientImage}"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-             />
-
-        <TextView
-            android:id="@+id/itemPriceTextview"
-            android:layout_width="64dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            tools:text="55"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:textWithPrice="@{ingredientListItem.ingredientPrice}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+
+                <TextView
+                    android:id="@+id/itemNameText"
+                    android:layout_width="159dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{ingredientListItem.ingredientName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Cucamber" />
+
+                <TextView
+                    android:id="@+id/itemDescTextview"
+                    android:layout_width="182dp"
+                    android:layout_height="62dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@{ingredientListItem.ingredientDesc}"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/itemNameText"
+                    tools:text="dunyanin en iyi yerleridnden topalnmis bir cucumber" />
+
+                <TextView
+                    android:id="@+id/addButton"
+                    android:layout_width="66dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="@{() ->ingredientClickListener.addNewSelfwichIngredient(ingredientListItem)}"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                    android:textStyle="bold"
+                    app:changeText="@{ingredientListItem}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="ADD" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:imgUrl="@{ingredientListItem.ingredientImage}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/itemPriceTextview"
+                    android:layout_width="64dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textWithPrice="@{ingredientListItem.ingredientPrice}"
+                    tools:text="55" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -27,8 +27,8 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
 
 
     init {
-        _newSelfwich.value?.userId= Singleton.globalUser.userId
-        _newSelfwich.value?.userName= Singleton.globalUser.userName
+        _newSelfwich.value?.userId= Singleton.globalUser.value?.userId.toString()
+        _newSelfwich.value?.userName= Singleton.globalUser.value?.userName.toString()
     }
 
 

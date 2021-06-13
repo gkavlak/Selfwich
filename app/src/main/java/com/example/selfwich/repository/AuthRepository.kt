@@ -1,21 +1,25 @@
 package com.example.selfwich.repository
 
+import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.selfwich.model.DomainUser
 import com.example.selfwich.model.FirebaseDataBase
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Singleton
 import com.example.selfwich.ui.login.LoginResult
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.lang.Exception
 
 enum class AuthStatus { LOADING, DONE, ERROR }
 
-class AuthRepository(){
+class AuthRepository{
     private val _fireBaseAuthResult = MutableLiveData<LoginResult>()
     val fireBaseAuthResult: LiveData<LoginResult> = _fireBaseAuthResult
 
@@ -34,8 +38,8 @@ class AuthRepository(){
                     if (registerResult.isSuccessful) {
                         db.addNewUserToFireStore(registerResult.result?.user!!.uid,name)
                         val user = FirebaseAuth.getInstance().currentUser
-                        Singleton.globalUser.userId=registerResult.result?.user!!.uid
-                        Singleton.globalUser.userName=name
+                        Singleton.globalUser.value?.userId=registerResult.result?.user!!.uid
+                        Singleton.globalUser.value?.userName=name
                         Singleton.globalOrder.ownerId=registerResult.result?.user!!.uid
                             if(user != null){
                                 initUser(registerResult.result!!)
@@ -64,6 +68,7 @@ class AuthRepository(){
                 .addOnCompleteListener { loginResult->
                     if(loginResult.isSuccessful){
                         initUser(loginResult.result!!)
+                        userCameFromdatebase()
                     }
                     else{
                         if (loginResult.exception != null) {
@@ -83,5 +88,22 @@ class AuthRepository(){
       private fun initUser(registerResult: AuthResult) {
        _fireBaseAuthResult.postValue(LoginResult(success = registerResult.user))
         _authStatus.postValue(AuthStatus.DONE)
+    }
+    private fun userCameFromdatebase(){
+        val userId= Firebase.auth.currentUser?.uid
+        userId?.let { FirebaseFirestore.getInstance().collection("users").document(it).addSnapshotListener { docSnapshot, e ->
+            if(e != null){
+                Log.w(ContentValues.TAG , e.message.toString())
+                return@addSnapshotListener
+            }
+            if (docSnapshot != null)
+            {
+                val currentuser = docSnapshot.toObject(DomainUser::class.java)
+                Singleton.globalUser.value?.userName = currentuser?.userName.toString()
+                Singleton.globalUser.value?.userId= currentuser?.userId.toString()
+                Singleton.globalUser.value?.userIsAdmin= currentuser?.userIsAdmin == true
+            }
+        }
+        }
     }
 }
