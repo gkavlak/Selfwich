@@ -11,6 +11,7 @@ import com.example.selfwich.ProductAdapter
 import com.example.selfwich.ProductClickListener
 import com.example.selfwich.databinding.DrinksFragmentBinding
 import com.example.selfwich.repository.DrinksRepository
+import com.example.selfwich.ui.customDialogFragment.CustomDialogFragment
 import com.example.selfwich.viewModel.DrinksViewModel
 
 class DrinksFragment : Fragment() {
@@ -53,6 +54,11 @@ class DrinksFragment : Fragment() {
             )
 
         )
+
+        binding.imageButton3.setOnClickListener {
+            CustomDialogFragment()
+                .show(childFragmentManager,"")
+        }
     }
 
 }

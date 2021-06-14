@@ -11,6 +11,7 @@ import com.example.selfwich.ProductClickListener
 import com.example.selfwich.databinding.EatsFragmentBinding
 import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.EatsRepository
+import com.example.selfwich.ui.customDialogFragment.CustomDialogFragment
 import com.example.selfwich.viewModel.EatsViewModel
 
 class EatsFragment : Fragment() {
@@ -44,6 +45,10 @@ class EatsFragment : Fragment() {
                 {product ->viewModel.deleteProduct(product)}
                 )
         )
+        binding.imageButton2.setOnClickListener {
+            CustomDialogFragment()
+                .show(childFragmentManager,"")
+        }
 
     }
 

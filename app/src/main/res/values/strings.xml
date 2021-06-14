@@ -27,6 +27,11 @@
     <string name="owner">Owner:</string>
     <string name="price">Total Price:</string>
     <string name="details">Details</string>
+    <string name="add_prodcut_to_database">ADD PRODCUT TO DATABASE</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_name">Product Name</string>
+    <string name="write_product_desc">write product desc</string>
+    <string name="product_desc">Product Desc</string>
 
 
 </resources>
