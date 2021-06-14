@@ -17,6 +17,11 @@ class DrinksRepository {
     private val _isLikeAdded=MutableLiveData<Long>()
     val isLikeAdded:LiveData<Long> = _isLikeAdded
 
+    private val _isDrinksDelete=MutableLiveData<Long>()
+    val isDrinksDelete:LiveData<Long> = _isDrinksDelete
+
+
+
 
     private  var firestore: FirebaseFirestore
     //fun getCurrentLike(): DocumentReference? = firestore.collection("drinks").parent
@@ -58,6 +63,18 @@ class DrinksRepository {
                     _isLikeAdded.value = product.pLike
                 }
                 .addOnFailureListener{ e->Log.d(TAG, "DocumentSnapshot ${e.message}!") }
+
+    }
+    fun deleteProductToDatabase(product:Product){
+        firestore.collection("drinks").document(product.pName)
+            .delete()
+            .addOnSuccessListener {
+                _isDrinksDelete.value = product.pId
+
+                Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e ->
+
+                Log.w(TAG, "Error deleting document", e) }
 
     }
 }

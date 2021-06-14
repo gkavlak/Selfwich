@@ -16,9 +16,11 @@ import com.example.selfwich.repository.EatsRepository
 class EatsViewModel(app : Application , private val eatsRepository: EatsRepository) : ViewModel() {
     val eatsList: LiveData<ArrayList<Product>> = eatsRepository.eatsList
     val isLikeAdded:LiveData<Long> = eatsRepository.isLikeAdded
+    val isEatsDelete:LiveData<Long> =eatsRepository.isEatsDelete
 
-
-
+    fun deleteProduct(product:Product){
+        eatsRepository.deleteProductToDatabase(product)
+    }
     fun addLikePoint(product: Product){
         eatsRepository.addLikeToDrink(product)
     }

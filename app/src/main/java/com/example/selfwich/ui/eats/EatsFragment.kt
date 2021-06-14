@@ -40,7 +40,9 @@ class EatsFragment : Fragment() {
         binding.eatsRc.adapter = ProductAdapter(
             ProductClickListener (
                 { product -> viewModel.addLikePoint(product) },
-                {product -> viewModel.addProducttoOrder(product)})
+                {product -> viewModel.addProducttoOrder(product)},
+                {product ->viewModel.deleteProduct(product)}
+                )
         )
 
     }
