@@ -45,10 +45,12 @@ class SelfwichDiffCallbacks() : DiffUtil.ItemCallback<Selfwich>(){
 }
 class SelfwichClickListener(
     val addLikeSelfWichClickListener: (selfwich: Selfwich) -> Unit,
-    val buySelfwichClikListener: (selfwich: Selfwich) -> Unit
+    val buySelfwichClikListener: (selfwich: Selfwich) -> Unit,
+    val deleteSelfwichClickListener: (selfwich: Selfwich) -> Unit
 
 ) {
     fun addLikeSelfwichPoint(selfwich: Selfwich) = addLikeSelfWichClickListener(selfwich)
     fun addSelfwichtoOrder(selfwich: Selfwich) = buySelfwichClikListener(selfwich)
+    fun deleteSelfwichToDatabase(selfwich: Selfwich) =deleteSelfwichClickListener(selfwich)
 
 }

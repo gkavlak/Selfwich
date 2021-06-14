@@ -18,6 +18,9 @@ class SelfWichViewModel(app : Application, private val selfwichRepository: SelfW
     fun addLikeSelfwichPoint(selfwich: Selfwich){
         selfwichRepository.addLikeToSelfWich(selfwich)
     }
+    fun deleteSelwichToDatabase(selfwich: Selfwich){
+        selfwichRepository.deleteSelfwichToDatabase(selfwich)
+    }
     fun addSelfwichtoOrder(selfwich: Selfwich){
         Singleton.globalOrderLive.value?.selfwichs?.add(selfwich)
         Singleton.globalOrderLive.value?.calculatePrice()

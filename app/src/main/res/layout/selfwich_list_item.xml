@@ -150,6 +150,17 @@
                     app:layout_constraintEnd_toStartOf="@+id/buy_textView"
                     app:layout_constraintTop_toBottomOf="@+id/selfwich_ingredients"
                     tools:text="30" />
+
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:onClick="@{()-> selfwichClickListener.deleteSelfwichToDatabase(selfwich)}"
+                    app:layout_constraintEnd_toEndOf="@+id/selfwich_owner_name_Text"
+                    app:layout_constraintStart_toStartOf="@+id/selfwich_owner_name_Text"
+                    app:layout_constraintTop_toBottomOf="@+id/selfwich_owner_name_Text"
+                    app:srcCompat="@android:drawable/ic_delete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
