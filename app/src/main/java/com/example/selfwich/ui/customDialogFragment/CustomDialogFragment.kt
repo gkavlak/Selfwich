@@ -51,11 +51,12 @@ class CustomDialogFragment :DialogFragment() {
         }
         binding.button3.setOnClickListener {
             val drinksName = binding.editTextTextPersonName2.text.toString()
-            val drinksPrice= binding.editTextTextPersonName3.text
+            val drinksPrice= binding.editTextTextPersonName3.text.toString().toLong()
             val drinksDesc=   binding.editTextTextPersonName4.text.toString()
 
             product.pName=drinksName
             product.pDesc=drinksDesc
+            product.pPrice=drinksPrice
 
             viewModel.addDrinksToDatabase(product)
             Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()

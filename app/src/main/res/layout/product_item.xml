@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
+
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
@@ -77,43 +78,37 @@
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginBottom="16dp"
                     android:onClick="@{()-> productClickListener.addLikePoint(productItem)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buyButton"
                     app:srcCompat="@android:drawable/btn_star_big_off" />
 
-                <ScrollView
-                    android:id="@+id/scrollView2"
-                    android:layout_width="182dp"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/produc_desc_textView"
+                    android:layout_width="171dp"
+                    android:layout_height="58dp"
                     android:layout_marginStart="8dp"
+                    android:text="@{productItem.PDesc}"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/pName_textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:text="@{productItem.PName}"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            tools:text="Product Name" />
+                    app:layout_constraintTop_toBottomOf="@+id/pName_textView"
+                    tools:text="En iyi milkshake felan filan" />
 
-                        <TextView
-                            android:id="@+id/produc_desc_textView"
-                            android:layout_width="171dp"
-                            android:layout_height="58dp"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="40dp"
-                            android:text="@{productItem.PDesc}"
-                            tools:text="En iyi milkshake felan filan" />
-                    </LinearLayout>
-                </ScrollView>
+                <TextView
+                    android:id="@+id/pName_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{productItem.PName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintEnd_toStartOf="@+id/product_price_textView"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Product Name" />
 
                 <TextView
                     android:id="@+id/buyButton"

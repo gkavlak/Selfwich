@@ -17,10 +17,6 @@ class DrinksRepository {
     private val _isLikeAdded=MutableLiveData<Long>()
     val isLikeAdded:LiveData<Long> = _isLikeAdded
 
-    private val _isDrinksDelete=MutableLiveData<Long>()
-    val isDrinksDelete:LiveData<Long> = _isDrinksDelete
-
-
 
 
     private  var firestore: FirebaseFirestore
@@ -69,9 +65,8 @@ class DrinksRepository {
         firestore.collection("drinks").document(product.pName)
             .delete()
             .addOnSuccessListener {
-                _isDrinksDelete.value = product.pId
 
-                Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                Log.i("delete", "DocumentSnapshot successfully deleted!"+"${it}") }
             .addOnFailureListener { e ->
 
                 Log.w(TAG, "Error deleting document", e) }

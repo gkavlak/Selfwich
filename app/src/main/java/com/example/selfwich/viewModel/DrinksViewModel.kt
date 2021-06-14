@@ -16,7 +16,6 @@ class DrinksViewModel(app :Application,private val drinksRepository: DrinksRepos
     val drinkList: LiveData<ArrayList<Product>> = drinksRepository.drinksList
     val isLikeAdded:LiveData<Long> = drinksRepository.isLikeAdded
 
-    val isDrinksDelete:LiveData<Long> = drinksRepository.isDrinksDelete
 
     fun deleteProduct(product:Product){
         drinksRepository.deleteProductToDatabase(product)
