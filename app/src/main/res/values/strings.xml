@@ -24,6 +24,9 @@
     <string name="buy">BUY</string>
     <string name="add_eats">ADD EATS</string>
     <string name="add_drinks">ADD DRINKS</string>
+    <string name="owner">Owner:</string>
+    <string name="price">Total Price:</string>
+    <string name="details">Details</string>
 
 
 </resources>

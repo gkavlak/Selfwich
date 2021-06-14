@@ -36,17 +36,98 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/owneNamerTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_marginStart="84dp"
-                    android:layout_marginBottom="32dp"
-                    android:text="@{orderListItem.orderId.toString()}"
-                    android:textSize="30sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="16dp"
 
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{orderListItem.ownerName.toString()}"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toEndOf="@+id/ownerTextView"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="id afsdf" />
+
+                <TextView
+                    android:id="@+id/ownerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/owner"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/orderStatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@{orderListItem.status.toString()}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="WATTING" />
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/price"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ownerTextView" />
+
+                <TextView
+                    android:id="@+id/orderPriceTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@{orderListItem.status.toString()}"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toEndOf="@+id/priceTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/owneNamerTextView"
+                    tools:text="22" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="28dp"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
+                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="39dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
+                    app:srcCompat="@android:drawable/checkbox_on_background" />
+
+                <TextView
+                    android:id="@+id/detalsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/details"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="22dp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                    app:layout_constraintHorizontal_bias="0.272"
+                    app:layout_constraintStart_toEndOf="@+id/orderPriceTextView4"
+                    app:layout_constraintTop_toBottomOf="@+id/owneNamerTextView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
