@@ -9,10 +9,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-
+enum class OrderStatus { LOADING, READY, CANCELED }
 class OrderRepository {
     private val _orderList=  MutableLiveData<ArrayList<Order>>()
     val orderList: LiveData<ArrayList<Order>> = _orderList
+
 
     private  var firestore: FirebaseFirestore
 
@@ -39,9 +40,43 @@ class OrderRepository {
                         }
                     }
                 }
+            }    }
 
+    fun orderIsReady(order: Order){
+        order.let {
+            order.status= OrderStatus.READY.toString()
+            val docref=firestore.collection("orders").document(order.orderId)
+            docref.set(it).addOnSuccessListener { document->
+                if (document!= null){
+                    Log.i("order","Databaseye gonderildi ${order.status}")
+                } else {
+                    Log.i("Click","Document bulamdi" + " ${order.status}")
+                }
             }
+                .addOnFailureListener { exception->
+                    Log.i("Click", "Olmadi yaaa", exception)
+                }
+
+        }
+        }
+    fun orderIsCanceleded(order: Order){
+        order.let {
+            order.status= OrderStatus.CANCELED.toString()
+            val docref=firestore.collection("orders").document(order.orderId)
+            docref.set(it).addOnSuccessListener { document->
+                if (document!= null){
+                    Log.i("order","Databaseye gonderildi ${order.status}")
+                } else {
+                    Log.i("Click","Document bulamdi Caneldeyiz" + " ${order.status}")
+                }
+            }
+                .addOnFailureListener { exception->
+                    Log.i("Click", "Olmadi yaaa", exception)
+                }
+
+        }
+    }
 
     }
 
-}
+
