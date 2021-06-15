@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.selfwich.viewModel.UpdateDialogViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/productNewNameEdit"
+            android:layout_width="212dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/nameTextView"
+            app:layout_constraintTop_toTopOf="@+id/nameTextView" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="74dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/productNewNameEdit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/productNewPriceEdit"
+            android:layout_width="222dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/priceTextView"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+        <EditText
+            android:id="@+id/productNewDesceEdit"
+            android:layout_width="157dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/descTextView"
+            app:layout_constraintTop_toBottomOf="@+id/priceTextView" />
+
+        <EditText
+            android:id="@+id/productNewImageEdit"
+            android:layout_width="201dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageTextView"
+            app:layout_constraintTop_toBottomOf="@+id/descTextView" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="216dp"
+            android:layout_marginBottom="50dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/productNewNameEdit"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/nameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/productNewNameEdit" />
+
+        <TextView
+            android:id="@+id/descTextView"
+            android:layout_width="129dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/desc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/productNewDesceEdit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceTextView" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="64dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/Pricee"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/productNewPriceEdit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+        <TextView
+            android:id="@+id/imageTextView"
+            android:layout_width="85dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/productNewImageEdit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

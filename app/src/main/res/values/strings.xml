@@ -11,7 +11,7 @@
     <string name="this_field_cant_be_empty">this field can not be empty </string>
     <string name="addButtonId">ADD</string>
     <string name="save_changes">save changes</string>
-    <string name="Name">Namei</string>
+    <string name="Name">Name:</string>
     <string name="userName">userName</string>
     <string name="HELLO">Hello</string>
     <string name="Email">Email</string>
@@ -27,6 +27,14 @@
     <string name="owner">Owner:</string>
     <string name="price">Total Price:</string>
     <string name="details">Details</string>
+    <string name="add_prodcut_to_database">ADD PRODCUT TO DATABASE</string>
+    <string name="product_price">Product Price</string>
+    <string name="product_name">Product Name</string>
+    <string name="write_product_desc">write product desc</string>
+    <string name="product_desc">Product Desc</string>
+    <string name="Pricee">Price:</string>
+    <string name="desc">Description:</string>
+    <string name="image">Image:</string>
 
 
 </resources>

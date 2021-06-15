@@ -42,9 +42,11 @@ class SelfWichFragment : Fragment() {
         })
         binding.sandwichlistrc.adapter=SelfWichAdapter(SelfwichClickListener(
             { selfwich-> viewModel.addLikeSelfwichPoint(selfwich)},
-            { selfwich-> viewModel.addSelfwichtoOrder(selfwich)}
+            { selfwich-> viewModel.addSelfwichtoOrder(selfwich)},
+            {selfwich ->viewModel .deleteSelwichToDatabase(selfwich)}
         )
         )
+
         }
 
 }

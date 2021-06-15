@@ -54,4 +54,16 @@ class SelfWichRepository {
             }
             .addOnFailureListener{ e->Log.d(ContentValues.TAG, "DocumentSnapshot ${e.message}!") }
     }
+    fun deleteSelfwichToDatabase(selfwich: Selfwich){
+        firestore.collection("selfSandwich").document(selfwich.selfwichName)
+            .delete()
+            .addOnSuccessListener {
+
+                Log.i("delete", "DocumentSnapshot successfully deleted!"+"${it}")  }
+            .addOnFailureListener { e ->
+
+                Log.w(ContentValues.TAG, "Error deleting document", e) }
+
+    }
+
 }

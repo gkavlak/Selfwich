@@ -49,12 +49,14 @@ class ProductAdapter(val clickListener: ProductClickListener) :
 class ProductClickListener(
         val addLikeClickListener: (product: Product) -> Unit,
         val buyProductClikListener:(product: Product) -> Unit,
-        val deleteProductClickListener: (product:Product)-> Unit
+        val deleteProductClickListener: (product:Product)-> Unit,
+        val updateProductClickListener: (product:Product)-> Unit
 
 ) {
     fun addLikePoint(product: Product) = addLikeClickListener(product)
     fun addProducttoOrder(product: Product) = buyProductClikListener(product)
     fun deleteProduct(product:Product) = deleteProductClickListener(product)
+    fun updateProduct(product: Product) = updateProductClickListener(product)
 
 }
 

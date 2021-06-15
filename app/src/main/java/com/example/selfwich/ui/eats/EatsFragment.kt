@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import com.example.selfwich.ProductAdapter
 import com.example.selfwich.ProductClickListener
 import com.example.selfwich.databinding.EatsFragmentBinding
+import com.example.selfwich.model.Product
 import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.EatsRepository
+import com.example.selfwich.ui.customDialogFragment.CustomDialogFragment
+import com.example.selfwich.ui.updateDialog.UpdateDialogFragment
 import com.example.selfwich.viewModel.EatsViewModel
 
 class EatsFragment : Fragment() {
@@ -37,13 +40,22 @@ class EatsFragment : Fragment() {
 
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
+
+        fun showDialog(product: Product){
+            UpdateDialogFragment(product).show(childFragmentManager,"")
+        }
         binding.eatsRc.adapter = ProductAdapter(
             ProductClickListener (
                 { product -> viewModel.addLikePoint(product) },
                 {product -> viewModel.addProducttoOrder(product)},
-                {product ->viewModel.deleteProduct(product)}
+                {product ->viewModel.deleteProduct(product)},
+                {product -> showDialog(product) }
                 )
         )
+        binding.imageButton2.setOnClickListener {
+            CustomDialogFragment()
+                .show(childFragmentManager,"")
+        }
 
     }
 
