@@ -42,6 +42,19 @@ class IngredientRepository{
         }
 
     }
+    fun deleteIngredientToDatabase(ingredient : Ingredient){
+        firestore.collection("ingredient").document(ingredient.ingredientName)
+            .delete()
+            .addOnSuccessListener {
+
+                Log.i("delete", "DocumentSnapshot successfully deleted!"+"${it}")  }
+            .addOnFailureListener { e ->
+
+                Log.w(ContentValues.TAG, "Error deleting document", e) }
+
+    }
+
+
     fun getUserIdfromDatabase(): String {
         var name= ""
         val user= Firebase.auth.currentUser

@@ -35,6 +35,8 @@
     <string name="Pricee">Price:</string>
     <string name="desc">Description:</string>
     <string name="image">Image:</string>
+    <string name="write_desc">Write Desc</string>
+    <string name="this_filed_cant_empty">This Field Can not be Empty</string>
 
 
 </resources>

@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Product
 import com.example.selfwich.model.Selfwich
 import com.example.selfwich.repository.CustomDialogRepository
@@ -16,6 +17,11 @@ class CustomDialogViewModel (app:Application, private val customDialogRepository
 init {
 
 }
+
+        fun addIngredientToDatabase(ingredient: Ingredient){
+            customDialogRepository.addIngredientToDatabase(ingredient)
+
+        }
 
     fun addDrinksToDatabase(product: Product){
         customDialogRepository.addDrinksToDatabase(product)
