@@ -15,7 +15,7 @@ import com.example.selfwich.model.Product
 import com.example.selfwich.repository.CustomDialogRepository
 import com.example.selfwich.viewModel.CustomDialogViewModel
 
-class CustomDialogFragment :DialogFragment() {
+class CustomDialogFragment(val tpye:String) :DialogFragment() {
     private lateinit var binding: CustomDialogFragmentBinding
     private lateinit var customDialogRepository: CustomDialogRepository
     private lateinit var viewModel: CustomDialogViewModel

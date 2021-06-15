@@ -90,14 +90,14 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="216dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="70dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/productNewNameEdit"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="@+id/nameTextView"
-            app:layout_constraintTop_toBottomOf="@+id/productNewNameEdit" />
+            app:layout_constraintTop_toBottomOf="@+id/productNewImageEdit"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/descTextView"

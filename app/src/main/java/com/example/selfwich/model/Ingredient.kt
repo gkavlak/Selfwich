@@ -6,7 +6,8 @@ data class Ingredient(
     var ingredientIsAdded: Boolean= false,
     var ingredientPrice: Long =0,
     var ingredientDesc: String="",
-    var ingredientImage: String=""
+    var ingredientImage: String="",
+    var type:String="ingredient"
 
 
 ){

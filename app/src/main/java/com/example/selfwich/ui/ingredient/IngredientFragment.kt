@@ -63,7 +63,8 @@ class IngredientFragment : Fragment() {
         }
 
         binding.imageButton5.setOnClickListener {
-            CustomDialogFragment()
+            val type = "ingredient"
+            CustomDialogFragment(type)
                 .show(childFragmentManager,"")
         }
 

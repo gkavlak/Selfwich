@@ -57,6 +57,7 @@ class CustomDialogRepository {
     }
     fun addIngredientToDatabase(ingredient: Ingredient){
         ingredient?.let {
+            ingredient.type="ingredient"
             val docref = firestore.collection("ingredient")
                 .document(ingredient.ingredientName)
             docref.set(it).addOnSuccessListener { document ->
