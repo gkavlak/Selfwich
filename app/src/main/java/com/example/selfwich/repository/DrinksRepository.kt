@@ -40,7 +40,6 @@ class DrinksRepository {
                     val allProduct = ArrayList<Product>()
                     docSnapshot.documents.forEach {
                         val currentProduct = it.toObject(Product::class.java)
-
                         it?.let {
                             allProduct.add(currentProduct!!)
                         }

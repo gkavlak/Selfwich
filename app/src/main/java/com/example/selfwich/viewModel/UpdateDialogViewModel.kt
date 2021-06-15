@@ -9,8 +9,8 @@ import com.example.selfwich.repository.UpdateDialogRepository
 
 class UpdateDialogViewModel (app: Application ,private val updateDialogRepository: UpdateDialogRepository): ViewModel() {
 
-    fun updateDrinks(product: Product){
-        updateDialogRepository.updateDrinks(product)
+    fun updateDrinks(oldproduct: Product, newproduct:Product){
+        updateDialogRepository.updateDrinks(oldproduct = oldproduct, newproduct = newproduct)
 
     }
 

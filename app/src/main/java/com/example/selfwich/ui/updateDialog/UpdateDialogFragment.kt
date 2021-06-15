@@ -33,12 +33,22 @@ class UpdateDialogFragment(val product: Product) :DialogFragment() {
             this,
             UpdateDialogViewModel.Factory(activity.application, updateDialogRepository)
         ).get(UpdateDialogViewModel::class.java)
+        binding.productNewNameEdit.setText(product.pName)
+        binding.productNewDesceEdit.setText(product.pDesc)
+        binding.productNewPriceEdit.setText(product.pPrice.toString())
+        binding.productNewImageEdit.setText(product.pImage)
+
 
         binding.button4.setOnClickListener {
-            val drinksName= binding.editTextTextPersonName5.text.toString()
-            product.pName= drinksName
+            val newprodut = Product(product.pId, product.pName,product.pDesc,product.pLike, product.pPrice,product.pImage)
+            val oldproduct = product
+            val drinksName= binding.productNewNameEdit.text.toString()
+            newprodut.pName= drinksName
+            newprodut.pDesc= binding.productNewDesceEdit.text.toString()
+            newprodut.pPrice= binding.productNewPriceEdit.text.toString().toLong()
+            newprodut.pImage= binding.productNewImageEdit.text.toString()
 
-            viewModel.updateDrinks(product)
+            viewModel.updateDrinks(oldproduct = oldproduct, newproduct = newprodut)
         }
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
