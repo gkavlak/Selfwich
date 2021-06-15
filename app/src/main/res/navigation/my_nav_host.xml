@@ -75,4 +75,8 @@
         android:id="@+id/customDialogFragment"
         android:name="com.example.selfwich.ui.customDialogFragment.CustomDialogFragment"
         android:label="CustomDialogFragment" />
+    <dialog
+        android:id="@+id/updateDialogFragment"
+        android:name="com.example.selfwich.ui.updateDialog.UpdateDialogFragment"
+        android:label="UpdateDialogFragment" />
 </navigation>

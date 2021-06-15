@@ -35,6 +35,7 @@ class CustomDialogFragment :DialogFragment() {
             this,
             CustomDialogViewModel.Factory(activity.application, customDialogRepository)
         ).get(CustomDialogViewModel::class.java)
+
              val product = Product()
          binding.button.setOnClickListener {
 
