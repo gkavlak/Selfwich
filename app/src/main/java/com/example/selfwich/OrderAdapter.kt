@@ -10,6 +10,7 @@ import com.example.selfwich.ProductAdapter.ProductViewHolder.Companion.from
 import com.example.selfwich.databinding.OrderListItemBinding
 import com.example.selfwich.model.Order
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Selfwich
 
 class OrderAdapter (val clickListener: OrderClickListener) : androidx.recyclerview.widget.ListAdapter<Order,OrderAdapter.OrderViewHolder>(OrderDiffCallBack()) {
 
@@ -46,7 +47,11 @@ class OrderAdapter (val clickListener: OrderClickListener) : androidx.recyclervi
 
 
 
-class OrderClickListener(){
+class OrderClickListener(val readyClickListener: (order: Order) -> Unit,
+                         val canceledClickListener: (order: Order) -> Unit)
+{
+    fun orderIsReady(order: Order) = readyClickListener(order)
+    fun orderIsCanceled(order: Order) = canceledClickListener(order)
 
 }
 class OrderDiffCallBack() : DiffUtil.ItemCallback<Order>(){

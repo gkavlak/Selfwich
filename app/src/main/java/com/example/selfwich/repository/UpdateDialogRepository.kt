@@ -12,7 +12,7 @@ class UpdateDialogRepository (){
     }
 
     fun updateDrinks(oldproduct: Product, newproduct:Product) {
-            val deletedoc= firestore.collection("drinks").document(oldproduct.pName)
+            val deletedoc= firestore.collection(oldproduct.pType).document(oldproduct.pName)
             deletedoc.delete().addOnSuccessListener {
                 if (it != null){
                     Log.i("update","old product silindi  ${it} ${oldproduct}")
@@ -24,7 +24,7 @@ class UpdateDialogRepository (){
 
             }
 
-        val docref= firestore.collection("drinks")
+        val docref= firestore.collection(newproduct.pType)
             .document(newproduct.pName)
         docref.set(newproduct).addOnSuccessListener { document->
             if (document!= null){

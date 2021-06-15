@@ -12,6 +12,13 @@ class OrderViewModel
 
     val orderlist :LiveData<ArrayList<Order>> = orderRepository.orderList
 
+    fun orderIsReady(order: Order){
+        orderRepository.orderIsReady(order)
+    }
+    fun orderISCanceled(order: Order){
+        orderRepository.orderIsCanceleded(order)
+    }
+
 
     open class Factory(val app: Application, private val orderRepository: OrderRepository) :
         ViewModelProvider.Factory {

@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="1dp"
                     android:layout_marginTop="6dp"
-                    android:text="@{orderListItem.status.toString()}"
+                    android:text="@{String.valueOf(orderListItem.orderPrice)}"
                     android:textSize="22sp"
                     app:layout_constraintStart_toEndOf="@+id/priceTextView"
                     app:layout_constraintTop_toBottomOf="@+id/owneNamerTextView"
@@ -100,6 +100,7 @@
                     android:layout_height="27dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
+                    android:onClick="@{()-> orderClickListener.orderIsCanceled(orderListItem)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
@@ -110,6 +111,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
+                    android:onClick="@{()-> orderClickListener.orderIsReady(orderListItem)}"
                     app:layout_constraintEnd_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
                     app:srcCompat="@android:drawable/checkbox_on_background" />

@@ -49,7 +49,9 @@ class OrderFragment : Fragment(){
         })
 
         binding.orderRc.adapter=OrderAdapter(
-            OrderClickListener()
+            OrderClickListener (
+                { order -> viewModel.orderIsReady(order) },
+                { order -> viewModel.orderISCanceled(order) })
         )
     }
 }

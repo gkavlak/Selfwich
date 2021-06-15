@@ -53,7 +53,8 @@ class EatsFragment : Fragment() {
                 )
         )
         binding.imageButton2.setOnClickListener {
-            CustomDialogFragment()
+            val type="eats"
+            CustomDialogFragment(tpye = type)
                 .show(childFragmentManager,"")
         }
 

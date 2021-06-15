@@ -40,7 +40,7 @@ class UpdateDialogFragment(val product: Product) :DialogFragment() {
 
 
         binding.button4.setOnClickListener {
-            val newprodut = Product(product.pId, product.pName,product.pDesc,product.pLike, product.pPrice,product.pImage)
+            val newprodut = Product(product.pId, product.pName,product.pDesc,product.pLike, product.pPrice,product.pImage,product.pType)
             val oldproduct = product
             val drinksName= binding.productNewNameEdit.text.toString()
             newprodut.pName= drinksName
