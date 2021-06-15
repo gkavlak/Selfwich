@@ -46,7 +46,12 @@ class IngredientDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
         return oldItem == newItem
     }
 }
-class IngredientClickListener(val addIngredientClick: (ingredient: Ingredient) -> Unit) {
+class IngredientClickListener(
+    val addIngredientClick: (ingredient: Ingredient) -> Unit,
+    val deleteIngredientClick : (ingredient: Ingredient) -> Unit
+
+    ) {
 
     fun addNewSelfwichIngredient(ingredient: Ingredient) = addIngredientClick(ingredient)
+    fun deleteIngredient (ingredient: Ingredient) = deleteIngredientClick(ingredient)
 }

@@ -25,6 +25,10 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     private val _totalPrice = MutableLiveData<Long>(0)
     val totalPrice: LiveData<Long> = _totalPrice
 
+    fun deleteIngredient(ingredient: Ingredient){
+        ingredientRepository.deleteIngredientToDatabase(ingredient)
+    }
+
 
     init {
         _newSelfwich.value?.userId= Singleton.globalUser.value?.userId.toString()

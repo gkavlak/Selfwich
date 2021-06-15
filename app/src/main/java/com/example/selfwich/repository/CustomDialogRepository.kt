@@ -3,6 +3,7 @@ package com.example.selfwich.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Product
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
@@ -52,4 +53,23 @@ class CustomDialogRepository (){
                 }
         }
     }
+    fun addIngredientToDatabase(ingredient: Ingredient){
+        ingredient?.let {
+            val docref = firestore.collection("ingredient")
+                .document(ingredient.ingredientName)
+            docref.set(it).addOnSuccessListener { document ->
+                if (document!= null){
+                    Log.i("Click","Databaseye gonderildi $ingredient")
+
+                } else {
+                    Log.i("Click","Document bulamdi" + " $ingredient")
+                }
+            }
+                .addOnFailureListener { exception->
+                Log.i("Click", "Olmadi yaaa", exception)
+            }
+        }
+
+    }
+
 }

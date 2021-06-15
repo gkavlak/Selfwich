@@ -84,18 +84,6 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
 
         <Button
-            android:id="@+id/nextbuttonTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="8dp"
-            android:text="Next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/takeOrderAndPublish"
-            app:layout_constraintStart_toEndOf="@+id/totoalPrice"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientRc" />
-
-        <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,6 +92,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="12dp"
+            android:background="#131313"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingredientRc"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
