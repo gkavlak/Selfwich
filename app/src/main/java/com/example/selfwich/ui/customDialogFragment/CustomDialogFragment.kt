@@ -13,7 +13,7 @@ import com.example.selfwich.model.Product
 import com.example.selfwich.repository.CustomDialogRepository
 import com.example.selfwich.viewModel.CustomDialogViewModel
 
-class CustomDialogFragment :DialogFragment() {
+class CustomDialogFragment(val tpye: String) :DialogFragment() {
     private lateinit var binding: CustomDialogFragmentBinding
     private lateinit var customDialogRepository: CustomDialogRepository
     private lateinit var viewModel: CustomDialogViewModel
@@ -35,16 +35,19 @@ class CustomDialogFragment :DialogFragment() {
             this,
             CustomDialogViewModel.Factory(activity.application, customDialogRepository)
         ).get(CustomDialogViewModel::class.java)
-
              val product = Product()
+
+
+
          binding.button.setOnClickListener {
-
                 val eatsName = binding.editTextTextPersonName2.text.toString()
-                val eatsPrice= binding.editTextTextPersonName3.text
+                val eatsPrice= binding.editTextTextPersonName3.text.toString().toLong()
                 val eatsDesc=   binding.editTextTextPersonName4.text.toString()
-
                 product.pDesc = eatsDesc
                 product.pName= eatsName
+                product.pPrice= eatsPrice
+
+
 
 
             viewModel.goToDataBase(product)
@@ -58,6 +61,7 @@ class CustomDialogFragment :DialogFragment() {
             product.pName=drinksName
             product.pDesc=drinksDesc
             product.pPrice=drinksPrice
+
 
             viewModel.addDrinksToDatabase(product)
             Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()

@@ -67,7 +67,8 @@ class DrinksFragment : Fragment() {
 
 
         binding.imageButton3.setOnClickListener {
-            CustomDialogFragment()
+            val type = "drinks"
+            CustomDialogFragment(type)
                 .show(childFragmentManager,"")
         }
 
