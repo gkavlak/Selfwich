@@ -24,8 +24,6 @@ class EatsViewModel(app : Application , private val eatsRepository: EatsReposito
         eatsRepository.addLikeToDrink(product)
     }
     fun addProducttoOrder(product: Product){
-        Singleton.globalOrder.products.add(product)
-        Singleton.globalOrder.calculatePrice()
         Singleton.globalOrderLive.value?.products?.add(product)
         Singleton.globalOrderLive.value?.calculatePrice()
         Log.i("buy", "t${Singleton.globalOrderLive.value?.products!!}")

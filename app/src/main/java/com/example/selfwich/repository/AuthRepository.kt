@@ -40,7 +40,7 @@ class AuthRepository{
                         val user = FirebaseAuth.getInstance().currentUser
                         Singleton.globalUser.value?.userId=registerResult.result?.user!!.uid
                         Singleton.globalUser.value?.userName=name
-                        Singleton.globalOrder.ownerId=registerResult.result?.user!!.uid
+                        Singleton.globalOrderLive.value?.ownerId=registerResult.result?.user!!.uid
                             if(user != null){
                                 initUser(registerResult.result!!)
 
@@ -99,9 +99,11 @@ class AuthRepository{
             if (docSnapshot != null)
             {
                 val currentuser = docSnapshot.toObject(DomainUser::class.java)
+                Singleton.globalUser.value =currentuser
+                Singleton.globalOrderLive.value?.ownerId=currentuser?.userId.toString()
                 Singleton.globalUser.value?.userName = currentuser?.userName.toString()
                 Singleton.globalUser.value?.userId= currentuser?.userId.toString()
-                Singleton.globalUser.value?.userIsAdmin= currentuser?.userIsAdmin == true
+                Singleton.globalUser.value?.userType= currentuser?.userType.toString()
             }
         }
         }

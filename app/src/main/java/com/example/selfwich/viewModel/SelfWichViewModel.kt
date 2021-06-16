@@ -24,8 +24,6 @@ class SelfWichViewModel(app : Application, private val selfwichRepository: SelfW
     fun addSelfwichtoOrder(selfwich: Selfwich){
         Singleton.globalOrderLive.value?.selfwichs?.add(selfwich)
         Singleton.globalOrderLive.value?.calculatePrice()
-        Singleton.globalOrder.selfwichs.add(selfwich)
-        Singleton.globalOrder.calculatePrice()
         Log.i("buy", "t${Singleton.globalOrderLive.value?.selfwichs!!}")
         Log.i("buy", "t${Singleton.globalOrderLive.value?.orderPrice!!}")
     }
