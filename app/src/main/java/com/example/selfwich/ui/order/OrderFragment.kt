@@ -9,10 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.selfwich.OrderAdapter
 import com.example.selfwich.OrderClickListener
 import com.example.selfwich.R
 import com.example.selfwich.databinding.OrderFragmentBinding
+import com.example.selfwich.model.Order
 import com.example.selfwich.repository.EatsRepository
 import com.example.selfwich.repository.OrderRepository
 import com.example.selfwich.viewModel.OrderViewModel
@@ -51,7 +53,8 @@ class OrderFragment : Fragment(){
         binding.orderRc.adapter=OrderAdapter(
             OrderClickListener (
                 { order -> viewModel.orderIsReady(order) },
-                { order -> viewModel.orderISCanceled(order) })
+                { order -> viewModel.orderISCanceled(order)},
+                { order -> findNavController().navigate(OrderFragmentDirections.actionOrderFragmentToOrderDetailsFragment(order.orderId))})
         )
     }
 }

@@ -30,14 +30,23 @@ class OrderDetailsFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val arguments = OrderDetailsFragmentArgs.fromBundle(requireArguments())
+
         val activity = requireNotNull(this.activity) {}
+
+        orderDetailsRepository= OrderDetailsRepository()
+
+        viewModel = ViewModelProvider(this, OrderDetailsViewModel.Factory(arguments.orderId,activity.application,orderDetailsRepository))
+            .get(OrderDetailsViewModel::class.java)
+
+
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
-        orderDetailsRepository= OrderDetailsRepository()
-        viewModel=
-            ViewModelProvider(this, OrderDetailsViewModel.Factory(activity.application,orderDetailsRepository))
-                .get(OrderDetailsViewModel::class.java)
+
+
+
+
 
     }
 

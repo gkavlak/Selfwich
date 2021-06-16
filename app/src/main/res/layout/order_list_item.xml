@@ -123,6 +123,7 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="4dp"
                     android:text="@string/details"
+                    android:onClick="@{()-> orderClickListener.orderDetails(orderListItem)}"
                     android:textColor="@color/design_default_color_error"
                     android:textSize="22dp"
                     android:textStyle="bold|italic"

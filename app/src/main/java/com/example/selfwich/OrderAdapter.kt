@@ -48,8 +48,10 @@ class OrderAdapter (val clickListener: OrderClickListener) : androidx.recyclervi
 
 
 class OrderClickListener(val readyClickListener: (order: Order) -> Unit,
-                         val canceledClickListener: (order: Order) -> Unit)
+                         val canceledClickListener: (order: Order) -> Unit,
+                         val detailsClickListener:(order: Order)-> Unit)
 {
+    fun orderDetails(order:Order) = detailsClickListener(order)
     fun orderIsReady(order: Order) = readyClickListener(order)
     fun orderIsCanceled(order: Order) = canceledClickListener(order)
 
