@@ -5,23 +5,23 @@
     <item
             android:id="@+id/drinksFragment"
             android:title="Drinks"
-            android:icon="@drawable/ic_baseline_local_drink_24"
+            android:icon="@drawable/teacup32"
             />
 
     <item
         android:id="@+id/eatsFragment"
         android:title="Eats"
-        android:icon="@drawable/ic_baseline_restaurant_menu_24"/>
+        android:icon="@drawable/silverware32"/>
 
     <item
         android:id="@+id/selfwichFragment"
-        android:title="Selfwich"
-        android:icon="@drawable/ic_baseline_supervised_user_circle_24"/>
+        android:title="Sandwich"
+        android:icon="@drawable/burger32"/>
 
     <item
-        android:title="Product"
+        android:title="Selfwich"
         android:id="@+id/ingredientFragment"
-        android:icon="@drawable/ic_baseline_library_add_24">
+        android:icon="@drawable/chef32">
     </item>
 
 </menu>

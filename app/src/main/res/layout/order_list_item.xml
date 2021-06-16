@@ -96,14 +96,14 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="28dp"
-                    android:layout_height="27dp"
+                    android:layout_width="39dp"
+                    android:layout_height="35dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:onClick="@{()-> orderClickListener.orderIsCanceled(orderListItem)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
-                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                    app:srcCompat="@drawable/ban64" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -114,23 +114,36 @@
                     android:onClick="@{()-> orderClickListener.orderIsReady(orderListItem)}"
                     app:layout_constraintEnd_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/orderStatusTextView"
-                    app:srcCompat="@android:drawable/checkbox_on_background" />
+                    app:srcCompat="@drawable/tick32" />
 
                 <TextView
                     android:id="@+id/detalsTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:layout_marginTop="4dp"
-                    android:text="@string/details"
                     android:onClick="@{()-> orderClickListener.orderDetails(orderListItem)}"
+                    android:text="@string/details"
                     android:textColor="@color/design_default_color_error"
                     android:textSize="22dp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
-                    app:layout_constraintHorizontal_bias="0.272"
-                    app:layout_constraintStart_toEndOf="@+id/orderPriceTextView4"
+                    app:layout_constraintEnd_toEndOf="@+id/dateTextw"
+                    app:layout_constraintStart_toStartOf="@+id/dateTextw"
                     app:layout_constraintTop_toBottomOf="@+id/owneNamerTextView" />
+
+                <TextView
+                    android:id="@+id/dateTextw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@{orderListItem.dateConverter()}"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detalsTextView"
+                    app:layout_constraintEnd_toStartOf="@+id/orderStatusTextView"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintStart_toEndOf="@+id/owneNamerTextView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="20/12/2001" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
