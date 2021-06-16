@@ -1,4 +1,4 @@
-package com.example.selfwich.ui
+package com.example.selfwich.ui.selfwichs
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.example.selfwich.SelfWichAdapter
 import com.example.selfwich.SelfwichClickListener
 import com.example.selfwich.databinding.SelfwichFragmentBinding
-import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.SelfWichRepository
 import com.example.selfwich.viewModel.SelfWichViewModel
 

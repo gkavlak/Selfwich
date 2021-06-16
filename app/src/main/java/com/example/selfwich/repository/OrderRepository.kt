@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Order
+import com.example.selfwich.model.Singleton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,6 +33,11 @@ class OrderRepository {
                 }
                 if (docSnapshot != null){
                     val allOrder= ArrayList<Order>()
+
+                    if (Singleton.globalUser.value?.userType.equals("customer")){
+                        Singleton.globalOrderLive.value?.let { allOrder.add(it) }
+                    }
+
                     docSnapshot.documents.forEach {
                         val currentOrder = it.toObject(Order::class.java)
                         it.let {
@@ -73,10 +79,9 @@ class OrderRepository {
                 .addOnFailureListener { exception->
                     Log.i("Click", "Olmadi yaaa", exception)
                 }
-
         }
     }
 
-    }
+}
 
 

@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/selfwichFragment"
-        android:name="com.example.selfwich.ui.SelfWichFragment"
+        android:name="com.example.selfwich.ui.selfwichs.SelfWichFragment"
         android:label="sandwich_fragment"
         tools:layout="@layout/selfwich_fragment" />
     <fragment
