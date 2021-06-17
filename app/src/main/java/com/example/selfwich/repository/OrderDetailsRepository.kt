@@ -11,14 +11,10 @@ import java.util.ArrayList
 class OrderDetailsRepository {
 
 
-    private  var firestore: FirebaseFirestore
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     val _order: MutableLiveData<Order> = MutableLiveData<Order>()
     val order: LiveData<Order> = _order
-
-    init {
-        firestore = FirebaseFirestore.getInstance()
-    }
 
     fun getOrder(orderId: String){
         firestore.collection("orders").document(orderId).addSnapshotListener{docSnaphot,e->

@@ -1,25 +1,17 @@
 package com.example.selfwich.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Ingredient
 import com.example.selfwich.model.Product
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
+
 
 class CustomDialogRepository {
-    private lateinit var firestore: FirebaseFirestore
-
-    private val _addDrinksToDatabase: MutableLiveData<Product?> = MutableLiveData<Product?>(Product())
-    val addDrinksToDatabase: LiveData<Product?> = _addDrinksToDatabase
+    private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
 
-    init {
-        firestore = FirebaseFirestore.getInstance()
-    }
     fun addProductToDatabase(product:Product) {
-        product?.let {
+        product.let {
             product.pType="eats"
             val docref= firestore.collection("eats")
                 .document(product.pName)
@@ -37,7 +29,7 @@ class CustomDialogRepository {
         }
     }
     fun addDrinksToDatabase(product:Product) {
-        product?.let {
+        product.let {
             product.pType="drinks"
             val docref= firestore.collection("drinks")
                 .document(product.pName)
@@ -56,7 +48,7 @@ class CustomDialogRepository {
         }
     }
     fun addIngredientToDatabase(ingredient: Ingredient){
-        ingredient?.let {
+        ingredient.let {
             ingredient.type="ingredient"
             val docref = firestore.collection("ingredient")
                 .document(ingredient.ingredientName)

@@ -22,12 +22,9 @@ class DrinksRepository {
     val isLikeAdded:LiveData<Long> = _isLikeAdded
 
 
-
-    private  var firestore: FirebaseFirestore
-    //fun getCurrentLike(): DocumentReference? = firestore.collection("drinks").parent
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-        firestore = FirebaseFirestore.getInstance()
         getAllDrinks()
     }
     fun getAllDrinks() {
@@ -60,7 +57,6 @@ class DrinksRepository {
                 .addOnSuccessListener {
                     Log.d(TAG, "DocumentSnapshot successfully written!")
                     _isLikeAdded.value = product.pLike
-
 
                 }
                 .addOnFailureListener{ e->Log.d(TAG, "DocumentSnapshot ${e.message}!") }

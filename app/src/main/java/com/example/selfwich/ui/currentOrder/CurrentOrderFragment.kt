@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.databinding.CurrentOrderFragmentBinding
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.CurrentOrderRepository
 import com.example.selfwich.viewModel.CurrentOrderViewModel
 
@@ -39,6 +40,9 @@ class CurrentOrderFragment : Fragment() {
 
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
+        Singleton.globalOrderLive.observe(viewLifecycleOwner, {
+            viewModel.setCurrentOrderr(it)
+        })
 
     }
 }

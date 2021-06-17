@@ -11,15 +11,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class AdminLoginRepository (){
 
-    private  var firestore: FirebaseFirestore
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private val _loginSucces : MutableLiveData<Boolean> = MutableLiveData(null)
       val loginSucces : LiveData<Boolean> = _loginSucces
 
-
-    init {
-        firestore = FirebaseFirestore.getInstance()
-    }
 
     fun adminLogin(email: String ,password:String ){
 

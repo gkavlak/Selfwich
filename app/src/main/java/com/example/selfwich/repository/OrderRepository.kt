@@ -16,13 +16,10 @@ class OrderRepository {
     val orderList: LiveData<ArrayList<Order>> = _orderList
 
 
-    private  var firestore: FirebaseFirestore
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-        firestore = FirebaseFirestore.getInstance()
         getAllOrder()
-
-
     }
 
     private fun getAllOrder() {
