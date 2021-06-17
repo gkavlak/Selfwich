@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav_host"
-    app:startDestination="@id/eatsFragment">
+    app:startDestination="@id/adminLoginFragment">
 
     <fragment
         android:id="@+id/drinksFragment"
@@ -95,4 +95,12 @@
         android:id="@+id/currentOrderFragment"
         android:name="com.example.selfwich.ui.currentOrder.CurrentOrderFragment"
         android:label="CurrentOrderFragment" />
+    <fragment
+        android:id="@+id/adminLoginFragment"
+        android:name="com.example.selfwich.ui.AdminLoginFragment"
+        android:label="AdminLoginFragment" >
+        <action
+            android:id="@+id/action_adminLoginFragment_to_eatsFragment"
+            app:destination="@id/eatsFragment" />
+    </fragment>
 </navigation>

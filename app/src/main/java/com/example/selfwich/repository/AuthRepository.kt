@@ -82,7 +82,6 @@ class AuthRepository{
                     }
 
                 }
-
         }
 
     private fun initUser(registerResult: AuthResult) {
@@ -109,5 +108,8 @@ class AuthRepository{
         }
         }
     }
+
+
+
 
 }
