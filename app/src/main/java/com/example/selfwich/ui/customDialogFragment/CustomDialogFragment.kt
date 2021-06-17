@@ -42,73 +42,54 @@ class CustomDialogFragment(val tpye:String) :DialogFragment() {
          binding.button.setOnClickListener {
 
                 val eatsName = binding.editTextTextPersonName2.text.toString()
-                val eatsPrice= binding.editTextTextPersonName3.text.toString().toLong()
+                val eatsPrice= binding.editTextTextPersonName3.text.toString()
                 val eatsDesc=   binding.editTextTextPersonName4.text.toString()
-             if(eatsName.isEmpty()){
-                 R.string.this_field_cant_be_empty
+             if(eatsName.isEmpty() || eatsDesc.isEmpty() || eatsPrice.isEmpty()){
+                 Toast.makeText(requireContext(),"All field must be full !", Toast.LENGTH_SHORT).show()
              }
-             if(eatsDesc.isEmpty()){
-                 R.string.this_field_cant_be_empty
+             else{
+                 product.pDesc = eatsDesc
+                 product.pName = eatsName
+                 product.pPrice = eatsPrice.toString().toLong()
+                 viewModel.goToDataBase(product)
+                 Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
              }
 
-             //if(eatsPrice){
-              //   R.string.this_field_cant_be_empty
-            // }
-
-                product.pDesc = eatsDesc
-                product.pName= eatsName
-
-
-            viewModel.goToDataBase(product)
-            Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
         }
         binding.button3.setOnClickListener {
             val drinksName = binding.editTextTextPersonName2.text.toString()
-            val drinksPrice = binding.editTextTextPersonName3.text.toString().toLong()
+            val drinksPrice = binding.editTextTextPersonName3.text.toString()
             val drinksDesc =   binding.editTextTextPersonName4.text.toString()
 
-                if(drinksName.isEmpty()){
-                R.string.this_field_cant_be_empty
+                if(drinksName.isEmpty() || drinksDesc.isEmpty() || drinksPrice.isEmpty()){
+                    Toast.makeText(requireContext(),"All field must be full !", Toast.LENGTH_SHORT).show()
+                }else {
+                    product.pName=drinksName
+                    product.pDesc=drinksDesc
+                    product.pPrice=drinksPrice.toString().toLong()
+                    viewModel.addDrinksToDatabase(product)
+                    Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
                 }
-                if(drinksName.isEmpty()){
-                    R.string.this_field_cant_be_empty
-                }
-                 if(drinksDesc.isEmpty()){
-                R.string.this_field_cant_be_empty
-            }
-
-            product.pName=drinksName
-            product.pDesc=drinksDesc
-            product.pPrice=drinksPrice
-
-            viewModel.addDrinksToDatabase(product)
-            Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
         }
             // Adding Ingredients
             val ingredient= Ingredient()
          binding.button5.setOnClickListener {
             val ingredientName = binding.editTextTextPersonName2.text.toString()
-            val ingredientPrice = binding.editTextTextPersonName3.text.toString().toLong()
+            val ingredientPrice = binding.editTextTextPersonName3.text.toString()
             val ingredientDesc = binding.editTextTextPersonName4.text.toString()
-            if(ingredientName.isEmpty()){
-                R.string.this_field_cant_be_empty
+            if(ingredientName.isEmpty() || ingredientDesc.isEmpty() || ingredientPrice.isEmpty()){
+                Toast.makeText(requireContext(),"All field must be full !", Toast.LENGTH_SHORT).show()
             }
-            if(ingredientDesc.isEmpty()){
-                R.string.this_field_cant_be_empty
+             else{
+                ingredient.ingredientName = ingredientName
+                ingredient.ingredientPrice = ingredientPrice.toString().toLong()
+                ingredient.ingredientDesc  = ingredientDesc
+                viewModel.addIngredientToDatabase(ingredient)
+                Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
             }
-            if(ingredientDesc.isEmpty()){
-                R.string.this_field_cant_be_empty
-            }
-            ingredient.ingredientName = ingredientName
-            ingredient.ingredientPrice = ingredientPrice
-            ingredient.ingredientDesc  = ingredientDesc
-            viewModel.addIngredientToDatabase(ingredient)
-            Toast.makeText(requireContext(),"Product Added Succesfully", Toast.LENGTH_SHORT).show()
+
+
         }
-
-
-
-
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
     }

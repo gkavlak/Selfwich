@@ -16,7 +16,7 @@ import com.example.selfwich.ui.customDialogFragment.CustomDialogFragment
 import com.example.selfwich.ui.updateDialog.UpdateDialogFragment
 import com.example.selfwich.viewModel.EatsViewModel
 
-class EatsFragment : Fragment() {
+class   EatsFragment : Fragment() {
 
     private lateinit var binding:EatsFragmentBinding
     private lateinit var eatsRepository: EatsRepository
