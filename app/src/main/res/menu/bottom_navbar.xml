@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/drinksFragment"
+            android:id="@+id/currentOrderFragment"
             android:title="Drinks"
             android:icon="@drawable/teacup32"
             />

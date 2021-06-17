@@ -31,11 +31,6 @@ class OrderRepository {
                 }
                 if (docSnapshot != null){
                     val allOrder= ArrayList<Order>()
-
-                    if (Singleton.globalUser.value?.userType.equals("customer")){
-                        Singleton.globalOrderLive.value?.let { allOrder.add(it) }
-                    }
-
                     docSnapshot.documents.forEach {
                         val currentOrder = it.toObject(Order::class.java)
                         it.let {

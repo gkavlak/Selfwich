@@ -9,22 +9,147 @@
             type="com.example.selfwich.viewModel.CurrentOrderViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="182dp"
-            android:layout_marginEnd="250dp"
-            android:layout_marginBottom="530dp"
-            tools:text="selam"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="114dp"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/orderHourText22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="@{viewmodel.order.dateConverterToHour()}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/orderDetailsStatusTextView22"
+                app:layout_constraintStart_toEndOf="@+id/orderPiriceTextView22"
+                app:layout_constraintTop_toBottomOf="@+id/orderDatatextView22"
+                tools:text="20:45" />
+
+            <TextView
+                android:id="@+id/orderDatatextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{viewmodel.order.dateConverter()}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/orderHourText22"
+                app:layout_constraintEnd_toStartOf="@+id/orderDetailsStatusTextView22"
+                app:layout_constraintStart_toEndOf="@+id/orderPiriceTextView22"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="adsdfasd" />
+
+            <TextView
+                android:id="@+id/owenerSTextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderDatatextView22" />
+
+
+            <TextView
+                android:id="@+id/orderPSTextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/price"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/owenerSTextView22" />
+
+            <TextView
+                android:id="@+id/orderPiriceTextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewmodel.order.priceToString()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toEndOf="@+id/orderPSTextView22"
+                app:layout_constraintTop_toBottomOf="@+id/owenerSTextView22"
+                tools:text="55" />
+
+            <TextView
+                android:id="@+id/orderOwnerTextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.order.ownerName}"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/owenerSTextView22"
+                app:layout_constraintTop_toTopOf="@+id/owenerSTextView22"
+                tools:text="Yushaa" />
+
+            <ImageView
+                android:id="@+id/imageView622"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView722"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toBottomOf="@+id/orderDetailsStatusTextView22"
+                app:srcCompat="@drawable/tick32" />
+
+            <ImageView
+                android:id="@+id/imageView722"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orderDetailsStatusTextView22"
+                app:srcCompat="@drawable/ban32" />
+
+            <TextView
+                android:id="@+id/orderDetailsStatusTextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="36dp"
+                android:text="@{viewmodel.order.status}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="WATTING" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productRcy22"
+            android:layout_width="match_parent"
+            android:layout_height="208dp"
+            orderProductList="@{viewmodel.order.products}"
+            android:layout_weight="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/order_details_produc_list_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/selfwichRcy22"
+            android:layout_width="417dp"
+            android:layout_height="208dp"
+            android:layout_weight="3"
+            orderSelfwichList="@{viewmodel.order.selfwichs}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            tools:listitem="@layout/order_details_selfwich_list_item">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
 </layout>

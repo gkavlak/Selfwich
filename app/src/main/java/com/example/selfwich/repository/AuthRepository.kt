@@ -41,6 +41,7 @@ class AuthRepository{
                         Singleton.globalUser.value?.userId=registerResult.result?.user!!.uid
                         Singleton.globalUser.value?.userName=name
                         Singleton.globalOrderLive.value?.ownerId=registerResult.result?.user!!.uid
+                        Singleton.globalOrderLive.value?.ownerName=name
                             if(user != null){
                                 initUser(registerResult.result!!)
 
@@ -72,7 +73,7 @@ class AuthRepository{
                     }
                     else{
                         if (loginResult.exception != null) {
-                            //Error Login
+
                             Log.i("Auth", loginResult.exception?.message.toString())
                             _authStatus.value = AuthStatus.ERROR
                             _fireBaseAuthResult.postValue(LoginResult(error = loginResult.exception?.message))
@@ -101,9 +102,9 @@ class AuthRepository{
                 val currentuser = docSnapshot.toObject(DomainUser::class.java)
                 Singleton.globalUser.value =currentuser
                 Singleton.globalOrderLive.value?.ownerId=currentuser?.userId.toString()
-                Singleton.globalUser.value?.userName = currentuser?.userName.toString()
-                Singleton.globalUser.value?.userId= currentuser?.userId.toString()
-                Singleton.globalUser.value?.userType= currentuser?.userType.toString()
+                Singleton.globalOrderLive.value?.ownerName=currentuser?.userName.toString()
+
+
             }
         }
         }
