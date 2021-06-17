@@ -91,4 +91,8 @@
             android:name="orderId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/currentOrderFragment"
+        android:name="com.example.selfwich.ui.currentOrder.CurrentOrderFragment"
+        android:label="CurrentOrderFragment" />
 </navigation>
