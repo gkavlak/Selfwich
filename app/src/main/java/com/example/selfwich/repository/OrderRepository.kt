@@ -46,7 +46,8 @@ class OrderRepository {
                         }
                     }
                 }
-            }    }
+            }
+    }
 
     fun orderIsReady(order: Order){
         order.let {

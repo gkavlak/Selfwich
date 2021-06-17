@@ -28,7 +28,6 @@ class OrderDetailsRepository {
             }
             if(docSnaphot != null){
                 _order.value=docSnaphot.toObject(Order::class.java)
-                Log.i("DocOrderID",docSnaphot.toString())
             }
         }
 
