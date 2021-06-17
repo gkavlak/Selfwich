@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.OrderDetailsProductAdapter
 import com.example.selfwich.OrderDetailsProductClickListener
+import com.example.selfwich.OrderDetailsSelfwichAdapter
+import com.example.selfwich.OrderDetailsSelfwichClickListener
 import com.example.selfwich.databinding.OrderDetailsFragmentBinding
 import com.example.selfwich.databinding.OrderFragmentBinding
 import com.example.selfwich.repository.OrderDetailsRepository
@@ -43,6 +45,7 @@ class OrderDetailsFragment : Fragment(){
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
         binding.productRcy.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener())
+        binding.selfwichRcy.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
 
 
 

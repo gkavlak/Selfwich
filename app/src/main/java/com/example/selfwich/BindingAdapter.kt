@@ -27,6 +27,13 @@ fun setRecyclerViewListOrderProduct(recyclerView: RecyclerView, listData: List<P
         adapter.submitList(listData)
     }
 }
+@BindingAdapter("orderSelfwichList")
+fun setRecyclerViewListOrderSelfwich(recyclerView: RecyclerView, listData: List<Selfwich>?) {
+    listData?.let {
+        val adapter = recyclerView.adapter as OrderDetailsSelfwichAdapter
+        adapter.submitList(listData)
+    }
+}
 
 @BindingAdapter ("submitSelfwichList")
     fun setRecylerViewListSelfwich(recyclerView: RecyclerView,  listData: List<Selfwich>?){

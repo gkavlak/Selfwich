@@ -144,6 +144,7 @@
                 android:layout_width="417dp"
                 android:layout_height="208dp"
                 android:layout_weight="3"
+                orderSelfwichList="@{viewmodel.order.selfwichs}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

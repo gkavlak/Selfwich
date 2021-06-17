@@ -3,11 +3,12 @@ package com.example.selfwich
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.SelfwichListItemBinding
 import com.example.selfwich.model.Selfwich
 
-class SelfWichAdapter(val clickListener: SelfwichClickListener): androidx.recyclerview.widget.ListAdapter<Selfwich, SelfWichAdapter.SelfwichViewHolder>(SelfwichDiffCallbacks()) {
+class SelfWichAdapter(val clickListener: SelfwichClickListener): ListAdapter<Selfwich, SelfWichAdapter.SelfwichViewHolder>(SelfwichDiffCallbacks()) {
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int): SelfwichViewHolder {
      return SelfwichViewHolder.from(parent)
