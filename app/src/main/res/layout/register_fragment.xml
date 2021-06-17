@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -8,9 +9,10 @@
                 type="com.example.selfwich.viewModel.RegisterViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         tools:context=".ui.register.RegisterFragment">
 
 
@@ -18,35 +20,118 @@
             android:id="@+id/registerEditTextEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:ems="10"
+            android:hint="Write Your Email"
             android:inputType="textPersonName"
-            android:layout_marginTop="10dp"
-            android:text="Name" />
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:text="Write Your Email" />
+
         <EditText
             android:id="@+id/registerEditTextTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:ems="10"
+            android:hint="Write Your Name"
             android:inputType="textPersonName"
-            android:layout_marginTop="50dp"
-            android:text="Name" />
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextEmail"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextEmail"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextEmail"
+            tools:text="Write Your Name" />
 
         <EditText
             android:id="@+id/registerEditTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:ems="10"
-            android:layout_marginTop="90dp"
+            android:hint="Write Your Password"
             android:inputType="textPersonName"
-            android:text="Name" />
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextTextPersonName"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextTextPersonName"
+            tools:text="Write Your Password" />
 
         <Button
             android:id="@+id/registerButton"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="64dp"
+            android:background="@drawable/custom_button"
+            android:onClick="@{()->viewmodel.registerUser(viewmodel.registerForm.useremail,viewmodel.registerForm.password,viewmodel.registerForm.username)}"
+            android:text="@string/create_account"
+            android:textAllCaps="false"
+            android:textColor="#F3F1F1"
+            android:textSize="20sp"
+            app:backgroundTint="#00ACC1"
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextPassword"
+            app:layout_constraintHorizontal_bias="0.293"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextPassword"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextPassword" />
+
+        <ImageView
+            android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:onClick="@{()->viewmodel.registerUser(viewmodel.registerForm.useremail,viewmodel.registerForm.password,viewmodel.registerForm.username)}"
-            android:text="Register" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/welcome_to_selfwich"
+            android:textColor="#E5851E"
+            android:textColorHighlight="#1C1C1C"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <Button
+            android:id="@+id/goToLogin"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/login"
+            android:textSize="20sp"
+            app:backgroundTint="#00ACC1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/registerButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/registerButton"
+            app:layout_constraintTop_toBottomOf="@+id/registerButton"
+            app:layout_constraintVertical_bias="0.162" />
+
+        <Button
+            android:id="@+id/goToAdmin"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_button"
+            android:text="ARE YOU ADMIN ?"
+            android:textSize="20sp"
+            app:backgroundTint="#00ACC1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/goToLogin"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/goToLogin"
+            app:layout_constraintTop_toBottomOf="@+id/goToLogin"
+            app:layout_constraintVertical_bias="0.285" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

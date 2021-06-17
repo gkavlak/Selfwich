@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.selfwich.ProductAdapter
 import com.example.selfwich.ProductClickListener
 import com.example.selfwich.databinding.DrinksFragmentBinding
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.DrinksRepository
 import com.example.selfwich.ui.customDialogFragment.CustomDialogFragment
 import com.example.selfwich.ui.updateDialog.UpdateDialogFragment
@@ -61,10 +64,7 @@ class DrinksFragment : Fragment() {
             )
 
         )
-
-
-
-
+        val adminUser= Singleton.globalUser.value?.userType.equals("admin")
 
         binding.imageButton3.setOnClickListener {
             val type = "drinks"

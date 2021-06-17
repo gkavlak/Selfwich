@@ -22,6 +22,7 @@ class OrderRepository {
         firestore = FirebaseFirestore.getInstance()
         getAllOrder()
 
+
     }
 
     private fun getAllOrder() {

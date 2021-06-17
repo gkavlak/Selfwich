@@ -18,45 +18,72 @@
             android:id="@+id/emailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="185dp"
-            android:layout_marginBottom="671dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:hint="Enter The Email"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.203"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <EditText
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
+            android:hint="Enter The Password"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="@+id/emailText"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/emailText"
             app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
+            android:layout_width="260dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_button"
             android:onClick="@{()->viewmodel.loginUser(viewmodel.form.username,viewmodel.form.password)}"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#F3F1F1"
+            android:textSize="20sp"
+            app:backgroundTint="#00ACC1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/passwordText"
-            app:layout_constraintHorizontal_bias="0.316"
+            app:layout_constraintHorizontal_bias="0.58"
             app:layout_constraintStart_toStartOf="@+id/passwordText"
             app:layout_constraintTop_toBottomOf="@+id/passwordText"
-            app:layout_constraintVertical_bias="0.12" />
+            app:layout_constraintVertical_bias="0.114" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/welcome_to_selfwich"
+            android:textColor="#E5851E"
+            android:textColorHighlight="#1C1C1C"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

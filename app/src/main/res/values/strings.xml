@@ -37,6 +37,9 @@
     <string name="image">Image:</string>
     <string name="write_desc">Write Desc</string>
     <string name="this_filed_cant_empty">This Field Can not be Empty</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome_to_selfwich">WELCOME TO SELFWICH</string>
+    <string name="create_account">Create Account</string>
 
 
 </resources>

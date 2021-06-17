@@ -5,10 +5,14 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Singleton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+
 const val TAG="ShopRepository"
 class DrinksRepository {
     private val _drinksList = MutableLiveData<ArrayList<Product>>()
@@ -56,6 +60,8 @@ class DrinksRepository {
                 .addOnSuccessListener {
                     Log.d(TAG, "DocumentSnapshot successfully written!")
                     _isLikeAdded.value = product.pLike
+
+
                 }
                 .addOnFailureListener{ e->Log.d(TAG, "DocumentSnapshot ${e.message}!") }
 

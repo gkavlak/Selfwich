@@ -83,6 +83,12 @@ class RegisterFragment : Fragment() {
                 nameText.error = getString(registerFormState.usernameError)
             }
         })
+        binding.goToLogin.setOnClickListener{
+            registerToLogin()
+        }
+        binding.goToAdmin.setOnClickListener {
+            registerToAdmin()
+        }
     }
 
 
@@ -91,6 +97,18 @@ class RegisterFragment : Fragment() {
             .navigate(RegisterFragmentDirections.actionRegisterFragmentToDrinksFragment())
     }
 */
+    private fun registerToAdmin(){
+        this.findNavController()
+            .navigate(RegisterFragmentDirections.actionRegisterFragmentToAdminLoginFragment())
+
+    }
+
+    private fun registerToLogin(){
+        this.findNavController()
+            .navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+    }
+
+
     private fun registerToIngredient() {
         this.findNavController()
             .navigate(RegisterFragmentDirections.actionRegisterFragmentToEatsFragment())
