@@ -16,10 +16,9 @@ class IngredientRepository{
     val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
 
 
-    private  var firestore: FirebaseFirestore
-    init {
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-        firestore = FirebaseFirestore.getInstance()
+    init {
         getAllIngredient()
     }
 
@@ -55,38 +54,6 @@ class IngredientRepository{
     }
 
 
-    fun getUserIdfromDatabase(): String {
-        var name= ""
-        val user= Firebase.auth.currentUser
-
-        if (user != null){
-                name = user.displayName!!
-            Log.i("userNameee","${name}")
-            return name
-
-        }
-        else{
-           name= "isim bulunamadi"
-            Log.i("userNameee","${name}")
-            return name
-        }
-
-//        val docRef = firestore.collection("users").document("m1GAyofxJEXolVtbVoz8166256D2")
-//        docRef.get()
-//            .addOnSuccessListener { document ->
-//                if (document != null) {
-//                    val user = FirebaseAuth.getInstance().currentUser
-//                    val currentUser = document.toObject(DomainUser::class.java)
-//                    Log.i("userNameee", "DocumentSnapshot data: ${currentUser}")
-//                } else {
-//                    Log.i("userNameee", "No such document")
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.i("userNameee", "get failed with ", exception)
-//            }
-
-    }
     fun writeNewSelfwichToDatabase(selfwich: Selfwich){
         selfwich.let {
             val docref=firestore.collection("selfSandwich").document(selfwich.selfwichName)
@@ -104,32 +71,5 @@ class IngredientRepository{
         }
     }
 
-    fun resetSingletonOrder(){
-        val newOrderLive:MutableLiveData<Order> = MutableLiveData<Order>(Order())
-        Singleton.globalOrderLive= newOrderLive
-    }
-
-
-    fun writeOrdertoDataBase(order: Order){
-        val uid= Firebase.auth.currentUser?.uid!!
-        val name= Singleton.globalUser.value?.userName.toString()
-        order.ownerName= name
-        order.ownerId= uid
-        order.let {
-            val docref=firestore.collection("orders").document(order.orderId)
-            docref.set(it).addOnSuccessListener {  document->
-                resetSingletonOrder()
-                if (document!= null){
-                    Log.i("order","Databaseye gonderildi $order")
-                } else {
-                    Log.i("order","Document bulamdi" + " $order")
-                }
-            }
-                .addOnFailureListener { exception->
-                    Log.i("order", "Olmadi yaaa", exception)
-                }
-
-            }
-        }
-    }
+}
 

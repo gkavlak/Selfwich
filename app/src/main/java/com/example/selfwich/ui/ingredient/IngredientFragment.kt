@@ -49,10 +49,7 @@ class IngredientFragment : Fragment() {
 
         )
         )
-        binding.button2.setOnClickListener {
-            val order= Singleton.globalOrderLive.value!!
-            viewModel.ordertoDatabase(order)
-        }
+
 
         binding.takeOrderAndPublish.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()

@@ -125,6 +125,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="WATTING" />
 
+            <TextView
+                android:id="@+id/toOrdertextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/orderr"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toStartOf="@+id/imageView622"
+                app:layout_constraintHorizontal_bias="0.401"
+                app:layout_constraintStart_toEndOf="@+id/orderPiriceTextView22"
+                app:layout_constraintTop_toBottomOf="@+id/orderHourText22" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView

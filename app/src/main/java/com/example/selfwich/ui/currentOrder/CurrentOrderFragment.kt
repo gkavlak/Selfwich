@@ -37,7 +37,7 @@ class CurrentOrderFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val activity = requireNotNull(this.activity) {}
 
-        currentOrderRepository=CurrentOrderRepository()
+        currentOrderRepository= CurrentOrderRepository()
         viewModel = ViewModelProvider(
             this,
             CurrentOrderViewModel.Factory(activity.application, currentOrderRepository)
@@ -46,10 +46,13 @@ class CurrentOrderFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
         Singleton.globalOrderLive.observe(viewLifecycleOwner, {
-            viewModel.setCurrentOrderr(it)
-        })
+            viewModel.setCurrentOrderr(it)}   )
         binding.productRcy22.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener())
         binding.selfwichRcy22.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
+
+        binding.toOrdertextView.setOnClickListener {
+            viewModel.orderToDatabase()
+        }
 
     }
 }

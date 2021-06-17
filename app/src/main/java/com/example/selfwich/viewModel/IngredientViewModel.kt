@@ -55,9 +55,7 @@ class IngredientViewModel(app: Application , private val ingredientRepository: I
     fun goToDataBase(){
         newSelfwich.value?.let { ingredientRepository.writeNewSelfwichToDatabase(it) }
     }
-    fun ordertoDatabase(order: Order){
-        ingredientRepository.writeOrdertoDataBase(order = order)
-    }
+
     fun checkifIngredientAdded(ingredient: Ingredient){
         ingredientList.value?.forEach {
             if(it.ingredientId==ingredient.ingredientId){
