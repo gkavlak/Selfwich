@@ -60,7 +60,7 @@ class AuthRepository{
             }
     }
 
-        fun loginUser(email: String, password: String){
+    fun loginUser(email: String, password: String){
             _authStatus.postValue(AuthStatus.LOADING)
 
             FirebaseAuth.getInstance()
@@ -85,10 +85,11 @@ class AuthRepository{
 
         }
 
-      private fun initUser(registerResult: AuthResult) {
+    private fun initUser(registerResult: AuthResult) {
        _fireBaseAuthResult.postValue(LoginResult(success = registerResult.user))
         _authStatus.postValue(AuthStatus.DONE)
     }
+
     private fun userCameFromdatebase(){
         val userId= Firebase.auth.currentUser?.uid
         userId?.let { FirebaseFirestore.getInstance().collection("users").document(it).addSnapshotListener { docSnapshot, e ->
@@ -108,4 +109,5 @@ class AuthRepository{
         }
         }
     }
+
 }

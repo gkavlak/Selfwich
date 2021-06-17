@@ -30,12 +30,14 @@ class ProductAdapter(val clickListener: ProductClickListener) :
                     }
                 }
                     }
+
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item,clickListener)
     }
 
 }
+
  class ProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
         return oldItem == newItem
