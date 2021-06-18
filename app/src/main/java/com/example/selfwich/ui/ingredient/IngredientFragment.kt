@@ -82,7 +82,15 @@ class IngredientFragment : Fragment() {
             CustomDialogFragment(type)
                 .show(childFragmentManager,"")
         }
+        Singleton.globalUser.observe(viewLifecycleOwner, {
+            when(it.userType){
+                "customer"->forCostumers()
+            }
+        })
 
+    }
+    fun forCostumers(){
+        binding.imageButton5.visibility = View.GONE
     }
 
 

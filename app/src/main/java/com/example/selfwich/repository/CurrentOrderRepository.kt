@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Order
+import com.example.selfwich.model.Product
 import com.example.selfwich.model.Singleton
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -42,7 +43,11 @@ class CurrentOrderRepository {
     }
     fun refreshCurrentOrder() {
         _order.value = Singleton.globalOrderLive.value
-
+    }
+    fun deleteProductInSingleton(product: Product){
+        Singleton.globalOrderLive.value?.products?.remove(product)
+        Singleton.globalOrderLive.value?.calculatePrice()
+        refreshCurrentOrder()
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.selfwich.repository
 
+import android.content.ContentValues
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,5 +29,29 @@ class OrderDetailsRepository {
         }
 
         return
+    }
+    fun refreshOrder(){
+        firestore.collection("orders").document(_order.value?.orderId!!)
+            .get().addOnSuccessListener {
+                if (it != null){
+                    _order.value=it.toObject(Order::class.java)
+                }
+
+            }
+    }
+    fun deleteProductToDatabase(product:Product){
+         _order.value?.products?.remove(product)
+        _order.value?.calculatePrice()
+        refreshOrder()
+
+        firestore.collection("orders").document(_order.value?.orderId!!)
+            .set(_order.value!!)
+            .addOnSuccessListener {
+
+                Log.i("delete", "DocumentSnapshot successfully deleted!"+"${it}")  }
+            .addOnFailureListener { e ->
+
+                Log.w(ContentValues.TAG, "Error deleting document", e) }
+
     }
 }

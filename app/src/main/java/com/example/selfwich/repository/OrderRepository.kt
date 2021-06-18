@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Order
+import com.example.selfwich.model.Product
 import com.example.selfwich.model.Singleton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -73,6 +74,7 @@ class OrderRepository {
 
         }
     }
+
     fun orderIsCanceleded(order: Order){
         order.let {
             order.status= OrderStatus.CANCELED.toString()
@@ -90,6 +92,8 @@ class OrderRepository {
                 }
         }
     }
+
+
 
 
 }
