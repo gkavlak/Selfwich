@@ -11,17 +11,16 @@ import com.example.selfwich.model.Selfwich
 import com.example.selfwich.repository.CustomDialogRepository
 
 class CustomDialogViewModel (app:Application, private val customDialogRepository: CustomDialogRepository) : ViewModel() {
+
     private val _addEatsToDatabase: MutableLiveData<Product?> = MutableLiveData<Product?>(Product())
     val addEatsToDatabase: LiveData<Product?> = _addEatsToDatabase
 
-init {
 
-}
 
-        fun addIngredientToDatabase(ingredient: Ingredient){
-            customDialogRepository.addIngredientToDatabase(ingredient)
+    fun addIngredientToDatabase(ingredient: Ingredient){
+        customDialogRepository.addIngredientToDatabase(ingredient)
 
-        }
+    }
 
     fun addDrinksToDatabase(product: Product){
         customDialogRepository.addDrinksToDatabase(product)

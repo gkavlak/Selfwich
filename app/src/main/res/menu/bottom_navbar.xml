@@ -19,7 +19,7 @@
 
     <item
         android:title="Selfwich"
-        android:id="@+id/currentOrderFragment"
+        android:id="@+id/ingredientFragment"
         android:icon="@drawable/chef32">
     </item>
 

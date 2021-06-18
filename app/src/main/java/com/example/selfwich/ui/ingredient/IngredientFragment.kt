@@ -47,15 +47,7 @@ class IngredientFragment : Fragment() {
             {ingredient -> viewModel.addNewSelfwichIngredient(ingredient)},
             {ingredient -> viewModel.deleteIngredient(ingredient)})
         )
-//        viewModel.newSelfwich.observe(viewLifecycleOwner, {selfwich->
-//            selfwich?.let {
-//                if (selfwich.selfwichPrice > 0){
-//                    setClikListernerOrderNpush()
-//                    setClikListernerOrder()
-//                }
-//            }
-//
-//        })
+
         binding.toOrderButton.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
             val selfwichDesc = binding.editTextSelfwichDesc.text.toString()

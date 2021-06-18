@@ -11,6 +11,11 @@ import com.example.selfwich.model.Product
 
 class OrderDetailsProductAdapter(val clickListener:OrderDetailsProductClickListener):
     ListAdapter<Product,OrderDetailsProductAdapter.OrderProductViewHolder>(OrderProductsDiffCallback()) {
+    override fun submitList(list: List<Product>?) {
+        super.submitList(list)
+        this.notifyDataSetChanged()
+    }
+
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
