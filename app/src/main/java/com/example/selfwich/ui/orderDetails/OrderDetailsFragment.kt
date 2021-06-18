@@ -46,7 +46,9 @@ class OrderDetailsFragment : Fragment(){
         binding.lifecycleOwner = this
         binding.productRcy.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener
         { product -> viewModel.deleteProductInOrder(product) })
-        binding.selfwichRcy.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
+        binding.selfwichRcy.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener { selfwich ->
+            viewModel.deleteSelfwichInOrder(selfwich)
+        })
 
 
 

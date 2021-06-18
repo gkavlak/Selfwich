@@ -10,6 +10,9 @@
         <variable
             name="productClickListener"
             type="com.example.selfwich.ProductClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
 
     </data>
 
@@ -68,7 +71,7 @@
                     textWithPrice="@{productItem.PLike}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="64dp"
+                    android:layout_marginBottom="46dp"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -89,30 +92,10 @@
                     android:layout_marginEnd="8dp"
                     android:onClick="@{()-> productClickListener.addLikePoint(productItem)}"
                     app:layout_constraintEnd_toEndOf="parent"
+                    inviseblyForAdmin=""
                     app:layout_constraintStart_toEndOf="@+id/product_price_textView"
                     app:layout_constraintTop_toTopOf="@+id/product_price_textView"
-                    app:srcCompat="@android:drawable/btn_star_big_off" />
-
-                <ScrollView
-                    android:id="@+id/scrollView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="250dp"
-                    app:layout_constraintBottom_toBottomOf="@id/pName_textView"
-                    app:layout_constraintEnd_toEndOf="@id/pName_textView"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@id/pName_textView"
-                    app:layout_constraintTop_toTopOf="@id/pName_textView">
-
-                    <LinearLayout
-                        android:id="@id/linearid"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                    </LinearLayout>
-                </ScrollView>
+                    app:srcCompat="@drawable/heart32" />
 
                 <TextView
                     android:id="@+id/pName_textView"
@@ -131,44 +114,40 @@
                     android:id="@+id/buyButton"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
                     android:background="@drawable/custom_button"
                     android:onClick="@{()-> productClickListener.addProducttoOrder(productItem) }"
                     android:text="BUY"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#FFFCFC"
-                    app:layout_constraintEnd_toEndOf="@+id/textView11"
-                    app:layout_constraintHorizontal_bias="0.296"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
                 <ImageButton
                     android:id="@+id/imageButton"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"
                     android:onClick="@{()->productClickListener.deleteProduct(productItem)}"
                     android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/buyButton"
-                    app:layout_constraintHorizontal_bias="0.095"
-                    app:layout_constraintStart_toStartOf="@+id/buyButton"
-                    app:layout_constraintTop_toBottomOf="@+id/buyButton"
-                    app:layout_constraintVertical_bias="0.116"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/delete32" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@color/white"
                     android:onClick="@{() -> productClickListener.updateProduct(productItem)}"
                     app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-                    app:layout_constraintEnd_toEndOf="@+id/buyButton"
-                    app:layout_constraintHorizontal_bias="0.7"
                     app:layout_constraintStart_toEndOf="@+id/imageButton"
                     app:layout_constraintTop_toTopOf="@+id/imageButton"
                     app:layout_constraintVertical_bias="0.0"

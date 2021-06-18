@@ -50,7 +50,10 @@ class CurrentOrderFragment : Fragment() {
         binding.productRcy22.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener { product ->
             viewModel.deleteProductInCurrentOrder(product)
         })
-        binding.selfwichRcy22.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
+        binding.selfwichRcy22.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener { selfwich ->
+            viewModel.deleteSelfwichInCurrentOrder(selfwich)
+        })
+
 
         binding.toOrdertextView.setOnClickListener {
             viewModel.orderToDatabase()

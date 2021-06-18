@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.ProductItemBinding
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Singleton
 
 class ProductAdapter(val clickListener: ProductClickListener) :
         ListAdapter<Product,ProductAdapter.ProductViewHolder>(ProductsDiffCallback()){
@@ -20,7 +21,9 @@ class ProductAdapter(val clickListener: ProductClickListener) :
                         fun bind(data:Product, clickListener: ProductClickListener){
                             itemBinding.productItem=data
                             itemBinding.productClickListener=clickListener
+                            itemBinding.domainUser= Singleton.globalUser.value!!
                             itemBinding.executePendingBindings()
+
                         }
                 companion object{
                     fun from(parent: ViewGroup):ProductViewHolder{

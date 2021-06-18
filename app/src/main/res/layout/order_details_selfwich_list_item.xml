@@ -25,7 +25,37 @@
             android:text="@{orderSelfwichItem.selfwichName}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.217"
+            tools:text="Sewichname" />
+
+        <TextView
+            android:id="@+id/textView141"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@{orderSelfwichItem.selfwichDesc}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.193"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Sewichname" />
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:onClick="@{()-> orderDetailsSelfwichClickListener.deleteSelfwichinOrder(orderSelfwichItem)}"
+            app:layout_constraintEnd_toEndOf="@+id/textView141"
+            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintStart_toStartOf="@+id/textView141"
+            app:layout_constraintTop_toBottomOf="@+id/textView141"
+            app:srcCompat="@drawable/delete32" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
