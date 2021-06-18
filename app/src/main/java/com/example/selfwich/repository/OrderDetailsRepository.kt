@@ -42,11 +42,10 @@ class OrderDetailsRepository {
     fun deleteProductToDatabase(product:Product){
          _order.value?.products?.remove(product)
         _order.value?.calculatePrice()
-        refreshOrder()
-
         firestore.collection("orders").document(_order.value?.orderId!!)
             .set(_order.value!!)
             .addOnSuccessListener {
+                refreshOrder()
 
                 Log.i("delete", "DocumentSnapshot successfully deleted!"+"${it}")  }
             .addOnFailureListener { e ->

@@ -91,28 +91,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/product_price_textView"
                     app:layout_constraintTop_toTopOf="@+id/product_price_textView"
-                    app:srcCompat="@android:drawable/btn_star_big_off" />
-
-                <ScrollView
-                    android:id="@+id/scrollView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="250dp"
-                    app:layout_constraintBottom_toBottomOf="@id/pName_textView"
-                    app:layout_constraintEnd_toEndOf="@id/pName_textView"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@id/pName_textView"
-                    app:layout_constraintTop_toTopOf="@id/pName_textView">
-
-                    <LinearLayout
-                        android:id="@id/linearid"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                    </LinearLayout>
-                </ScrollView>
+                    app:srcCompat="@drawable/heart32" />
 
                 <TextView
                     android:id="@+id/pName_textView"
