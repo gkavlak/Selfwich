@@ -44,7 +44,8 @@ class OrderDetailsFragment : Fragment(){
             .get(OrderDetailsViewModel::class.java)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
-        binding.productRcy.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener())
+        binding.productRcy.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener
+        { product -> viewModel.deleteProductInOrder(product) })
         binding.selfwichRcy.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
 
 

@@ -8,13 +8,17 @@ import com.example.selfwich.repository.OrderDetailsRepository
 import com.example.selfwich.repository.OrderRepository
 import androidx.lifecycle.MutableLiveData
 import com.example.selfwich.model.Order
+import com.example.selfwich.model.Product
 
-class OrderDetailsViewModel(val orderId: String,val app: Application, orderDetailsRepository: OrderDetailsRepository) : ViewModel(){
+class OrderDetailsViewModel(val orderId: String,val app: Application, private val orderDetailsRepository: OrderDetailsRepository) : ViewModel(){
 
     val order: LiveData<Order> =  orderDetailsRepository.order
 
     init{
         orderDetailsRepository.getOrder(orderId)
+    }
+    fun deleteProductInOrder(product: Product){
+        orderDetailsRepository.deleteProductToDatabase(product)
     }
 
     open class Factory(val orderId: String,val app: Application, private val orderDetailsRepository: OrderDetailsRepository) :

@@ -38,7 +38,7 @@ class OrderDetailsProductAdapter(val clickListener:OrderDetailsProductClickListe
                 }
             }
 
-        }
+    }
 
 class OrderProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -52,6 +52,9 @@ class OrderProductsDiffCallback() : DiffUtil.ItemCallback<Product>(){
 }
 
 
-class OrderDetailsProductClickListener(){
+class OrderDetailsProductClickListener(
+    val deleteOrderProductClikListener : (product: Product) -> Unit)
+{
+    fun deleteProductInOrder(product: Product)=deleteOrderProductClikListener(product)
 
 }

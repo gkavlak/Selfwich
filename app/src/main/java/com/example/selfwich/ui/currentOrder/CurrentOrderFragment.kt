@@ -47,7 +47,9 @@ class CurrentOrderFragment : Fragment() {
         binding.lifecycleOwner = this
         Singleton.globalOrderLive.observe(viewLifecycleOwner, {
             viewModel.setCurrentOrderr(it)}   )
-        binding.productRcy22.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener())
+        binding.productRcy22.adapter =  OrderDetailsProductAdapter(OrderDetailsProductClickListener { product ->
+            viewModel.deleteProductInCurrentOrder(product)
+        })
         binding.selfwichRcy22.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener())
 
         binding.toOrdertextView.setOnClickListener {
