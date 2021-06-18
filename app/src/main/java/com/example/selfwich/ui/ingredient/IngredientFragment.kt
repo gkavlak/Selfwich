@@ -45,19 +45,37 @@ class IngredientFragment : Fragment() {
         binding.lifecycleOwner=this
         binding.ingredientRc.adapter= IngredientsAdapter(IngredientClickListener(
             {ingredient -> viewModel.addNewSelfwichIngredient(ingredient)},
-            {ingredient -> viewModel.deleteIngredient(ingredient)}
-
+            {ingredient -> viewModel.deleteIngredient(ingredient)})
         )
-        )
-
-
-        binding.takeOrderAndPublish.setOnClickListener {
+//        viewModel.newSelfwich.observe(viewLifecycleOwner, {selfwich->
+//            selfwich?.let {
+//                if (selfwich.selfwichPrice > 0){
+//                    setClikListernerOrderNpush()
+//                    setClikListernerOrder()
+//                }
+//            }
+//
+//        })
+        binding.toOrderButton.setOnClickListener {
+            val selfwichName =binding.editTextTextSelfwichName.text.toString()
+            val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
+            viewModel.aaddSelfWichName(selfwichName)
+            viewModel.addSelfwichDesc(selfwichDesc)
+            viewModel.toOrder()
+        }
+        binding.orderNPublishbutton.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
             val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.goToDataBase()
         }
+        viewModel.isSuccess.observe(viewLifecycleOwner,{
+            binding.toOrderButton.isEnabled= it
+            binding.orderNPublishbutton.isEnabled = it
+        })
+
+
 
         binding.imageButton5.setOnClickListener {
             val type = "ingredient"
@@ -65,8 +83,8 @@ class IngredientFragment : Fragment() {
                 .show(childFragmentManager,"")
         }
 
-
     }
+
 
 
 }

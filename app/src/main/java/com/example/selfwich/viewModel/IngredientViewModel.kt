@@ -16,75 +16,37 @@ import com.google.firebase.firestore.ktx.firestore
 
 class IngredientViewModel(app: Application , private val ingredientRepository: IngredientRepository) : ViewModel() {
 
-    private val _ingredientList:MutableLiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList as MutableLiveData<ArrayList<Ingredient>>
-    val ingredientList: LiveData<ArrayList<Ingredient>> =_ingredientList
+    val ingredientList: LiveData<ArrayList<Ingredient>> = ingredientRepository.ingredientList
 
-    private val _newSelfwich:MutableLiveData<Selfwich?> = MutableLiveData<Selfwich?>(Selfwich())
-    val newSelfwich: LiveData<Selfwich?> = _newSelfwich
+    val newSelfwich: LiveData<Selfwich?> = ingredientRepository.newSelfwich
 
-    private val _totalPrice = MutableLiveData<Long>(0)
-    val totalPrice: LiveData<Long> = _totalPrice
+    val isSuccess :LiveData<Boolean> = ingredientRepository.isSuccess
+
+    val totalPrice: LiveData<Long> = ingredientRepository.totalPrice
 
     fun deleteIngredient(ingredient: Ingredient){
         ingredientRepository.deleteIngredientToDatabase(ingredient)
     }
-
-
-    init {
-        _newSelfwich.value?.userId= Singleton.globalUser.value?.userId.toString()
-        _newSelfwich.value?.userName= Singleton.globalUser.value?.userName.toString()
+    fun toOrder(){
+        ingredientRepository.addSelfwichToCurrentOrder()
     }
 
-
-    fun addPurchasePriceToTotalPrice(ingredient: Ingredient){
-        _totalPrice.value = totalPrice.value?.plus(ingredient.ingredientPrice)
-        _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.plus(ingredient.ingredientPrice)!!
-        newSelfwich.value?.selfwichPrice= _newSelfwich.value?.selfwichPrice!!
-    }
-    fun removePurchasePriceToTotalPrice(ingredient: Ingredient){
-        _totalPrice.value = totalPrice.value?.minus(ingredient.ingredientPrice)
-        _newSelfwich.value?.selfwichPrice = _newSelfwich.value?.selfwichPrice?.minus(ingredient.ingredientPrice)!!
-        newSelfwich.value?.selfwichPrice= _newSelfwich.value?.selfwichPrice!!
-    }
     fun aaddSelfWichName(name:String){
-        _newSelfwich.value?.reNameSelfwich(name)
+        ingredientRepository.aaddSelfWichNamee(name)
     }
-    fun addSelfwichDesc(name: String){
-        _newSelfwich.value?.reDescSelfwich(name)
+    fun addSelfwichDesc(desc: String){
+        ingredientRepository.addSelfwichDescc(desc)
     }
     fun goToDataBase(){
-        newSelfwich.value?.let { ingredientRepository.writeNewSelfwichToDatabase(it) }
+        ingredientRepository.writeNewSelfwichToDatabase()
     }
 
     fun checkifIngredientAdded(ingredient: Ingredient){
-        ingredientList.value?.forEach {
-            if(it.ingredientId==ingredient.ingredientId){
-            it.isSelected()
-            }
-        }
+        ingredientRepository.checkifIngredientAddedd(ingredient)
     }
 
     fun addNewSelfwichIngredient(ingredient: Ingredient){
-        var ingredientHave:Boolean =false
-        checkifIngredientAdded(ingredient)
-        this._newSelfwich.value?.selfwichIngredients?.forEach {
-            ingredientHave=(it.ingredientId == ingredient.ingredientId)
-            if (ingredientHave){
-                this._newSelfwich.value?.selfwichIngredients?.remove(it)
-                this.removePurchasePriceToTotalPrice(it)
-                _newSelfwich.value?.calculateTotalSelfwichPrice()
-                Log.i("Click","${newSelfwich.value?.selfwichIngredients} guncellendi")
-                Log.i("Click", "t${totalPrice.value}")
-                return
-            }
-        }
-        if( !ingredientHave){
-            this._newSelfwich.value?.selfwichIngredients?.add(ingredient)
-            this.addPurchasePriceToTotalPrice(ingredient)
-            _newSelfwich.value?.calculateTotalSelfwichPrice()
-        }
-        Log.i("Click","${newSelfwich.value?.selfwichIngredients}yüklendi")
-        Log.i("Click", newSelfwich.value?.selfwichName.toString())
+        ingredientRepository.addNewSelfwichIngredientt(ingredient)
     }
 
     open class Factory(val app: Application, private val ingredientRepository: IngredientRepository) :

@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class CurrentOrderRepository {
     private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    val _order: MutableLiveData<Order> = MutableLiveData<Order>()
+    private val _order: MutableLiveData<Order> = MutableLiveData<Order>()
     val order: LiveData<Order> = _order
     init {
         _order.value=Singleton.globalOrderLive.value
@@ -23,6 +23,7 @@ class CurrentOrderRepository {
             val docref=firestore.collection("orders").document(order.orderId)
             docref.set(it).addOnSuccessListener {  document->
                 resetSingletonOrder()
+                refreshCurrentOrder()
                 if (document!= null){
                     Log.i("order","Databaseye gonderildi $order")
                 } else {
@@ -38,6 +39,10 @@ class CurrentOrderRepository {
     fun resetSingletonOrder(){
         val newOrderLive:MutableLiveData<Order> = MutableLiveData<Order>(Order())
         Singleton.globalOrderLive= newOrderLive
+    }
+    fun refreshCurrentOrder() {
+        _order.value = Singleton.globalOrderLive.value
+
     }
 
 

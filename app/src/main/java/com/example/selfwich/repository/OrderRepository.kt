@@ -21,6 +21,19 @@ class OrderRepository {
     init {
         getAllOrder()
     }
+    fun refreshOrders(){
+        firestore.collection("orders")
+            .get().addOnSuccessListener { querySnapshot ->
+                val allOrder= ArrayList<Order>()
+                querySnapshot?.documents?.forEach {
+                    val currentOrder = it.toObject(Order::class.java)
+                    it.let {
+                        allOrder.add(currentOrder!!)
+                        _orderList.value= allOrder
+                    }
+                }
+            }
+    }
 
     private fun getAllOrder() {
         firestore.collection("orders")
@@ -47,6 +60,7 @@ class OrderRepository {
             order.status= OrderStatus.READY.toString()
             val docref=firestore.collection("orders").document(order.orderId)
             docref.set(it).addOnSuccessListener { document->
+                refreshOrders()
                 if (document!= null){
                     Log.i("order","Databaseye gonderildi ${order.status}")
                 } else {
@@ -58,12 +72,13 @@ class OrderRepository {
                 }
 
         }
-        }
+    }
     fun orderIsCanceleded(order: Order){
         order.let {
             order.status= OrderStatus.CANCELED.toString()
             val docref=firestore.collection("orders").document(order.orderId)
             docref.set(it).addOnSuccessListener { document->
+                refreshOrders()
                 if (document!= null){
                     Log.i("order","Databaseye gonderildi ${order.status}")
                 } else {
@@ -75,6 +90,7 @@ class OrderRepository {
                 }
         }
     }
+
 
 }
 

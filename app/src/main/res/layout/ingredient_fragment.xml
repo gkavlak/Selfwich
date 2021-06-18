@@ -10,100 +10,118 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ingredientRc"
-            submitIngredients="@{viewmodel.ingredientList}"
-            android:layout_width="412dp"
-            android:layout_height="550dp"
-            android:layout_marginTop="6dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextSelfwichDesc"
-            tools:listitem="@layout/ingredient_list_items" />
-
-        <EditText
-            android:id="@+id/editTextTextSelfwichName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="Enter Your SelfWich Name"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Enter Your SelfWich Name" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/takeOrderAndPublish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:text="@string/TakerOrderAndPublishbtn"
-            android:textSize="20sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientRc" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/totoalPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:text="@{viewmodel.totalPrice.toString()}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientRc"
-            tools:text="55" />
+                <EditText
+                    android:id="@+id/editTextSelfwichDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="8dp"
+                    android:ems="10"
+                    android:freezesText="false"
+                    android:hint="Enter Your SelfWich Story"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
 
-        <EditText
-            android:id="@+id/editTextSelfwichDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:ems="10"
-            android:freezesText="false"
-            android:hint="Enter Your SelfWich Story"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
+                <EditText
+                    android:id="@+id/editTextTextSelfwichName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:hint="Enter Your SelfWich Name"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Enter Your SelfWich Name" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="12dp"
-            android:background="#FFFFFF"
-            app:layout_constraintStart_toEndOf="@+id/totoalPrice"
-            app:layout_constraintTop_toBottomOf="@+id/ingredientRc"
-            app:srcCompat="@drawable/add32" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredientRc"
+                submitIngredients="@{viewmodel.ingredientList}"
+                android:layout_width="412dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="6dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/ingredient_list_items">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/totoalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@{viewmodel.totalPrice.toString()}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="55" />
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#FFFFFF"
+                    app:layout_constraintStart_toEndOf="@+id/totoalPrice"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/add32" />
+
+                <Button
+                    android:id="@+id/toOrderButton"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/orderr"
+                    android:textColor="#090404"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintEnd_toStartOf="@+id/orderNPublishbutton"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/orderNPublishbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/TakerOrderAndPublishbtn"
+                    android:textColor="#000000"
+                    app:backgroundTint="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
