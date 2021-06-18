@@ -41,6 +41,7 @@
     <string name="welcome_to_selfwich">WELCOME TO SELFWICH</string>
     <string name="create_account">Create Account</string>
     <string name="orderr">To Order</string>
+    <string name="priceIs">Price :</string>
 
 
 </resources>
