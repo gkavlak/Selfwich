@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.OrderDetailsProductAdapter
 import com.example.selfwich.OrderDetailsProductClickListener
@@ -53,6 +54,10 @@ class CurrentOrderFragment : Fragment() {
         binding.selfwichRcy22.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener { selfwich ->
             viewModel.deleteSelfwichInCurrentOrder(selfwich)
         })
+        viewModel.isOrderSuccess.observe(viewLifecycleOwner, {
+            binding.toOrdertextView.isEnabled= it
+        })
+
 
 
         binding.toOrdertextView.setOnClickListener {
