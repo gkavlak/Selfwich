@@ -97,3 +97,11 @@ fun setTextWithPrice(textView: TextView, number: Long?) {
 
     }
 }
+    @BindingAdapter("textWithDolarSign")
+     fun setTextWithDolarSign(textView: TextView, number: Long?) {
+        number?.let {
+
+            textView.text = "$number$"
+
+        }
+    }
