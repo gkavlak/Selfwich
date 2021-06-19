@@ -17,21 +17,19 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
 
-        drawerLayout=findViewById(R.id.drawerLayout)
+        drawerLayout = findViewById(R.id.drawerLayout)
         val navView = findViewById<NavigationView>(R.id.navView)
 
         val navController = findNavController(my_navFragment)
 
-        NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
-        NavigationUI.setupWithNavController(navView,navController)
-
-
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupWithNavController(navView, navController)
 
 
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navbar)
@@ -44,19 +42,40 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 id.loginFragment -> {
                     bottomNavigationView.visibility = View.GONE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 id.registerFragment -> {
                     bottomNavigationView.visibility = View.GONE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+                }
+                id.adminLoginFragment -> {
+                    bottomNavigationView.visibility = View.GONE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
                 id.drinksFragment -> {
                     bottomNavigationView.visibility = View.VISIBLE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
                 id.eatsFragment -> {
                     bottomNavigationView.visibility = View.VISIBLE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
                 id.selfwichFragment -> {
                     bottomNavigationView.visibility = View.VISIBLE
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
+                id.settingsFragment -> {
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+
+                }
+                id.currentOrderFragment -> {
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+
+                }
+                id.orderDetailsFragment -> {
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                }
+
             }
         }
 
