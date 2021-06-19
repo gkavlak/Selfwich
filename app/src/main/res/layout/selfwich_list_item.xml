@@ -177,10 +177,11 @@
                     android:layout_marginStart="300dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/selfwichlogo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

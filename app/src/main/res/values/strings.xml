@@ -57,6 +57,12 @@
     <string name="admin">ADMIN</string>
     <string name="register">Register</string>
     <string name="back_to_log_n">Back To Logın</string>
+    <string name="addd">ADD</string>
+    <string name="write_name">Write Name</string>
+    <string name="write_price">Write Price</string>
+    <string name="write_description">Write Description</string>
+    <string name="add_image_url">Add Image Url</string>
+    <string name="update">Update</string>
 
 
 </resources>

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -46,7 +47,6 @@ class DrinksFragment : Fragment() {
         ).get(DrinksViewModel::class.java)
 
             viewModel.isLikeAdded.observe(viewLifecycleOwner, Observer {
-
             })
         fun showDialog(product: Product){
 

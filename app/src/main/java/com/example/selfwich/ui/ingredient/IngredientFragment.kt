@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -54,6 +55,7 @@ class IngredientFragment : Fragment() {
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.toOrder()
+            Toast.makeText(context, "Your order has been received", Toast.LENGTH_LONG).show()
             binding.editTextSelfwichDesc.text.clear()
             binding.editTextTextSelfwichName.text.clear()
         }
@@ -63,11 +65,12 @@ class IngredientFragment : Fragment() {
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.goToDataBase()
+            Toast.makeText(context, "Your order has been received and published successfully", Toast.LENGTH_LONG).show()
             binding.editTextSelfwichDesc.text.clear()
             binding.editTextTextSelfwichName.text.clear()
         }
         viewModel.isSuccess.observe(viewLifecycleOwner,{
-            binding.toOrderButton.isEnabled= it
+            binding.toOrderButton.isEnabled = it
             binding.orderNPublishbutton.isEnabled = it
         })
 

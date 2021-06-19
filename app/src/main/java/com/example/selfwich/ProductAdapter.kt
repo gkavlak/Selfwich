@@ -24,6 +24,7 @@ class ProductAdapter(val clickListener: ProductClickListener) :
                     RecyclerView.ViewHolder(itemBinding.root){
 
                         fun bind(data:Product, clickListener: ProductClickListener){
+
                             itemBinding.productItem=data
                             itemBinding.productClickListener=clickListener
                             itemBinding.domainUser= Singleton.globalUser.value!!

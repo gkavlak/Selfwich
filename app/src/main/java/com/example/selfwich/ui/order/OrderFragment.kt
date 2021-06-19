@@ -48,6 +48,7 @@ class OrderFragment : Fragment(){
         viewModel.orderlist.observe(viewLifecycleOwner, Observer {
 
 
+
         })
 
         binding.orderRc.adapter=OrderAdapter(

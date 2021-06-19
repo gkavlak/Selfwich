@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.selfwich.databinding.UpdateDialogFragmentBinding
@@ -47,6 +48,7 @@ class UpdateDialogFragment(val product: Product) :DialogFragment() {
             newprodut.pDesc= binding.productNewDesceEdit.text.toString()
             newprodut.pPrice= binding.productNewPriceEdit.text.toString().toLong()
             newprodut.pImage= binding.productNewImageEdit.text.toString()
+            Toast.makeText(context, "Product updated Succesfully", Toast.LENGTH_LONG).show()
 
             viewModel.updateDrinks(oldproduct = oldproduct, newproduct = newprodut)
         }

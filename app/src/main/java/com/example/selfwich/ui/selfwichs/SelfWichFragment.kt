@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.selfwich.SelfWichAdapter
 import com.example.selfwich.SelfwichClickListener
 import com.example.selfwich.databinding.SelfwichFragmentBinding
@@ -37,7 +38,7 @@ class SelfWichFragment : Fragment() {
         binding.viewmodel=viewModel
         binding.lifecycleOwner=this
         viewModel.isSelfWichLikeAdded.observe(viewLifecycleOwner,{
-
+            Toast.makeText(context, "Product liked", Toast.LENGTH_LONG).show()
         })
         binding.sandwichlistrc.adapter=SelfWichAdapter(SelfwichClickListener(
             { selfwich-> viewModel.addLikeSelfwichPoint(selfwich)},
