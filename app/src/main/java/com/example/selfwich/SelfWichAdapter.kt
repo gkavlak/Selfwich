@@ -6,10 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.SelfwichListItemBinding
+import com.example.selfwich.model.Product
 import com.example.selfwich.model.Selfwich
 import com.example.selfwich.model.Singleton
 
 class SelfWichAdapter(val clickListener: SelfwichClickListener): ListAdapter<Selfwich, SelfWichAdapter.SelfwichViewHolder>(SelfwichDiffCallbacks()) {
+
+    override fun submitList(list: List<Selfwich>?) {
+        super.submitList(list)
+        this.notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup , viewType: Int): SelfwichViewHolder {
      return SelfwichViewHolder.from(parent)

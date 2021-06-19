@@ -9,9 +9,6 @@
         <variable
             name="selfwichClickListener"
             type="com.example.selfwich.SelfwichClickListener" />
-        <variable
-            name="domainUser"
-            type="com.example.selfwich.model.DomainUser" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,66 +33,67 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp">
+                android:layout_marginStart="20dp">
+
 
                 <TextView
                     android:id="@+id/selfwich_name_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:text="@{selfwich.selfwichName}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.465"
+                    app:layout_constraintHorizontal_bias="0.354"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="SelfwichName" />
-
 
                 <TextView
                     android:id="@+id/selfwichDesc_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="60dp"
                     android:text="@{selfwich.selfwichDesc}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.427"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/selfwich_name_textView"
                     tools:text="dunyanin en yiidsi" />
 
                 <TextView
                     android:id="@+id/selfwich_ingredients"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_marginTop="48dp"
                     android:text="@{selfwich.selfwichIngredientToStrings()}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    app:layout_constraintStart_toEndOf="@+id/ingredient_label"
+                    app:layout_constraintEnd_toEndOf="@+id/ingredient_label"
+                    app:layout_constraintStart_toStartOf="@+id/ingredient_label"
                     app:layout_constraintTop_toBottomOf="@+id/selfwichDesc_textView"
                     tools:text="salatalık,sosis,sucuk" />
 
                 <ImageView
                     android:id="@+id/likeimageView"
-                    inviseblyForAdmin="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="172dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="@drawable/heart32"
                     android:onClick="@{()-> selfwichClickListener.addLikeSelfwichPoint(selfwich)}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/heart32" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/ingredient_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="84dp"
                     android:text="@string/Ingredietns"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     app:layout_constraintStart_toStartOf="parent"
@@ -105,17 +103,18 @@
                     android:id="@+id/selfwich_owner_name_Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="68dp"
                     android:text="@{selfwich.userName}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/selfwich_ingredients"
+                    app:layout_constraintTop_toBottomOf="@+id/ingredient_label"
                     tools:text="Username" />
 
                 <TextView
                     android:id="@+id/selfwich_like_textView"
-                    inviseblyForAdmin="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -126,13 +125,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/likeimageView"
                     tools:text="55" />
 
-                <TextView
+                <Button
                     android:id="@+id/buy_textView"
-                    android:layout_width="46dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="60dp"
                     android:layout_marginBottom="8dp"
+                    android:background="@drawable/custom_button"
                     android:onClick="@{()-> selfwichClickListener.addSelfwichtoOrder(selfwich)}"
                     android:text="@string/buy"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -144,11 +144,13 @@
                     android:id="@+id/selfwich_price_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@{String.valueOf(selfwich.selfwichPrice)}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorAccent"
+                   textWithDolarSign="@{selfwich.selfwichPrice}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/buy_textView"
                     app:layout_constraintTop_toBottomOf="@+id/selfwich_ingredients"
@@ -156,7 +158,6 @@
 
                 <ImageButton
                     android:id="@+id/imageButton6"
-                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -166,10 +167,24 @@
                     android:onClick="@{()-> selfwichClickListener.deleteSelfwichToDatabase(selfwich)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/selfwich_owner_name_Text"
+                    app:layout_constraintHorizontal_bias="0.397"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/selfwich_owner_name_Text"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_bias="0.079"
                     app:srcCompat="@drawable/delete32" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="90dp"
+                    app:layout_constraintBottom_toTopOf="@+id/likeimageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
