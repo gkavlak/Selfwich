@@ -79,9 +79,9 @@ class LoginFragment: Fragment() {
                 goLoginToRegister()
             }
 
-
-
-
+             binding.adminButton.setOnClickListener {
+                goLoginToAdmin()
+        }
         binding.viewmodel= viewModel
         binding.lifecycleOwner = this
     }
@@ -96,6 +96,10 @@ class LoginFragment: Fragment() {
         this.findNavController()
             .navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
     }
+        private fun goLoginToAdmin(){
+            this.findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToAdminLoginFragment())
+        }
 
     private fun showLoginFailed(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_LONG).show()
