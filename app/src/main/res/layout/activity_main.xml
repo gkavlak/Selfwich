@@ -25,10 +25,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
-                android:background="?android:attr/windowBackground"
-                app:itemBackground="#794FB5"
+                android:background="#00C1A4"
                 app:itemIconTint="#fff"
-                app:itemTextColor="#fff"
+                app:itemTextColor="#151515"
                 app:menu="@menu/bottom_navbar" />
 
         </LinearLayout>

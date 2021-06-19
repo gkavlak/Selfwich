@@ -1,3 +1,4 @@
+
 package com.example.selfwich.ui
 
 import android.os.Bundle
@@ -55,8 +56,25 @@ class AdminLoginFragment : Fragment() {
 
          viewModel.adminLogin(email = name ,password = pwd)
         }
+        binding.registerBtn.setOnClickListener {
+            adminToRegsiter()
+        }
+        binding.bakcLoginBtn3.setOnClickListener {
+            adminToLogin()
+        }
 
     }
+
+    private fun adminToLogin() {
+        this.findNavController()
+            .navigate(AdminLoginFragmentDirections.actionAdminLoginFragmentToLoginFragment())
+    }
+
+    private fun adminToRegsiter() {
+        this.findNavController()
+            .navigate(AdminLoginFragmentDirections.actionAdminLoginFragmentToRegisterFragment())
+    }
+
     private fun updateUiForLoggedInUser() {
         this.findNavController()
             .navigate(AdminLoginFragmentDirections.actionAdminLoginFragmentToEatsFragment())
