@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/eatsFragment"
+        android:icon="@drawable/silverwareblack32"
+        android:title="@string/eatsForMenu" />
+    <item
+        android:id="@+id/drinksFragment"
+        android:icon="@drawable/teacupblack32"
+        android:title="@string/drinksForMenu" />
+    <item
+        android:id="@+id/ingredientFragment"
+        android:icon="@drawable/chefblack32"
+        android:title="@string/selfwich" />
+
+    <item
+        android:id="@+id/currentOrderFragment"
+        android:icon="@drawable/shoppingcartblack32"
+        android:title="@string/currentOrderForMenu" />
+    <item
+        android:id="@+id/orderFragment"
+        android:icon="@drawable/clipboardblack32"
+        android:title="@string/orderDetailsForMenu" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/settingsblack32"
+        android:title="@string/settingsForMenu" />
+
+</menu>
