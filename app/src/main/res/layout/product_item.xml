@@ -131,7 +131,7 @@
                     inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginStart="70dp"
+                    android:layout_marginStart="65dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"

@@ -6,8 +6,11 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.selfwich.R.id
 import com.example.selfwich.R.id.my_navFragment
@@ -18,6 +21,8 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,17 +33,18 @@ class MainActivity : AppCompatActivity() {
 
         drawerLayout = findViewById(R.id.drawerLayout)
         val navView = findViewById<NavigationView>(R.id.navView)
+        navController = findNavController(my_navFragment)
+        navView.setupWithNavController(navController)
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
 
-        val navController = findNavController(my_navFragment)
 
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration)
+
+       NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navbar)
         bottomNavigationView.setupWithNavController(navController)
-
-
-
 
 
 
@@ -47,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                 id.loginFragment -> {
                     bottomNavigationView.visibility = View.GONE
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
+
                 }
                 id.registerFragment -> {
                     bottomNavigationView.visibility = View.GONE
@@ -83,6 +91,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController= this.findNavController(R.id.my_navFragment)
+        return NavigationUI.navigateUp(navController,drawerLayout)
     }
 }
 
