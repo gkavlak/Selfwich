@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/drinksFragment"
-        android:icon="@drawable/teacup32"
+        android:icon="@drawable/teacupblack32"
         android:title="Drinks" />
 
     <item
         android:id="@+id/eatsFragment"
         android:title="Eats"
-        android:icon="@drawable/silverware32"/>
+        android:icon="@drawable/silverwareblack32"/>
 
     <item
         android:id="@+id/selfwichFragment"
@@ -20,7 +20,7 @@
     <item
         android:title="Selfwich"
         android:id="@+id/ingredientFragment"
-        android:icon="@drawable/chef32">
+        android:icon="@drawable/chefblack32">
     </item>
 
 </menu>

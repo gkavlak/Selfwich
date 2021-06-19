@@ -3,6 +3,7 @@ package com.example.selfwich
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -17,6 +18,8 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,11 +34,12 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController)
 
-
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navbar)
+        bottomNavigationView.setupWithNavController(navController)
 
-        findViewById<BottomNavigationView>(id.bottom_navbar)
-            .setupWithNavController(navController)
+
+
+
 
 
         navController.addOnDestinationChangedListener { _, destination, _ ->

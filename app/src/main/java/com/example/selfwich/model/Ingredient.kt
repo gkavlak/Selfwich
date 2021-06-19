@@ -1,6 +1,6 @@
 package com.example.selfwich.model
 
-data class Ingredient(
+data class Ingredient (
     var ingredientId : Long = 0,
     var ingredientName:String="",
     var ingredientIsAdded: Boolean= false,
@@ -9,10 +9,7 @@ data class Ingredient(
     var ingredientImage: String="",
     var type:String="ingredient"
 
-
 ){
     fun isSelected(){
-        this.ingredientIsAdded= !ingredientIsAdded
-    }
-
+        this.ingredientIsAdded= !ingredientIsAdded}
 }
