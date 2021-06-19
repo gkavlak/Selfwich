@@ -64,14 +64,21 @@ class DrinksFragment : Fragment() {
             )
 
         )
-        val adminUser= Singleton.globalUser.value?.userType.equals("admin")
 
         binding.imageButton3.setOnClickListener {
             val type = "drinks"
             CustomDialogFragment(type)
                 .show(childFragmentManager,"")
         }
+        Singleton.globalUser.observe(viewLifecycleOwner, {
+            when(it.userType){
+                "customer"->forCostumers()
+            }
+        })
+    }
 
+    private fun forCostumers() {
+        binding.imageButton3.visibility = View.GONE
     }
 
 

@@ -54,6 +54,8 @@ class IngredientFragment : Fragment() {
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.toOrder()
+            binding.editTextSelfwichDesc.text.clear()
+            binding.editTextTextSelfwichName.text.clear()
         }
         binding.orderNPublishbutton.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
@@ -61,6 +63,8 @@ class IngredientFragment : Fragment() {
             viewModel.aaddSelfWichName(selfwichName)
             viewModel.addSelfwichDesc(selfwichDesc)
             viewModel.goToDataBase()
+            binding.editTextSelfwichDesc.text.clear()
+            binding.editTextTextSelfwichName.text.clear()
         }
         viewModel.isSuccess.observe(viewLifecycleOwner,{
             binding.toOrderButton.isEnabled= it
@@ -77,6 +81,7 @@ class IngredientFragment : Fragment() {
         Singleton.globalUser.observe(viewLifecycleOwner, {
             when(it.userType){
                 "customer"->forCostumers()
+
             }
         })
 

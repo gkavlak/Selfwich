@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.IngredientListItemsBinding
 import com.example.selfwich.model.Ingredient
+import com.example.selfwich.model.Singleton
 
 class IngredientsAdapter(val clickListener: IngredientClickListener) :
     androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(
@@ -26,6 +27,7 @@ class IngredientsAdapter(val clickListener: IngredientClickListener) :
         fun bind(data: Ingredient, clickListener: IngredientClickListener) {
             itemBinding.ingredientListItem = data
             itemBinding.ingredientClickListener = clickListener
+            itemBinding.domainUser= Singleton.globalUser.value!!
             itemBinding.executePendingBindings()
         }
 

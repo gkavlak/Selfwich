@@ -10,6 +10,6 @@ data  class Product(
     var pPrice: Long = 0,
     var pImage: String = "",
     var pType:String = ""
-):iProduct{
+){
 
 }

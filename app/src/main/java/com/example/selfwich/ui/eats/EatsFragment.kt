@@ -57,7 +57,16 @@ class   EatsFragment : Fragment() {
             CustomDialogFragment(tpye = type)
                 .show(childFragmentManager,"")
         }
+        Singleton.globalUser.observe(viewLifecycleOwner, {
+            when(it.userType){
+                "customer"->forCostumers()
+            }
+        })
 
+    }
+
+    private fun forCostumers() {
+        binding.imageButton2.visibility = View.GONE
     }
 
 }
