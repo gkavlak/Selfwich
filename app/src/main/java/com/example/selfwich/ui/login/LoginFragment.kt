@@ -63,9 +63,6 @@ class LoginFragment: Fragment() {
                 showLoginFailed(it.error)
         })
 
-
-
-
             viewModel.loginFormState.observe(viewLifecycleOwner, Observer { loginFormState ->
                 binding.loginButton.isEnabled= loginFormState.isDataValid
                 if(loginFormState.usernameError != null){
@@ -78,6 +75,12 @@ class LoginFragment: Fragment() {
 
             })
 
+            binding.loginToRegisterButton2.setOnClickListener {
+                goLoginToRegister()
+            }
+
+
+
 
         binding.viewmodel= viewModel
         binding.lifecycleOwner = this
@@ -87,6 +90,11 @@ class LoginFragment: Fragment() {
     private fun updateUiForLoggedInUser() {
         this.findNavController()
             .navigate(LoginFragmentDirections.actionLoginFragmentToDrinksFragment())
+    }
+
+    private fun goLoginToRegister(){
+        this.findNavController()
+            .navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
     }
 
     private fun showLoginFailed(error: String) {

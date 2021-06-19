@@ -45,8 +45,8 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="16dp"
                     app:imgUrl="@{productItem.PImage}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:textColor="@color/colorAccent"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="24sp"
                     app:layout_constraintStart_toEndOf="@+id/textView11"
@@ -103,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@{productItem.PName}"
+                    android:maxEms="14"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"

@@ -18,10 +18,10 @@
             android:id="@+id/emailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Enter The Email"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="@+id/textView12"
             app:layout_constraintHorizontal_bias="0.203"
             app:layout_constraintStart_toStartOf="@+id/textView12"
@@ -44,7 +44,7 @@
             android:id="@+id/loginButton"
             android:layout_width="260dp"
             android:layout_height="65dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/custom_button"
             android:onClick="@{()->viewmodel.loginUser(viewmodel.form.username,viewmodel.form.password)}"
             android:text="Login"
@@ -59,17 +59,34 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordText"
             app:layout_constraintVertical_bias="0.114" />
 
+        <Button
+            android:id="@+id/loginToRegisterButton2"
+            android:layout_width="260dp"
+            android:layout_height="65dp"
+            android:background="@drawable/custom_button"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="#F3F1F1"
+            android:textSize="20sp"
+            app:backgroundTint="#00ACC1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/loginButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/loginButton"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton"
+            app:layout_constraintVertical_bias="0.242" />
+
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/selfwichlogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
@@ -77,8 +94,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/welcome_to_selfwich"
-            android:textColor="#E5851E"
-            android:textColorHighlight="#1C1C1C"
+            android:textColor="#EA0909"
+            android:textColorHighlight="#191717"
             android:textSize="24sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="@+id/imageView9"

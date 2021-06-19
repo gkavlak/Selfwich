@@ -6,38 +6,46 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.IngredientListItemsBinding
 import com.example.selfwich.model.Ingredient
-import com.example.selfwich.model.Product
 
-class IngredientsAdapter(val clickListener:IngredientClickListener): androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(IngredientDiffCallbacks())
-        {
+class IngredientsAdapter(val clickListener: IngredientClickListener) :
+    androidx.recyclerview.widget.ListAdapter<Ingredient, IngredientsAdapter.IngredientViewHolder>(
+        IngredientDiffCallbacks()
+    ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup , viewType: Int):IngredientViewHolder {
+    override fun submitList(list: List<Ingredient>?) {
+        super.submitList(list)
+        this.notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
         return IngredientViewHolder.from(parent)
     }
-        class IngredientViewHolder(private var itemBinding: IngredientListItemsBinding):
-             RecyclerView.ViewHolder(itemBinding.root) {
-            fun bind(data: Ingredient, clickListener:IngredientClickListener) {
-                itemBinding.ingredientListItem = data
-                itemBinding.ingredientClickListener= clickListener
-                itemBinding.executePendingBindings()
-            }
 
-            companion object {
-                fun from(parent: ViewGroup): IngredientViewHolder {
-                    val layoutInflater = LayoutInflater.from(parent.context)
-                    val binding = IngredientListItemsBinding.inflate(layoutInflater , parent , false)
-                    return IngredientViewHolder(binding)
-                }
-            }
-        }
-            override fun onBindViewHolder(holder: IngredientViewHolder , position: Int) {
-                val item=getItem(position)
-                holder.bind(item,clickListener)
-            }
+    class IngredientViewHolder(private var itemBinding: IngredientListItemsBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(data: Ingredient, clickListener: IngredientClickListener) {
+            itemBinding.ingredientListItem = data
+            itemBinding.ingredientClickListener = clickListener
+            itemBinding.executePendingBindings()
         }
 
+        companion object {
+            fun from(parent: ViewGroup): IngredientViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = IngredientListItemsBinding.inflate(layoutInflater, parent, false)
+                return IngredientViewHolder(binding)
+            }
+        }
+    }
 
-class IngredientDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
+    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
+        val item = getItem(position)
+        holder.bind(item, clickListener)
+    }
+}
+
+
+class IngredientDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>() {
     override fun areItemsTheSame(oldItem: Ingredient, newItem: Ingredient): Boolean {
         return oldItem == newItem
     }
@@ -46,12 +54,13 @@ class IngredientDiffCallbacks() : DiffUtil.ItemCallback<Ingredient>(){
         return oldItem == newItem
     }
 }
+
 class IngredientClickListener(
     val addIngredientClick: (ingredient: Ingredient) -> Unit,
-    val deleteIngredientClick : (ingredient: Ingredient) -> Unit
+    val deleteIngredientClick: (ingredient: Ingredient) -> Unit
 
-    ) {
+) {
 
     fun addNewSelfwichIngredient(ingredient: Ingredient) = addIngredientClick(ingredient)
-    fun deleteIngredient (ingredient: Ingredient) = deleteIngredientClick(ingredient)
+    fun deleteIngredient(ingredient: Ingredient) = deleteIngredientClick(ingredient)
 }

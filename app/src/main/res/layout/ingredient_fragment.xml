@@ -9,10 +9,7 @@
             type="com.example.selfwich.viewModel.IngredientViewModel" />
 
     </data>
-
-
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -62,6 +59,8 @@
                 android:layout_height="500dp"
                 android:layout_marginTop="6dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:listitem="@layout/ingredient_list_items">
 
             </androidx.recyclerview.widget.RecyclerView>
@@ -76,7 +75,8 @@
                     android:layout_height="26dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="18dp"
-                    android:text="@{viewmodel.totalPrice.toString()}"
+                    android:textColor="@color/colorAccent"
+                    textWithDolarSign="@{viewmodel.totalPrice}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,9 +100,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
+                    android:background="@drawable/custom_button"
                     android:text="@string/orderr"
-                    android:textColor="#090404"
-                    app:backgroundTint="#FFFFFF"
                     app:layout_constraintEnd_toStartOf="@+id/orderNPublishbutton"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,8 +112,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/TakerOrderAndPublishbtn"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
+                    android:background="@drawable/custom_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

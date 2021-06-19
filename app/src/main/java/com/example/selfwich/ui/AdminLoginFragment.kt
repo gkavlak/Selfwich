@@ -45,11 +45,7 @@ class AdminLoginFragment : Fragment() {
                 if(it == true){
                     updateUiForLoggedInUser()
                 }
-                else{
-                    showLoginFailed(error= "FATAL 404 ERROR")
-                }
             })
-
         binding.viewmodel= viewModel
         binding.lifecycleOwner= this
 

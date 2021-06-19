@@ -4,16 +4,19 @@
     <item
         android:id="@+id/eatsFragment"
         android:icon="@drawable/silverwareblack32"
-        android:title="@string/eatsForMenu" />
+        android:title="@string/eats" />
     <item
         android:id="@+id/drinksFragment"
         android:icon="@drawable/teacupblack32"
         android:title="@string/drinksForMenu" />
     <item
+        android:id="@+id/selfwichFragment"
+        android:icon="@drawable/chefblack32"
+        android:title="@string/selfwichess" />
+    <item
         android:id="@+id/ingredientFragment"
         android:icon="@drawable/chefblack32"
-        android:title="@string/selfwich" />
-
+        android:title="@string/DoyourownSelfwich" />
     <item
         android:id="@+id/currentOrderFragment"
         android:icon="@drawable/shoppingcartblack32"

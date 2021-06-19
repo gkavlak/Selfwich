@@ -77,16 +77,16 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
+            android:background="@drawable/selfwichlogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/welcome_to_selfwich"
-            android:textColor="#E5851E"
+            android:textColor="#EA0909"
             android:textColorHighlight="#1C1C1C"
             android:textSize="24sp"
             android:textStyle="bold|italic"
@@ -123,7 +123,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_button"
-            android:text="ARE YOU ADMIN ?"
+            android:text="@string/admin"
             android:textSize="20sp"
             app:backgroundTint="#00ACC1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -132,6 +132,8 @@
             app:layout_constraintStart_toStartOf="@+id/goToLogin"
             app:layout_constraintTop_toBottomOf="@+id/goToLogin"
             app:layout_constraintVertical_bias="0.285" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

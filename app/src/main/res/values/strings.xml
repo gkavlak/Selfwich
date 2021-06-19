@@ -50,8 +50,11 @@
     <string name="settingsForMenu">Settings</string>
     <string name="currentOrderForMenu">My All Order</string>
     <string name="orderDetailsForMenu">Orders</string>
-
-
+    <string name="DoyourownSelfwich">Do your own Selfwich</string>
+    <string name="selfwiches">selfwiches</string>
+    <string name="eats">Eats</string>
+    <string name="selfwichess">Selfwiches</string>
+    <string name="admin">ADMIN</string>
 
 
 </resources>
