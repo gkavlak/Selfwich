@@ -55,6 +55,8 @@
     <string name="eats">Eats</string>
     <string name="selfwichess">Selfwiches</string>
     <string name="admin">ADMIN</string>
+    <string name="register">Register</string>
+    <string name="back_to_log_n">Back To Logın</string>
 
 
 </resources>
