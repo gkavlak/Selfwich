@@ -40,8 +40,18 @@
     <string name="login">LOGIN</string>
     <string name="welcome_to_selfwich">WELCOME TO SELFWICH</string>
     <string name="create_account">Create Account</string>
+    <string name="selfwich">Selfwich</string>
     <string name="orderr">To Order</string>
     <string name="priceIs">Price :</string>
+    <string name="eatsForMenu">Eatable</string>
+    <string name="drinksForMenu">Drinks</string>
+    <string name="selfwichForMenu">Selfwich</string>
+    <string name="sandwichForMenu">Sandwich</string>
+    <string name="settingsForMenu">Settings</string>
+    <string name="currentOrderForMenu">My All Order</string>
+    <string name="orderDetailsForMenu">Orders</string>
+
+
 
 
 </resources>

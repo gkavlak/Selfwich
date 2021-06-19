@@ -11,6 +11,8 @@ import com.example.selfwich.repository.CurrentOrderRepository
 
 class CurrentOrderViewModel ( app : Application, private val currentOrderRepository: CurrentOrderRepository ): ViewModel() {
     val order: LiveData<Order> =  currentOrderRepository.order
+    val isOrderSuccess: LiveData<Boolean> = currentOrderRepository.isOrderSuccess
+
 
     fun setCurrentOrderr(order: Order){
         currentOrderRepository.setCurrentOrder(order)
