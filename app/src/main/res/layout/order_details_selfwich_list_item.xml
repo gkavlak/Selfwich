@@ -10,6 +10,9 @@
         <variable
             name="orderDetailsSelfwichClickListener"
             type="com.example.selfwich.OrderDetailsSelfwichClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
 
 
     </data>
@@ -55,7 +58,7 @@
             app:layout_constraintHorizontal_bias="0.479"
             app:layout_constraintStart_toStartOf="@+id/textView141"
             app:layout_constraintTop_toBottomOf="@+id/textView141"
-            app:srcCompat="@drawable/delete32" />
+            app:srcCompat="@drawable/banblack32" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

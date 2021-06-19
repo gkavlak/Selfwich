@@ -11,6 +11,7 @@ import com.example.selfwich.databinding.OrderListItemBinding
 import com.example.selfwich.model.Order
 import com.example.selfwich.model.Product
 import com.example.selfwich.model.Selfwich
+import com.example.selfwich.model.Singleton
 
 class OrderAdapter (val clickListener: OrderClickListener) : androidx.recyclerview.widget.ListAdapter<Order,OrderAdapter.OrderViewHolder>(OrderDiffCallBack()) {
 
@@ -23,6 +24,7 @@ class OrderAdapter (val clickListener: OrderClickListener) : androidx.recyclervi
             fun bind(data: Order,clickListener: OrderClickListener){
                 itemBinding.orderListItem=data
                 itemBinding.orderClickListener=clickListener
+                itemBinding.domainUser= Singleton.globalUser.value!!
                 itemBinding.executePendingBindings()
             }
         companion object {

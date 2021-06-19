@@ -10,6 +10,9 @@
         <variable
             name="ingredientClickListener"
             type="com.example.selfwich.IngredientClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
 
     </data>
 
@@ -62,6 +65,7 @@
 
                 <TextView
                     android:id="@+id/addButton"
+                    inviseblyForAdmin="@{domainUser.userType"
                     android:layout_width="66dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="64dp"
@@ -102,6 +106,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButton7"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

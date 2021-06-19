@@ -10,6 +10,10 @@
         android:icon="@drawable/teacupblack32"
         android:title="@string/drinksForMenu" />
     <item
+        android:id="@+id/selfwichFragment"
+        android:icon="@drawable/burger32"
+        android:title="@string/sandwichForMenu" />
+    <item
         android:id="@+id/ingredientFragment"
         android:icon="@drawable/chefblack32"
         android:title="@string/selfwich" />

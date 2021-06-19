@@ -11,6 +11,9 @@
         <variable
             name="orderClickListener"
             type="com.example.selfwich.OrderClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
 
     </data>
 
@@ -96,6 +99,7 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="39dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="12dp"
@@ -107,6 +111,7 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="39dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="12dp"

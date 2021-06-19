@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/orderFragment"
+        android:id="@+id/drinksFragment"
         android:icon="@drawable/teacup32"
         android:title="Drinks" />
 
@@ -19,7 +19,7 @@
 
     <item
         android:title="Selfwich"
-        android:id="@+id/currentOrderFragment"
+        android:id="@+id/ingredientFragment"
         android:icon="@drawable/chef32">
     </item>
 

@@ -48,8 +48,8 @@
     <string name="selfwichForMenu">Selfwich</string>
     <string name="sandwichForMenu">Sandwich</string>
     <string name="settingsForMenu">Settings</string>
-    <string name="currentOrderForMenu">My All Order</string>
-    <string name="orderDetailsForMenu">Orders</string>
+    <string name="currentOrderForMenu">Order</string>
+    <string name="orderDetailsForMenu">My All Orders</string>
 
 
 

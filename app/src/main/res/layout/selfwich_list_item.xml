@@ -9,6 +9,9 @@
         <variable
             name="selfwichClickListener"
             type="com.example.selfwich.SelfwichClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +70,7 @@
 
                 <TextView
                     android:id="@+id/selfwich_ingredients"
-                    android:layout_width="wrap_content"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
 
                     android:text="@{selfwich.selfwichIngredientToStrings()}"
@@ -78,6 +81,7 @@
 
                 <ImageView
                     android:id="@+id/likeimageView"
+                    inviseblyForAdmin="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -85,7 +89,7 @@
                     android:onClick="@{()-> selfwichClickListener.addLikeSelfwichPoint(selfwich)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@android:drawable/btn_star_big_off" />
+                    app:srcCompat="@drawable/heart32" />
 
                 <TextView
                     android:id="@+id/ingredient_label"
@@ -106,11 +110,12 @@
                     android:text="@{selfwich.userName}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ingredient_label"
+                    app:layout_constraintTop_toBottomOf="@+id/selfwich_ingredients"
                     tools:text="Username" />
 
                 <TextView
                     android:id="@+id/selfwich_like_textView"
+                    inviseblyForAdmin="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -151,6 +156,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButton6"
+                    inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"

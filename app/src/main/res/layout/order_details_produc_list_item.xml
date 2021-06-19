@@ -10,6 +10,9 @@
         <variable
             name="orderProductClickListener"
             type="com.example.selfwich.OrderDetailsProductClickListener" />
+        <variable
+            name="domainUser"
+            type="com.example.selfwich.model.DomainUser" />
 
 
     </data>
@@ -92,6 +95,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/delete32" />
+            app:srcCompat="@drawable/banblack32" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

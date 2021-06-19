@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.OrderDetailsProducListItemBinding
 import com.example.selfwich.model.Product
+import com.example.selfwich.model.Singleton
 
 
 class OrderDetailsProductAdapter(val clickListener:OrderDetailsProductClickListener):
@@ -32,6 +33,7 @@ class OrderDetailsProductAdapter(val clickListener:OrderDetailsProductClickListe
                     fun bind (data: Product,clickListener: OrderDetailsProductClickListener){
                         itemBinding.orderProductItem=data
                         itemBinding.orderProductClickListener=clickListener
+                        itemBinding.domainUser= Singleton.globalUser.value!!
                         itemBinding.executePendingBindings()
                     }
                 companion object{

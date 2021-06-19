@@ -35,8 +35,7 @@ class OrderRepository {
                 }
             }
     }
-
-    private fun getAllOrder() {
+    private fun getAllOrdersforAdmin(){
         firestore.collection("orders")
             .addSnapshotListener{docSnapshot, e ->
                 if (e != null ){
@@ -54,6 +53,36 @@ class OrderRepository {
                     }
                 }
             }
+    }
+    private fun getAllordersForCustomers(){
+        val userId=Singleton.globalUser.value?.userId!!
+        firestore.collection("orders")
+            .addSnapshotListener{docSnapshot, e ->
+                if (e != null ){
+                    Log.w(ContentValues.TAG , e.message.toString())
+                    return@addSnapshotListener
+                }
+                if (docSnapshot != null){
+                    val allOrder= ArrayList<Order>()
+                    docSnapshot.documents.forEach {
+                        val currentOrder = it.toObject(Order::class.java)
+                        currentOrder?.let {
+                            if (currentOrder.ownerId == userId){
+                            allOrder.add(currentOrder)
+                        } }
+
+                    }
+                    _orderList.value= allOrder
+                }
+            }
+
+    }
+
+    private fun getAllOrder() {
+       when( Singleton.globalUser.value?.userType){
+           "admin"-> getAllOrdersforAdmin()
+           "customer"->getAllordersForCustomers()
+       }
     }
 
     fun orderIsReady(order: Order){

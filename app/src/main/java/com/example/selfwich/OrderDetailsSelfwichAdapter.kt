@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.selfwich.databinding.OrderDetailsSelfwichListItemBinding
 import com.example.selfwich.model.Product
 import com.example.selfwich.model.Selfwich
+import com.example.selfwich.model.Singleton
 
 class OrderDetailsSelfwichAdapter(val clickListener: OrderDetailsSelfwichClickListener) :
     ListAdapter<Selfwich, OrderDetailsSelfwichAdapter.OrderDetailsSelfwichViewHolder>(
@@ -24,6 +25,7 @@ class OrderDetailsSelfwichAdapter(val clickListener: OrderDetailsSelfwichClickLi
         fun bind(data: Selfwich, clickListener: OrderDetailsSelfwichClickListener) {
             itemBinding.orderSelfwichItem = data
             itemBinding.orderDetailsSelfwichClickListener = clickListener
+            itemBinding.domainUser= Singleton.globalUser.value!!
             itemBinding.executePendingBindings()
 
         }

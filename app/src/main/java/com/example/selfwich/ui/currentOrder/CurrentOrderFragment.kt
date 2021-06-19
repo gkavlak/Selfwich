@@ -60,6 +60,7 @@ class CurrentOrderFragment : Fragment() {
 
 
 
+
         binding.toOrdertextView.setOnClickListener {
             viewModel.orderToDatabase()
         }
