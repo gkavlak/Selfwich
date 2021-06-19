@@ -81,6 +81,7 @@ class IngredientFragment : Fragment() {
         Singleton.globalUser.observe(viewLifecycleOwner, {
             when(it.userType){
                 "customer"->forCostumers()
+                "admin"->forAdmin()
 
             }
         })
@@ -88,6 +89,13 @@ class IngredientFragment : Fragment() {
     }
     fun forCostumers(){
         binding.imageButton5.visibility = View.GONE
+    }
+    fun forAdmin(){
+        binding.orderNPublishbutton.visibility= View.GONE
+        binding.toOrderButton.visibility= View.GONE
+        binding.editTextTextSelfwichName.visibility = View.GONE
+        binding.editTextSelfwichDesc.visibility = View.GONE
+        binding.totoalPrice.visibility = View.GONE
     }
 
 
