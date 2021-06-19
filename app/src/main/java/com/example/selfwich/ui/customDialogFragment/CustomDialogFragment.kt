@@ -38,7 +38,16 @@ class CustomDialogFragment(val tpye:String) :DialogFragment() {
             CustomDialogViewModel.Factory(activity.application, customDialogRepository)
         ).get(CustomDialogViewModel::class.java)
 
+
+
              val product = Product()
+
+         when(tpye){
+             "drinks"-> forDrinks()
+             "ingredient"->forIngredient()
+             "eats"-> forEats()
+         }
+
          binding.button.setOnClickListener {
 
                 val eatsName = binding.editTextTextPersonName2.text.toString()
@@ -92,5 +101,19 @@ class CustomDialogFragment(val tpye:String) :DialogFragment() {
         }
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
+    }
+    private fun forEats(){
+        binding.button3.visibility= View.GONE
+        binding.button5.visibility= View.GONE
+    }
+    private fun forDrinks(){
+
+        binding.button5.visibility= View.GONE
+        binding.button.visibility= View.GONE
+    }
+    private fun forIngredient(){
+        binding.button.visibility= View.GONE
+        binding.button3.visibility= View.GONE
+
     }
 }

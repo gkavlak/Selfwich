@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration)
 
-//        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+       NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(id.bottom_navbar)
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 id.loginFragment -> {
                     bottomNavigationView.visibility = View.GONE
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
 
                 }
                 id.registerFragment -> {
