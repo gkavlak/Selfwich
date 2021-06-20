@@ -52,22 +52,33 @@ class IngredientFragment : Fragment() {
         binding.toOrderButton.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
             val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
-            viewModel.aaddSelfWichName(selfwichName)
-            viewModel.addSelfwichDesc(selfwichDesc)
-            viewModel.toOrder()
-            Toast.makeText(context, "Your order has been received", Toast.LENGTH_LONG).show()
-            binding.editTextSelfwichDesc.text.clear()
-            binding.editTextTextSelfwichName.text.clear()
+            if(selfwichName.isEmpty() || selfwichDesc.isEmpty() ){
+                Toast.makeText(context, "Please check Name and Description fields", Toast.LENGTH_LONG).show()
+            }else{
+                viewModel.aaddSelfWichName(selfwichName)
+                viewModel.addSelfwichDesc(selfwichDesc)
+                viewModel.toOrder()
+                Toast.makeText(context, "Your order has been received", Toast.LENGTH_LONG).show()
+                binding.editTextSelfwichDesc.text.clear()
+                binding.editTextTextSelfwichName.text.clear()
+            }
         }
         binding.orderNPublishbutton.setOnClickListener {
             val selfwichName =binding.editTextTextSelfwichName.text.toString()
             val selfwichDesc = binding.editTextSelfwichDesc.text.toString()
-            viewModel.aaddSelfWichName(selfwichName)
-            viewModel.addSelfwichDesc(selfwichDesc)
-            viewModel.goToDataBase()
-            Toast.makeText(context, "Your order has been received and published successfully", Toast.LENGTH_LONG).show()
-            binding.editTextSelfwichDesc.text.clear()
-            binding.editTextTextSelfwichName.text.clear()
+            if(selfwichName.isEmpty() || selfwichDesc.isEmpty() ){
+                Toast.makeText(context, "Please check Name and Description fields", Toast.LENGTH_LONG).show()
+            }else{
+                viewModel.aaddSelfWichName(selfwichName)
+                viewModel.addSelfwichDesc(selfwichDesc)
+                viewModel.goToDataBase()
+
+                binding.editTextSelfwichDesc.text.clear()
+                binding.editTextTextSelfwichName.text.clear()
+
+                Toast.makeText(context, "Your order has been received and published successfully", Toast.LENGTH_LONG).show()
+            }
+
         }
         viewModel.isSuccess.observe(viewLifecycleOwner,{
             binding.toOrderButton.isEnabled = it
@@ -85,10 +96,8 @@ class IngredientFragment : Fragment() {
             when(it.userType){
                 "customer"->forCostumers()
                 "admin"->forAdmin()
-
             }
         })
-
     }
     fun forCostumers(){
         binding.imageButton5.visibility = View.GONE
@@ -100,7 +109,4 @@ class IngredientFragment : Fragment() {
         binding.editTextSelfwichDesc.visibility = View.GONE
         binding.totoalPrice.visibility = View.GONE
     }
-
-
-
 }
