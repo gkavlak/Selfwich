@@ -40,6 +40,7 @@ class AuthRepository{
                         val user = FirebaseAuth.getInstance().currentUser
                         Singleton.globalUser.value?.userId=registerResult.result?.user!!.uid
                         Singleton.globalUser.value?.userName=name
+                        Singleton.globalUser.value?.userType="customer"
                         Singleton.globalOrderLive.value?.ownerId=registerResult.result?.user!!.uid
                         Singleton.globalOrderLive.value?.ownerName=name
                             if(user != null){

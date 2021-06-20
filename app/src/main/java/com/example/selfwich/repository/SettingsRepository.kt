@@ -3,6 +3,7 @@ package com.example.selfwich.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.selfwich.model.DomainUser
 import com.example.selfwich.model.Singleton
 import com.example.selfwich.model.UserSettings
 import com.google.firebase.auth.FirebaseAuth
@@ -77,9 +78,11 @@ class SettingsRepository {
 
     fun signOut(){
         FirebaseAuth.getInstance().signOut()
+
         _isSignedOut.value=true
     }
     fun signedOutCompleted(){
         _isSignedOut.value=null
+
     }
 }

@@ -131,7 +131,7 @@
                     inviseblyForCustomer="@{domainUser.userType}"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginStart="65dp"
+                    android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"
@@ -144,7 +144,7 @@
                     app:layout_constraintStart_toEndOf="@+id/buyButton"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11"
-                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintVertical_bias="0.878"
                     app:srcCompat="@drawable/delete32" />
 
                 <ImageButton
