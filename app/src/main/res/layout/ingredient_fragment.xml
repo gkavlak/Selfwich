@@ -4,122 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.example.selfwich.viewModel.IngredientViewModel" />
 
     </data>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <EditText
+                android:id="@+id/editTextSelfwichDesc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/editTextSelfwichDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="8dp"
-                    android:ems="10"
-                    android:freezesText="false"
-                    android:hint="Enter Your SelfWich Story"
-                    android:inputType="textPersonName"
-                    android:textAlignment="center"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
-
-                <EditText
-                    android:id="@+id/editTextTextSelfwichName"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="8dp"
-                    android:ems="10"
-                    android:hint="Enter Your SelfWich Name"
-                    android:inputType="textPersonName"
-                    android:textAlignment="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Enter Your SelfWich Name" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ingredientRc"
-                submitIngredients="@{viewmodel.ingredientList}"
-                android:layout_width="412dp"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:freezesText="false"
+                android:hint="Enter Your SelfWich Story"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:listitem="@layout/ingredient_list_items">
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextSelfwichName" />
 
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <EditText
+                android:id="@+id/editTextTextSelfwichName"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Enter Your SelfWich Name"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Enter Your SelfWich Name" />
 
-                <TextView
-                    android:id="@+id/totoalPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="18dp"
-                    android:textColor="@color/colorAccent"
-                    textWithDolarSign="@{viewmodel.totalPrice}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="55" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="#FFFFFF"
-                    app:layout_constraintStart_toEndOf="@+id/totoalPrice"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/add32" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ingredientRc"
+            submitIngredients="@{viewmodel.ingredientList}"
+            android:layout_width="412dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/ingredient_list_items"
 
-                <Button
-                    android:id="@+id/toOrderButton"
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/custom_button"
-                    android:text="@string/orderr"
-                    app:layout_constraintEnd_toStartOf="@+id/orderNPublishbutton"
-                    app:layout_constraintTop_toTopOf="parent" />
+            >
 
-                <Button
-                    android:id="@+id/orderNPublishbutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="@string/TakerOrderAndPublishbtn"
-                    android:background="@drawable/custom_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/totoalPrice"
+                textWithDolarSign="@{viewmodel.totalPrice}"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="55" />
 
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="#FFFFFF"
+                app:layout_constraintStart_toEndOf="@+id/totoalPrice"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/add32" />
+
+            <Button
+                android:id="@+id/toOrderButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/orderr"
+                app:layout_constraintEnd_toStartOf="@+id/orderNPublishbutton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/orderNPublishbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/TakerOrderAndPublishbtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 
 </layout>

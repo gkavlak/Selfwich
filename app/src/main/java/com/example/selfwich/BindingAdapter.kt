@@ -14,8 +14,9 @@ import com.example.selfwich.model.*
 @BindingAdapter("submitList")
 fun setRecyclerViewListData(recyclerView: RecyclerView, listData: List<Product>?) {
     listData?.let {
+        val sortedlist = it.sortedByDescending { pr-> pr.pLike }
         val adapter = recyclerView.adapter as ProductAdapter
-        adapter.submitList(listData)
+        adapter.submitList(sortedlist)
     }
 }
 
@@ -32,7 +33,6 @@ fun setRecyclerViewListOrderSelfwich(recyclerView: RecyclerView, listData: List<
     listData?.let {
         val adapter = recyclerView.adapter as OrderDetailsSelfwichAdapter
         adapter.submitList(listData)
-
     }
 }
 @BindingAdapter("inviseblyForCustomer")
@@ -52,8 +52,10 @@ fun checkIsAdmin(view: View, string: String) {
 @BindingAdapter("submitSelfwichList")
 fun setRecylerViewListSelfwich(recyclerView: RecyclerView, listData: List<Selfwich>?) {
     listData?.let {
+        val sortedlist = it.sortedByDescending { el->
+            el.selfwichLike }
         val adapter = recyclerView.adapter as SelfWichAdapter
-        adapter.submitList(listData)
+        adapter.submitList(sortedlist)
     }
 }
 
