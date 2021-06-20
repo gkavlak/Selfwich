@@ -20,10 +20,6 @@ class OrderDetailsViewModel(
 
     val order: LiveData<Order> = orderDetailsRepository.order
 
-    val productListIOrder: LiveData<ArrayList<Product>> = orderDetailsRepository.productListIOrder
-
-    val selfwichListIOrderr: LiveData<ArrayList<Product>> =
-        orderDetailsRepository.selfwichListIOrderr
 
     init {
         orderDetailsRepository.getOrder(orderId)
@@ -35,6 +31,12 @@ class OrderDetailsViewModel(
 
     fun deleteSelfwichInOrder(selfwich: Selfwich) {
         orderDetailsRepository.deleteSelfwichToDatabase(selfwich)
+    }
+    fun readyforOder(){
+        orderDetailsRepository.readyToorder()
+    }
+    fun cancelForOrder(){
+        orderDetailsRepository.canceledOrder()
     }
 
     open class Factory(

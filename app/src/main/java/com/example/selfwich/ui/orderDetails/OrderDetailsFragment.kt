@@ -12,6 +12,7 @@ import com.example.selfwich.OrderDetailsSelfwichAdapter
 import com.example.selfwich.OrderDetailsSelfwichClickListener
 import com.example.selfwich.databinding.OrderDetailsFragmentBinding
 import com.example.selfwich.databinding.OrderFragmentBinding
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.OrderDetailsRepository
 import com.example.selfwich.viewModel.OrderDetailsViewModel
 import com.example.selfwich.viewModel.OrderViewModel
@@ -49,11 +50,35 @@ class OrderDetailsFragment : Fragment(){
         binding.selfwichRcy.adapter = OrderDetailsSelfwichAdapter(OrderDetailsSelfwichClickListener { selfwich ->
             viewModel.deleteSelfwichInOrder(selfwich)
         })
+        Singleton.globalUser.observe(viewLifecycleOwner, {
+            when(it.userType){
+                "customer"-> forCustomer()
+                "admin" ->forAdmin()
+
+            }
+        })
+        binding.imageView6.setOnClickListener {
+            viewModel.readyforOder()
+        }
+        binding.imageView7.setOnClickListener {
+            viewModel.cancelForOrder()
+        }
 
 
 
 
 
+
+    }
+
+    private fun forCustomer() {
+        binding.imageView6.visibility= View.GONE
+        binding.imageView7.visibility=View.GONE
+    }
+
+    private fun forAdmin() {
+        binding.imageView6.visibility= View.VISIBLE
+        binding.imageView7.visibility=View.VISIBLE
 
     }
 
