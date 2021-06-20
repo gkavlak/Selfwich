@@ -17,10 +17,9 @@ class SelfWichRepository {
     val isSelfWichLikeAdded: LiveData<Long> = _isSelfWichLikeAdded
 
 
-    private  var firestore: FirebaseFirestore
+    private  var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-        firestore = FirebaseFirestore.getInstance()
         getAllSandwich()
     }
     fun getAllSandwich() {
