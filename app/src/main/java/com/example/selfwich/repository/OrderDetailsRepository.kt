@@ -41,6 +41,44 @@ class OrderDetailsRepository {
 
         return
     }
+    fun readyToorder(){
+
+        _order.value?.let {
+            it.status= OrderStatus.READY.toString()
+            val docref=firestore.collection("orders").document(it.orderId)
+            docref.set(it).addOnSuccessListener { document->
+
+                if (document!= null){
+                    Log.i("order","Databaseye gonderildi ${it.status}")
+                } else {
+                    Log.i("Click","Document bulamdi" + " ${it.status}")
+                }
+            }
+                .addOnFailureListener { exception->
+                    Log.i("Click", "Olmadi yaaa", exception)
+                }
+
+        }
+
+    }
+    fun canceledOrder(){
+        _order.value?.let {
+            it.status= OrderStatus.CANCELED.toString()
+            val docref=firestore.collection("orders").document(it.orderId)
+            docref.set(it).addOnSuccessListener { document->
+
+                if (document!= null){
+                    Log.i("order","Databaseye gonderildi ")
+                } else {
+                    Log.i("order","Document bulamdi Caneldeyiz" )
+                }
+            }
+                .addOnFailureListener { exception->
+                    Log.i("Click", "Olmadi yaaa", exception)
+                }
+        }
+
+    }
     fun refreshOrder(){
         firestore.collection("orders").document(_order.value?.orderId!!)
             .get().addOnSuccessListener {
