@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.example.selfwich.ui.drinks.DrinksFragment"
-        android:label="DrinksFragment"
+        android:label="@string/drinksTitle"
         tools:layout="@layout/drinks_fragment">
         <action
             android:id="@+id/action_drinksFragment_to_sandwichFragment"
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/eatsFragment"
         android:name="com.example.selfwich.ui.eats.EatsFragment"
-        android:label="eats_fragment"
-        tools:layout="@layout/eats_fragment" >
+        android:label="@string/eatsForMenu"
+        tools:layout="@layout/eats_fragment">
         <action
             android:id="@+id/action_eatsFragment_to_drinksFragment"
             app:destination="@id/drinksFragment" />
@@ -26,12 +26,12 @@
     <fragment
         android:id="@+id/selfwichFragment"
         android:name="com.example.selfwich.ui.selfwichs.SelfWichFragment"
-        android:label="sandwich_fragment"
+        android:label="@string/SelfwichTitle"
         tools:layout="@layout/selfwich_fragment" />
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.selfwich.ui.register.RegisterFragment"
-        android:label="register_fragment"
+        android:label="@string/register"
         tools:layout="@layout/register_fragment">
         <action
             android:id="@+id/action_registerFragment_to_ingredientFragment"
@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.selfwich.ui.login.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_drinksFragment"
             app:destination="@id/drinksFragment" />
@@ -63,7 +63,7 @@
     <fragment
         android:id="@+id/ingredientFragment"
         android:name="com.example.selfwich.ui.ingredient.IngredientFragment"
-        android:label="IngredientFragment" >
+        android:label="@string/selfwich">
         <action
             android:id="@+id/action_ingredientFragment_to_sandwichFragment"
             app:destination="@id/selfwichFragment" />
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.selfwich.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="@string/SettingsTitle">
         <action
             android:id="@+id/action_settingsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -79,7 +79,7 @@
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.example.selfwich.ui.order.OrderFragment"
-        android:label="OrderFragment" >
+        android:label="@string/ordersTitle">
         <action
             android:id="@+id/action_orderFragment_to_orderDetailsFragment"
             app:destination="@id/orderDetailsFragment" />
@@ -95,7 +95,7 @@
     <fragment
         android:id="@+id/orderDetailsFragment"
         android:name="com.example.selfwich.ui.orderDetails.OrderDetailsFragment"
-        android:label="OrderDetailsFragment" >
+        android:label="@string/orderDetailTitle">
         <argument
             android:name="orderId"
             app:argType="string" />
@@ -103,11 +103,11 @@
     <fragment
         android:id="@+id/currentOrderFragment"
         android:name="com.example.selfwich.ui.currentOrder.CurrentOrderFragment"
-        android:label="CurrentOrderFragment" />
+        android:label="@string/currentOrderTitle" />
     <fragment
         android:id="@+id/adminLoginFragment"
         android:name="com.example.selfwich.ui.AdminLoginFragment"
-        android:label="AdminLoginFragment" >
+        android:label="@string/adminLoginTitle">
         <action
             android:id="@+id/action_adminLoginFragment_to_eatsFragment"
             app:destination="@id/eatsFragment" />

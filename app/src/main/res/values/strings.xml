@@ -20,7 +20,7 @@
     <string name="LogOut">LogOut</string>
     <string name="ok">ok</string>
     <string name="products">Products</string>
-    <string name="Ingredietns">Ingredietns:</string>
+    <string name="Ingredietns">Ingredietns</string>
     <string name="buy">BUY</string>
     <string name="add_eats">ADD EATS</string>
     <string name="add_drinks">ADD DRINKS</string>
@@ -63,6 +63,14 @@
     <string name="write_description">Write Description</string>
     <string name="add_image_url">Add Image Url</string>
     <string name="update">Update</string>
+    <string name="loginTitle">Login</string>
+    <string name="SettingsTitle">Settings</string>
+    <string name="drinksTitle">Drinks</string>
+    <string name="adminLoginTitle">Admin Login</string>
+    <string name="ordersTitle">All Orders</string>
+    <string name="orderDetailTitle">Order</string>
+    <string name="currentOrderTitle">My Order</string>
+    <string name="SelfwichTitle">Selfwiches</string>
 
 
 </resources>
