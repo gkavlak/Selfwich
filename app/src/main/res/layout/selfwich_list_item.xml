@@ -51,26 +51,31 @@
 
                 <TextView
                     android:id="@+id/selfwichDesc_textView"
-                    android:layout_width="320dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:text="@{selfwich.selfwichDesc}"
+                    android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/selfwich_name_textView"
+                    app:layout_constraintHorizontal_bias="0.398"
+                    app:layout_constraintStart_toStartOf="@+id/selfwich_name_textView"
                     app:layout_constraintTop_toBottomOf="@+id/imageView10"
                     tools:text="dunyanin en yiidsi" />
 
                 <TextView
                     android:id="@+id/selfwich_ingredients"
-                    android:layout_width="210dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="2dp"
                     android:text="@{selfwich.selfwichIngredientToStrings()}"
+                    android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    app:layout_constraintStart_toEndOf="@+id/ingredient_label"
-                    app:layout_constraintTop_toTopOf="@+id/ingredient_label"
+                    app:layout_constraintEnd_toEndOf="@+id/ingredient_label"
+                    app:layout_constraintStart_toStartOf="@+id/ingredient_label"
+                    app:layout_constraintTop_toBottomOf="@+id/ingredient_label"
                     tools:text="salatalık,sosis,sucuk" />
 
                 <ImageView
@@ -89,11 +94,11 @@
                     android:id="@+id/ingredient_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:text="@string/Ingredietns"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/selfwichDesc_textView"
+                    app:layout_constraintStart_toStartOf="@+id/selfwichDesc_textView"
                     app:layout_constraintTop_toBottomOf="@+id/selfwichDesc_textView" />
 
                 <TextView
@@ -107,7 +112,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold|italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ingredient_label"
+                    app:layout_constraintTop_toBottomOf="@+id/selfwich_ingredients"
                     tools:text="Username" />
 
                 <TextView
@@ -131,6 +136,7 @@
                     android:layout_marginEnd="96dp"
                     android:layout_marginBottom="20dp"
                     inviseblyForAdmin="@{domainUser.userType}"
+                    app:backgroundTint="#00ACC1"
                     android:background="@drawable/custom_button"
                     android:onClick="@{()-> selfwichClickListener.addSelfwichtoOrder(selfwich)}"
                     android:text="@string/buy"

@@ -118,6 +118,7 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="28dp"
+                    app:backgroundTint="#00ACC1"
                     android:background="@drawable/custom_button"
                     android:onClick="@{()-> productClickListener.addProducttoOrder(productItem) }"
                     android:text="BUY"
