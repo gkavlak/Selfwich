@@ -42,6 +42,13 @@ fun checkIsCostumer(view: View, string: String) {
         "customer"->view.visibility= View.GONE
     }
 }
+@BindingAdapter("inTouclbleForCustomer")
+fun checIsCostumer(view: View, string: String) {
+
+    when(string){
+        "customer"->view.isEnabled= false
+    }
+}
 @BindingAdapter("inviseblyForAdmin")
 fun checkIsAdmin(view: View, string: String) {
     when(string){

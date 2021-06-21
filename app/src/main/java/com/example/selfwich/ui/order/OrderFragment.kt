@@ -15,6 +15,7 @@ import com.example.selfwich.OrderClickListener
 import com.example.selfwich.R
 import com.example.selfwich.databinding.OrderFragmentBinding
 import com.example.selfwich.model.Order
+import com.example.selfwich.model.Singleton
 import com.example.selfwich.repository.EatsRepository
 import com.example.selfwich.repository.OrderRepository
 import com.example.selfwich.viewModel.OrderViewModel
@@ -57,6 +58,13 @@ class OrderFragment : Fragment(){
                 { order -> viewModel.orderISCanceled(order)},
                 { order -> findNavController().navigate(OrderFragmentDirections.actionOrderFragmentToOrderDetailsFragment(order.orderId))})
         )
+
+    }
+    fun forCustomers(){
+
+    }
+    fun forUser(){
+
     }
 }
 

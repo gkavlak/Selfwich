@@ -108,6 +108,9 @@ class MainActivity : AppCompatActivity() {
                 id.ingredientFragment ->{
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 }
+                id.orderDetailsFragment->{
+                    drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                }
 
 
             }

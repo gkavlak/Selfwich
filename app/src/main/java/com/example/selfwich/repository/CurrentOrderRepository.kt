@@ -50,6 +50,8 @@ class CurrentOrderRepository {
     fun resetSingletonOrder() {
         val newOrderLive: MutableLiveData<Order> = MutableLiveData<Order>(Order())
         Singleton.globalOrderLive = newOrderLive
+        Singleton.globalOrderLive.value?.ownerName=Singleton.globalUser.value?.userName!!
+        Singleton.globalOrderLive.value?.ownerId=Singleton.globalUser.value?.userId!!
         refreshCurrentOrder()
         checkOrderSucces()
     }
